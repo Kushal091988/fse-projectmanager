@@ -29,7 +29,7 @@ namespace WebApp.Api
         public IHttpActionResult GetUsers()
         {
             return Json(db.Users);
-        }
+        } 
 
         // GET: api/Users/5
         [ResponseType(typeof(User))]
