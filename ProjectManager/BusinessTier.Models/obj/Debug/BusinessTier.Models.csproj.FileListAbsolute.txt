@@ -1,0 +1,17 @@
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\BusinessTier.Models\bin\Debug\BusinessTier.Models.dll
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\BusinessTier.Models\bin\Debug\BusinessTier.Models.pdb
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\BusinessTier.Models\obj\Debug\BusinessTier.Models.csproj.CoreCompileInputs.cache
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\BusinessTier.Models\obj\Debug\BusinessTier.Models.dll
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\BusinessTier.Models\obj\Debug\BusinessTier.Models.pdb
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\BusinessTier.Models\bin\Debug\BusinessTier.Models.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\BusinessTier.Models\bin\Debug\BusinessTier.Models.pdb
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\BusinessTier.Models\obj\Debug\BusinessTier.Models.csprojAssemblyReference.cache
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\BusinessTier.Models\obj\Debug\BusinessTier.Models.csproj.CoreCompileInputs.cache
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\BusinessTier.Models\obj\Debug\BusinessTier.Models.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\BusinessTier.Models\obj\Debug\BusinessTier.Models.pdb
+C:\Kushal\repos\fse-projectmanager\ProjectManager\BusinessTier.Models\bin\Debug\BusinessTier.Models.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\BusinessTier.Models\bin\Debug\BusinessTier.Models.pdb
+C:\Kushal\repos\fse-projectmanager\ProjectManager\BusinessTier.Models\obj\Debug\BusinessTier.Models.csprojAssemblyReference.cache
+C:\Kushal\repos\fse-projectmanager\ProjectManager\BusinessTier.Models\obj\Debug\BusinessTier.Models.csproj.CoreCompileInputs.cache
+C:\Kushal\repos\fse-projectmanager\ProjectManager\BusinessTier.Models\obj\Debug\BusinessTier.Models.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\BusinessTier.Models\obj\Debug\BusinessTier.Models.pdb

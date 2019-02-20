@@ -1,0 +1,271 @@
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\WebApp.dll.config
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\WebApp.dll
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\WebApp.pdb
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\roslyn\csc.exe
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\roslyn\csc.exe.config
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\roslyn\csc.rsp
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\roslyn\csi.exe
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\roslyn\csi.exe.config
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\roslyn\csi.rsp
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\roslyn\System.AppContext.dll
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\roslyn\System.Console.dll
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\roslyn\System.IO.Compression.dll
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\roslyn\System.IO.Pipes.dll
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\roslyn\System.Security.Claims.dll
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\roslyn\System.ValueTuple.dll
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\roslyn\System.Xml.XPath.dll
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\roslyn\vbc.exe
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\roslyn\vbc.exe.config
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\roslyn\vbc.rsp
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\roslyn\VBCSCompiler.exe
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\EntityFramework.dll
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\EntityFramework.SqlServer.dll
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\Newtonsoft.Json.dll
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\System.Diagnostics.DiagnosticSource.dll
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\System.Net.Http.Formatting.dll
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\System.Web.Helpers.dll
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\System.Web.Http.dll
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\System.Web.Http.WebHost.dll
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\System.Web.Mvc.dll
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\System.Web.Razor.dll
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\System.Web.WebPages.Deployment.dll
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\System.Web.WebPages.dll
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\System.Web.WebPages.Razor.dll
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\EntityFramework.xml
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\EntityFramework.SqlServer.xml
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\Newtonsoft.Json.xml
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\System.Net.Http.Formatting.xml
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\System.Web.Helpers.xml
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\System.Web.Http.xml
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\System.Web.Http.WebHost.xml
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\System.Web.Mvc.xml
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\System.Web.Razor.xml
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\System.Web.WebPages.xml
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\System.Web.WebPages.Deployment.xml
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\System.Web.WebPages.Razor.xml
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\System.Diagnostics.DiagnosticSource.xml
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\obj\Debug\WebApp.csprojAssemblyReference.cache
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\obj\Debug\WebApp.csproj.CoreCompileInputs.cache
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\obj\Debug\WebApp.csproj.CopyComplete
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\obj\Debug\WebApp.dll
+C:\Users\kuskas\Documents\Visual Studio 2017\Projects\PersonalProject\WebApp\obj\Debug\WebApp.pdb
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\WebApp.dll.config
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\WebApp.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\WebApp.pdb
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\roslyn\csc.exe
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\roslyn\csc.exe.config
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\roslyn\csc.rsp
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\roslyn\csi.exe
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\roslyn\csi.exe.config
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\roslyn\csi.rsp
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\roslyn\Microsoft.Managed.Core.targets
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\roslyn\System.AppContext.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\roslyn\System.Collections.Immutable.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\roslyn\System.Console.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\roslyn\System.IO.Compression.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\roslyn\System.IO.FileSystem.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\roslyn\System.IO.Pipes.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\roslyn\System.Reflection.Metadata.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\roslyn\System.Security.AccessControl.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\roslyn\System.Security.Claims.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\roslyn\System.Security.Principal.Windows.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\roslyn\System.ValueTuple.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\roslyn\System.Xml.XmlDocument.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\roslyn\System.Xml.XPath.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\roslyn\vbc.exe
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\roslyn\vbc.exe.config
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\roslyn\vbc.rsp
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\roslyn\VBCSCompiler.exe
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\roslyn\VBCSCompiler.exe.config
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\BusinessTier.Models.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\DataAccess.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\EntityFramework.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\EntityFramework.SqlServer.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\Microsoft.Web.Infrastructure.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\Newtonsoft.Json.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\System.Diagnostics.DiagnosticSource.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\System.Net.Http.Formatting.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\System.Web.Cors.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\System.Web.Helpers.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\System.Web.Http.Cors.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\System.Web.Http.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\System.Web.Http.WebHost.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\System.Web.Mvc.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\System.Web.Razor.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\System.Web.WebPages.Deployment.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\System.Web.WebPages.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\System.Web.WebPages.Razor.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\BusinessTier.Models.pdb
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\DataAccess.pdb
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\DataAccess.dll.config
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\EntityFramework.xml
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\EntityFramework.SqlServer.xml
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\System.Net.Http.Formatting.xml
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\System.Web.Http.xml
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\System.Web.Http.Cors.xml
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\Newtonsoft.Json.xml
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\System.Web.Helpers.xml
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\System.Web.Http.WebHost.xml
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\System.Web.Mvc.xml
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\System.Web.Razor.xml
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\System.Web.WebPages.xml
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\System.Web.WebPages.Deployment.xml
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\System.Web.WebPages.Razor.xml
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\System.Diagnostics.DiagnosticSource.xml
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\obj\Debug\WebApp.csprojAssemblyReference.cache
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\obj\Debug\WebApp.csproj.CoreCompileInputs.cache
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\obj\Debug\WebApp.csproj.CopyComplete
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\obj\Debug\WebApp.dll
+C:\WorkArea\Kushal\Personal\Projects\repo\fse\PersonalProject\WebApp\obj\Debug\WebApp.pdb
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\WebApp.dll.config
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\WebApp.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\WebApp.pdb
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\roslyn\csc.exe
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\roslyn\csc.exe.config
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\roslyn\csc.rsp
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\roslyn\csi.exe
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\roslyn\csi.exe.config
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\roslyn\csi.rsp
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\roslyn\System.AppContext.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\roslyn\System.Collections.Immutable.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\roslyn\System.Console.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\roslyn\System.IO.Compression.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\roslyn\System.IO.FileSystem.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\roslyn\System.IO.Pipes.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\roslyn\System.Reflection.Metadata.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\roslyn\System.Security.AccessControl.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\roslyn\System.Security.Claims.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\roslyn\System.ValueTuple.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\roslyn\System.Xml.XPath.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\roslyn\vbc.exe
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\roslyn\vbc.exe.config
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\roslyn\vbc.rsp
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\roslyn\VBCSCompiler.exe
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\roslyn\VBCSCompiler.exe.config
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\BusinessTier.Models.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\DataAccess.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\EntityFramework.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\EntityFramework.SqlServer.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\Microsoft.Web.Infrastructure.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\Newtonsoft.Json.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\System.Diagnostics.DiagnosticSource.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\System.Net.Http.Formatting.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\System.Web.Cors.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\System.Web.Helpers.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\System.Web.Http.Cors.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\System.Web.Http.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\System.Web.Http.WebHost.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\System.Web.Mvc.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\System.Web.Razor.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\System.Web.WebPages.Deployment.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\System.Web.WebPages.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\System.Web.WebPages.Razor.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\BusinessTier.Models.pdb
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\DataAccess.pdb
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\DataAccess.dll.config
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\EntityFramework.xml
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\EntityFramework.SqlServer.xml
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\System.Net.Http.Formatting.xml
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\System.Web.Http.xml
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\System.Web.Http.Cors.xml
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\Newtonsoft.Json.xml
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\System.Web.Helpers.xml
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\System.Web.Http.WebHost.xml
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\System.Web.Mvc.xml
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\System.Web.Razor.xml
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\System.Web.WebPages.xml
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\System.Web.WebPages.Deployment.xml
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\System.Web.WebPages.Razor.xml
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\System.Diagnostics.DiagnosticSource.xml
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\obj\Debug\WebApp.csprojAssemblyReference.cache
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\obj\Debug\WebApp.csproj.CoreCompileInputs.cache
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\obj\Debug\WebApp.csproj.CopyComplete
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\obj\Debug\WebApp.dll
+C:\Kushal\repos\fse-projectmanager\ProjectManager\WebApp\obj\Debug\WebApp.pdb
