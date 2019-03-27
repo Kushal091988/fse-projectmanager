@@ -10,6 +10,7 @@ import { ProjectDetailComponent } from './projects/project-detail/project-detail
 import { TaskComponent } from './tasks/task/task.component';
 import { TaskListComponent } from './tasks/task-list/task-list.component';
 import { TaskDetailComponent } from './tasks/task-detail/task-detail.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { TaskDetailComponent } from './tasks/task-detail/task-detail.component';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
