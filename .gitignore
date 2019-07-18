@@ -1,0 +1,17 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/fse-projectmanager/v15
+/.vs
+/ProjectManager/.vs/ProjectManager
+/ProjectManager/BusinessTier.Models/bin/Debug
+/ProjectManager/BusinessTier.Models/obj/Debug
+/ProjectManager/DataAccess/bin/Debug
+/ProjectManager/DataAccess/obj/Debug
+/ProjectManager/packages/EntityFramework.6.2.0/tools
+/ProjectManager/packages
+/ProjectManager/Web.Api.Tests/bin/Debug
+/ProjectManager/Web.Api.Tests/obj/Debug
+/ProjectManager/WebApp/bin
+/ProjectManager/WebApp/obj/Debug
