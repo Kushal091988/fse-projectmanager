@@ -21,7 +21,7 @@ namespace WebApp.Api
         {
 
         }
-        private DataContext db = new DataContext();
+        private PMDbContext db = new PMDbContext();
 
         [Route("getUsers")]
         [HttpGet]
@@ -35,7 +35,7 @@ namespace WebApp.Api
         [ResponseType(typeof(User))]
         public async Task<IHttpActionResult> GetUser(int id)
         {
-            User user = await db.Users.FindAsync(id);
+            User user = await db.Users.Include(u=>u.Projects).Include(u=>u.Tasks).Where(s=>s.Id ==id).FirstAsync();
             if (user == null)
             {
                 return NotFound();

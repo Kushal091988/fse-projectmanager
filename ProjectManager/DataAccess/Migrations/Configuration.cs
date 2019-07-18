@@ -5,20 +5,21 @@ namespace DataAccess.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<DataAccess.DataContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<DataAccess.PMDbContext>
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
         }
 
-        protected override void Seed(DataAccess.DataContext context)
+        protected override void Seed(DataAccess.PMDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
-            context.Users.AddOrUpdate(new BusinessTier.Models.User() {Id = 1, Description= "Test", MeasuredAt= DateTime.Now, Value = 1.0f });
+            ProjectManagerInitializer.Seed(context);
         }
     }
 }

@@ -9,16 +9,20 @@ namespace BusinessTier.Models
 {
     public class User
     {
-        [Key]
+        public User()
+        {
+            this.Tasks = new HashSet<Task>();
+            this.Projects = new HashSet<Project>();
+        }
         public int Id { get; set; }
 
-        [Required]
-        public float Value { get; set; }
+        public string FirstName { get; set; }
 
-        [Required]
-        public string Description { get; set; }
+        public string LastName { get; set; }
 
-        [Required]
-        public DateTime MeasuredAt { get; set; }
+        public string EmployeeId { get; set; }
+
+        public virtual ICollection<Task> Tasks { get; set; }
+        public virtual ICollection<Project> Projects { get; set; }
     }
 }
