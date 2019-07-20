@@ -185,13 +185,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BusinessTier.Models\BusinessTier.Models.csproj">
+    <ProjectReference Include="..\BusinessTier.Models\ProjectManager.Models.csproj">
       <Project>{708d0ed2-3f36-484c-8983-8763478cc9f9}</Project>
-      <Name>BusinessTier.Models</Name>
+      <Name>ProjectManager.Models</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+    <ProjectReference Include="..\DataAccess\ProjectManger.DAL.csproj">
       <Project>{01321c65-35da-4323-b8c9-2cc1e20a162e}</Project>
-      <Name>DataAccess</Name>
+      <Name>ProjectManger.DAL</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

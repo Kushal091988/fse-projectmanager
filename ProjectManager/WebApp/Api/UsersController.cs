@@ -9,8 +9,10 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
+using AutoMapper;
 using BusinessTier.Models;
 using DataAccess;
+using WebApp.DTO;
 
 namespace WebApp.Api
 {
@@ -28,7 +30,11 @@ namespace WebApp.Api
         // GET: api/Users
         public IHttpActionResult GetUsers()
         {
-            return Json(db.Users);
+            var users = db.Users;
+            var userDto = Mapper.Map<UserDto>(users);
+
+            //return
+            return Json(userDto);
         } 
 
         // GET: api/Users/5
