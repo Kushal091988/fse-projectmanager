@@ -29,6 +29,19 @@ namespace WebApp.Api
         public IHttpActionResult GetTasks()
         {
             return Json(db.Tasks);
-        } 
+        }
+
+        // GET: api/tasks/5
+        [ResponseType(typeof(User))]
+        public async Task<IHttpActionResult> GetTask(int id)
+        {
+            var task = await db.Tasks.FindAsync(id);
+            if (task == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(task);
+        }
     }
 }
