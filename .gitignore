@@ -11,8 +11,8 @@
 /ProjectManager/DataAccess/obj/Debug
 /ProjectManager/packages/EntityFramework.6.2.0/tools
 /ProjectManager/packages
-/ProjectManager/Web.Api.Tests/bin/Debug
 /ProjectManager/Web.Api.Tests/obj/Debug
 /ProjectManager/WebApp/bin
 /ProjectManager/WebApp/obj/Debug
 /Presentation/.vs
+/ProjectManager/Web.Api.Tests/Web.Api.Tests.csproj.user
