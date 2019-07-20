@@ -1,8 +1,14 @@
 ﻿using AutoMapper;
+using BusinessTier.Models;
+using DataAccess.Repositories;
+using DataAccess.Repositories.Intefaces;
 using Newtonsoft.Json.Serialization;
+using ProjectManager.Api.Extension;
+using ProjectManager.Api.Extension.Interfaces;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using Unity;
+using Unity.Lifetime;
 
 namespace WebApp
 {
@@ -30,7 +36,12 @@ namespace WebApp
             config.Formatters.Remove(config.Formatters.XmlFormatter);
             //jsonFormatter.SerializerSettings.DateTimeZoneHandling = Newtonsoft.Json.DateTimeZoneHandling.Utc;
 
+            //unity configuration
             var container = new UnityContainer();
+            container.RegisterType<IUserFacade, UserFacade>(new HierarchicalLifetimeManager());
+            container.RegisterType<IProjectFacade, ProjectFacade>(new HierarchicalLifetimeManager());
+            container.RegisterType<IUserFacade, IUserFacade>(new HierarchicalLifetimeManager());
+            container.RegisterType<IUserRepository, UserRepository>(new HierarchicalLifetimeManager());
             config.DependencyResolver = new UnityResolver(container);
         }
     }

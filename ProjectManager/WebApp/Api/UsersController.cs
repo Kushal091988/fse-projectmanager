@@ -12,47 +12,45 @@ using System.Web.Http.Description;
 using AutoMapper;
 using BusinessTier.Models;
 using DataAccess;
-using WebApp.DTO;
+using ProjectManager.Api.Extension;
+using ProjectManager.Api.Extension.DTO;
+using ProjectManager.Api.Extension.Interfaces;
 
 namespace WebApp.Api
 {
     [RoutePrefix("api/users")]
     public class UsersController : ApiController
     {
+        private readonly IUserFacade _userFacade;
+        public UsersController(IUserFacade userFacade)
+        {
+            _userFacade = userFacade;
+        }
         public UsersController()
         {
-
+            _userFacade = new UserFacade(new DataAccess.Repositories.UserRepository());
         }
-        private PMDbContext db = new PMDbContext();
 
-        [Route("getUsers")]
+       [Route("getUsers")]
+        [ResponseType(typeof(List<UserDto>))]
         [HttpGet]
         // GET: api/Users
         public IHttpActionResult GetUsers()
         {
-            var users = db.Users;
-            var userDto = Mapper.Map<UserDto>(users);
-
             //return
-            return Json(userDto);
+            return Ok(_userFacade.GetAll());
         } 
 
         // GET: api/Users/5
-        [ResponseType(typeof(User))]
-        public async Task<IHttpActionResult> GetUser(int id)
+        [ResponseType(typeof(UserDto))]
+        public IHttpActionResult GetUser(int id)
         {
-            User user = await db.Users.Include(u=>u.Projects).Include(u=>u.Tasks).Where(s=>s.Id ==id).FirstAsync();
-            if (user == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(user);
+            return Ok(_userFacade.Get(id));
         }
 
         // PUT: api/Users/5
         [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutUser(int id, User user)
+        public IHttpActionResult Update(int id, UserDto user)
         {
             if (!ModelState.IsValid)
             {
@@ -64,70 +62,15 @@ namespace WebApp.Api
                 return BadRequest();
             }
 
-            db.Entry(user).State = EntityState.Modified;
-
-            try
-            {
-                await db.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!UserExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return StatusCode(HttpStatusCode.NoContent);
+            return Ok(_userFacade.Update(user));
         }
 
-        // POST: api/Users
-        [ResponseType(typeof(User))]
-        public async Task<IHttpActionResult> PostUser(User user)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            db.Users.Add(user);
-            await db.SaveChangesAsync();
-
-            return CreatedAtRoute("DefaultApi", new { id = user.Id }, user);
-        }
-
+        
         // DELETE: api/Users/5
-        [ResponseType(typeof(User))]
-        public async Task<IHttpActionResult> DeleteUser(int id)
+        [ResponseType(typeof(void))]
+        public IHttpActionResult Delete(int id)
         {
-            User user = await db.Users.FindAsync(id);
-            if (user == null)
-            {
-                return NotFound();
-            }
-
-            db.Users.Remove(user);
-            await db.SaveChangesAsync();
-
-            return Ok(user);
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
-        private bool UserExists(int id)
-        {
-            return db.Users.Count(e => e.Id == id) > 0;
+            return Ok(_userFacade.Delete(id));
         }
     }
 }

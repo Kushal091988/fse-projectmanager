@@ -155,11 +155,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="AutoMapperConfig.cs" />
-    <Compile Include="DTO\ParentTaskDto.cs" />
-    <Compile Include="DTO\ProjectDto.cs" />
-    <Compile Include="DTO\TaskDto.cs" />
-    <Compile Include="DTO\UserDto.cs" />
+    <Compile Include="App_Start\AutoMapperConfig.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -192,6 +188,10 @@
     <ProjectReference Include="..\DataAccess\ProjectManger.DAL.csproj">
       <Project>{01321c65-35da-4323-b8c9-2cc1e20a162e}</Project>
       <Name>ProjectManger.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProjectManager.Api.Extension\ProjectManager.Api.Extension.csproj">
+      <Project>{57f8e88d-8f29-4e18-ba14-445c4ffe072d}</Project>
+      <Name>ProjectManager.Api.Extension</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

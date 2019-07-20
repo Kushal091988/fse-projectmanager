@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using BusinessTier.Models;
-using WebApp.DTO;
+using ProjectManager.Api.Extension.DTO;
 using WebApp.Helper;
 
 namespace WebApp
