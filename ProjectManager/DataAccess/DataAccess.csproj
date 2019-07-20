@@ -60,7 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessTier.Models\BusinessTier.Models.csproj">
-      <Project>{708D0ED2-3F36-484C-8983-8763478CC9F9}</Project>
+      <Project>{708d0ed2-3f36-484c-8983-8763478cc9f9}</Project>
       <Name>BusinessTier.Models</Name>
     </ProjectReference>
   </ItemGroup>

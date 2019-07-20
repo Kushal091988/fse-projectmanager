@@ -1,19 +1,13 @@
 ﻿using BusinessTier.Models;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccess
 {
     public partial class PMDbContext : DbContext
     {
         public PMDbContext() :
-          base("Fse")
+          base("ConnectionString")
         {
-            // Database.SetInitializer<PMDbContext>(new ProjectManagerInitializer());
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<PMDbContext, Migrations.Configuration>());
         }
 
@@ -50,8 +44,7 @@ namespace DataAccess
               .HasRequired<User>(p => p.Manager)
               .WithMany(u => u.Projects)
               .HasForeignKey<int>(p => p.ManagerId)
-              .WillCascadeOnDelete(false) ;
-
+              .WillCascadeOnDelete(false);
 
             //modelBuilder.Entity<BusinessTier.Models.Task>()
             //    .HasKey<int>(s => s.Id)

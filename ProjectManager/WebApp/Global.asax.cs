@@ -15,9 +15,10 @@ namespace WebApp
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
             HttpConfiguration config = GlobalConfiguration.Configuration;
-            config.Formatters.JsonFormatter
-            .SerializerSettings
-            .ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            
+
+            //auto mapper configurations
+            AutoMapperConfig.Initialize();
         }
     }
 }

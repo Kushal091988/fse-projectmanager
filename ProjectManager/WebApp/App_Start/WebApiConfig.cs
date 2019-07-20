@@ -1,6 +1,8 @@
-﻿using Newtonsoft.Json.Serialization;
+﻿using AutoMapper;
+using Newtonsoft.Json.Serialization;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using Unity;
 
 namespace WebApp
 {
@@ -23,10 +25,13 @@ namespace WebApp
             config.EnableCors(cors);
 
             // Set JSON formatter as default one and remove XmlFormatter
-            //var jsonFormatter = config.Formatters.JsonFormatter;
-            //jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-            //config.Formatters.Remove(config.Formatters.XmlFormatter);
+            var jsonFormatter = config.Formatters.JsonFormatter;
+            jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            config.Formatters.Remove(config.Formatters.XmlFormatter);
             //jsonFormatter.SerializerSettings.DateTimeZoneHandling = Newtonsoft.Json.DateTimeZoneHandling.Utc;
+
+            var container = new UnityContainer();
+            config.DependencyResolver = new UnityResolver(container);
         }
     }
 }
