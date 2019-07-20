@@ -1,0 +1,16 @@
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand mb-0 h1" href="#">{{title}}</a>
+
+</nav>
+
+<nav class='nav-justified navbar-expand navbar-light bg-light'>
+  <ul class='nav nav-tabs'>
+    <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/user']">Add User</a></li>
+    <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/project']">Add Project</a></li>
+    <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/task']">Add Task</a></li>
+    <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/taskList']">View Task</a></li>
+  </ul>
+</nav>
+<div class='container-fluid'>
+  <router-outlet></router-outlet>
+</div>
