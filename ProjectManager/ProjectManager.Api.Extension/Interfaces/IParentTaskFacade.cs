@@ -14,7 +14,5 @@ namespace ProjectManager.Api.Extension.Interfaces
         List<ParentTaskDto> GetAll();
 
         ParentTaskDto Update(ParentTaskDto task);
-
-        bool Delete(int id);
     }
 }

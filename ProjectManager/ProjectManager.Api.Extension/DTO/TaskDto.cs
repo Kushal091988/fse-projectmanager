@@ -22,6 +22,9 @@ namespace ProjectManager.Api.Extension.DTO
         public string EndDate { get; set; }
 
         [Required]
+        public int Priority { get; set; }
+
+        [Required]
         public int ParentTaskId { get; set; }
 
         [Required]

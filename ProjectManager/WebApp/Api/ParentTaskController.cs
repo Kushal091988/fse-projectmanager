@@ -63,16 +63,5 @@ namespace WebApp.Api
                 return Ok(_taskFacade.Update(task));
             });
         }
-
-
-        // DELETE: api/parent-task/5
-        [ResponseType(typeof(bool))]
-        public IHttpActionResult Delete(int id)
-        {
-            return Try(() =>
-            {
-                return Ok(_taskFacade.Delete(id));
-            });
-        }
     }
 }

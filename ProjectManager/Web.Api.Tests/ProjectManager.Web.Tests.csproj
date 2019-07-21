@@ -121,6 +121,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TestProjectController.cs" />
+    <Compile Include="TestParentTaskController.cs" />
+    <Compile Include="TestSetup.cs" />
+    <Compile Include="TestTaskController.cs" />
     <Compile Include="TestUserController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -1,2 +1,0 @@
-﻿..\..\..\packages\OpenCover.4.6.519\OpenCover.Console.exe -target:runtests.bat -register:user -filter:+[Sample]* 
-..\..\..\packages\ReportGenerator.4.2.10\tools\net47\reportgenerator.exe -reports:results.xml -targetdir:coverage

@@ -39,17 +39,6 @@ namespace ProjectManager.Api.Extension
 
 
         /// <summary>
-        /// delete parent task
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns>flag to know if deleted</returns>
-        public bool Delete(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-
-        /// <summary>
         /// Get all parent tasks
         /// </summary>
         /// <returns>tasks list</returns>

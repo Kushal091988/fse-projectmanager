@@ -14,17 +14,7 @@ namespace Web.Api.Tests
 {
     [TestFixture]
     public class TestUserController
-    {
-        public TestUserController()
-        {
-            //initialize mapper settings
-            Mapper.Initialize((cfg) =>
-            {
-                cfg.CreateMap<User, UserDto>();
-                cfg.CreateMap<UserDto, User>();
-            });
-        }
-
+    { 
         [Test]
         public void GetUsers_ShouldReturnAllUsers()
         {

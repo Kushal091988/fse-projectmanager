@@ -41,10 +41,10 @@ namespace DataAccess
 
             var tasks = new List<BusinessTier.Models.Task>
             {
-            new BusinessTier.Models.Task { Id = 1, Name = "Task_1",  StartDate = DateTime.Parse("2019-01-01"), EndDate = DateTime.Parse("2021-09-01"), OwnerId = 2, ProjectId = 1, ParentTaskId = 1},
-            new BusinessTier.Models.Task { Id = 2, Name = "Task_2",  StartDate = DateTime.Parse("2019-02-01"), EndDate = DateTime.Parse("2021-09-01"), OwnerId = 2, ProjectId = 2, ParentTaskId = 1},
-            new BusinessTier.Models.Task { Id = 2, Name = "Task_3",  StartDate = DateTime.Parse("2019-03-01"), EndDate = DateTime.Parse("2021-09-01"), OwnerId = 3, ProjectId = 3, ParentTaskId = 1 },
-            new BusinessTier.Models.Task { Id = 4, Name = "Task_4",  StartDate = DateTime.Parse("2019-04-01"), EndDate = DateTime.Parse("2021-09-01"), OwnerId = 4, ProjectId = 4, ParentTaskId = 1 },
+            new BusinessTier.Models.Task { Id = 1, Name = "Task_1",  StartDate = DateTime.Parse("2019-01-01"), EndDate = DateTime.Parse("2021-09-01"), Priority = 1 , OwnerId = 2, ProjectId = 1, ParentTaskId = 1},
+            new BusinessTier.Models.Task { Id = 2, Name = "Task_2",  StartDate = DateTime.Parse("2019-02-01"), EndDate = DateTime.Parse("2021-09-01"), Priority = 2 , OwnerId = 2, ProjectId = 2, ParentTaskId = 1},
+            new BusinessTier.Models.Task { Id = 2, Name = "Task_3",  StartDate = DateTime.Parse("2019-03-01"), EndDate = DateTime.Parse("2021-09-01"), Priority = 3 , OwnerId = 3, ProjectId = 3, ParentTaskId = 1 },
+            new BusinessTier.Models.Task { Id = 4, Name = "Task_4",  StartDate = DateTime.Parse("2019-04-01"), EndDate = DateTime.Parse("2021-09-01"), Priority = 4 , OwnerId = 4, ProjectId = 4, ParentTaskId = 1 },
             };
             tasks.ForEach(t => context.Tasks.AddOrUpdate(t));
             context.SaveChanges();
