@@ -15,6 +15,6 @@ namespace ProjectManager.Api.Extension.Interfaces
 
         TaskDto Update(TaskDto task);
 
-        TaskDto Delete(int id);
+        bool Delete(int id);
     }
 }

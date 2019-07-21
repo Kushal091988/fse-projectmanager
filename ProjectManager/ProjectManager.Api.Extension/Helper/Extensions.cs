@@ -4,7 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Web;
 
-namespace WebApp.Helper
+namespace ProjectManager.Api.Extension.Helper
 {
     public static class Extensions
     {

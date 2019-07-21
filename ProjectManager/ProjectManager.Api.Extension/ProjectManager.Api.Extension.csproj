@@ -54,10 +54,13 @@
     <Compile Include="DTO\ProjectDto.cs" />
     <Compile Include="DTO\TaskDto.cs" />
     <Compile Include="DTO\UserDto.cs" />
+    <Compile Include="Helper\Extensions.cs" />
     <Compile Include="Interfaces\IProjectFacade.cs" />
+    <Compile Include="Interfaces\IParentTaskFacade.cs" />
     <Compile Include="Interfaces\ITaskFacade.cs" />
     <Compile Include="Interfaces\IUserFacade.cs" />
     <Compile Include="ProjectFacade.cs" />
+    <Compile Include="ParentTaskFacade.cs" />
     <Compile Include="TaskFacade.cs" />
     <Compile Include="UserFacade.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

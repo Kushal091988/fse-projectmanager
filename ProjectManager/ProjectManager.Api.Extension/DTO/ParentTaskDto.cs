@@ -8,7 +8,7 @@ namespace ProjectManager.Api.Extension.DTO
 {
     public class ParentTaskDto
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
 
         [Required]
         public string Name { get; set; }

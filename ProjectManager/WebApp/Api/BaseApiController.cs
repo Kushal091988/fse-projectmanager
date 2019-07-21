@@ -40,7 +40,8 @@ namespace WebApp.Api
             catch (Exception exception)
             {
                 Log.Fatal(exception.Message, exception);
-                return StatusCode(HttpStatusCode.InternalServerError);
+                //return StatusCode(HttpStatusCode.InternalServerError);
+                throw exception;
             }
         }
     }

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<test-run id="2" testcasecount="5" result="Passed" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="8" engine-version="3.10.0.0" clr-version="4.0.30319.42000" start-time="2019-07-21 08:57:26Z" end-time="2019-07-21 08:57:32Z" duration="5.664122">
+  <command-line><![CDATA["C:\Users\kuskas\Source\Repos\fse-projectmanager\ProjectManager\packages\NUnit.ConsoleRunner.3.10.0\tools\nunit3-console.exe" "C:\Users\kuskas\Source\Repos\fse-projectmanager\ProjectManager\Web.Api.Tests\bin\Debug\Web.Api.Tests.dll"]]></command-line>
+  <test-suite type="Assembly" id="0-1006" name="Web.Api.Tests.dll" fullname="Web.Api.Tests.dll" runstate="Runnable" testcasecount="5" result="Passed" start-time="2019-07-21 08:57:30Z" end-time="2019-07-21 08:57:32Z" duration="1.785777" total="5" passed="5" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="8">
+    <environment framework-version="3.11.0.0" clr-version="4.0.30319.42000" os-version="Microsoft Windows NT 10.0.14393.0" platform="Win32NT" cwd="C:\Users\kuskas\Source\Repos\fse-projectmanager\ProjectManager" machine-name="MYMDCLAP163" user="kuskas" user-domain="ACEINA" culture="en-US" uiculture="en-US" os-architecture="x64" />
+    <settings>
+      <setting name="DisposeRunners" value="True" />
+      <setting name="WorkDirectory" value="C:\Users\kuskas\Source\Repos\fse-projectmanager\ProjectManager" />
+      <setting name="ImageRuntimeVersion" value="4.0.30319" />
+      <setting name="ImageTargetFrameworkName" value=".NETFramework,Version=v4.6.1" />
+      <setting name="ImageRequiresX86" value="False" />
+      <setting name="ImageRequiresDefaultAppDomainAssemblyResolver" value="False" />
+      <setting name="NumberOfTestWorkers" value="4" />
+    </settings>
+    <properties>
+      <property name="_PID" value="25704" />
+      <property name="_APPDOMAIN" value="domain-" />
+    </properties>
+    <test-suite type="TestSuite" id="0-1007" name="Web" fullname="Web" runstate="Runnable" testcasecount="5" result="Passed" start-time="2019-07-21 08:57:30Z" end-time="2019-07-21 08:57:32Z" duration="1.766746" total="5" passed="5" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="8">
+      <test-suite type="TestSuite" id="0-1008" name="Api" fullname="Web.Api" runstate="Runnable" testcasecount="5" result="Passed" start-time="2019-07-21 08:57:30Z" end-time="2019-07-21 08:57:32Z" duration="1.765839" total="5" passed="5" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="8">
+        <test-suite type="TestSuite" id="0-1009" name="Tests" fullname="Web.Api.Tests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2019-07-21 08:57:30Z" end-time="2019-07-21 08:57:32Z" duration="1.765797" total="5" passed="5" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="8">
+          <test-suite type="TestFixture" id="0-1000" name="TestUserController" fullname="Web.Api.Tests.TestUserController" classname="Web.Api.Tests.TestUserController" runstate="Runnable" testcasecount="5" result="Passed" start-time="2019-07-21 08:57:30Z" end-time="2019-07-21 08:57:32Z" duration="1.762630" total="5" passed="5" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="8">
+            <test-case id="0-1005" name="Delete_ShouldDeleteCorrectUser" fullname="Web.Api.Tests.TestUserController.Delete_ShouldDeleteCorrectUser" methodname="Delete_ShouldDeleteCorrectUser" classname="Web.Api.Tests.TestUserController" runstate="Runnable" seed="2022072351" result="Passed" start-time="2019-07-21 08:57:31Z" end-time="2019-07-21 08:57:32Z" duration="0.695674" asserts="1" />
+            <test-case id="0-1002" name="GetUser_ShouldReturnCorrectUser" fullname="Web.Api.Tests.TestUserController.GetUser_ShouldReturnCorrectUser" methodname="GetUser_ShouldReturnCorrectUser" classname="Web.Api.Tests.TestUserController" runstate="Runnable" seed="56687938" result="Passed" start-time="2019-07-21 08:57:32Z" end-time="2019-07-21 08:57:32Z" duration="0.091481" asserts="2" />
+            <test-case id="0-1001" name="GetUsers_ShouldReturnAllUsers" fullname="Web.Api.Tests.TestUserController.GetUsers_ShouldReturnAllUsers" methodname="GetUsers_ShouldReturnAllUsers" classname="Web.Api.Tests.TestUserController" runstate="Runnable" seed="1355772908" result="Passed" start-time="2019-07-21 08:57:32Z" end-time="2019-07-21 08:57:32Z" duration="0.051804" asserts="1" />
+            <test-case id="0-1003" name="Update_ShouldAddNewUser" fullname="Web.Api.Tests.TestUserController.Update_ShouldAddNewUser" methodname="Update_ShouldAddNewUser" classname="Web.Api.Tests.TestUserController" runstate="Runnable" seed="247244338" result="Passed" start-time="2019-07-21 08:57:32Z" end-time="2019-07-21 08:57:32Z" duration="0.009383" asserts="2" />
+            <test-case id="0-1004" name="Update_ShouldUpdateCorrectUser" fullname="Web.Api.Tests.TestUserController.Update_ShouldUpdateCorrectUser" methodname="Update_ShouldUpdateCorrectUser" classname="Web.Api.Tests.TestUserController" runstate="Runnable" seed="1148027937" result="Passed" start-time="2019-07-21 08:57:32Z" end-time="2019-07-21 08:57:32Z" duration="0.003930" asserts="2" />
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

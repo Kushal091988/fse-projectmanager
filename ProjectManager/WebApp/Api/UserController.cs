@@ -18,15 +18,15 @@ using ProjectManager.Api.Extension.Interfaces;
 
 namespace WebApp.Api
 {
-    [RoutePrefix("api/users")]
-    public class UsersController : BaseApiController
+    [RoutePrefix("api/user")]
+    public class UserController : BaseApiController
     {
         private readonly IUserFacade _userFacade;
-        public UsersController(IUserFacade userFacade)
+        public UserController(IUserFacade userFacade)
         {
             _userFacade = userFacade;
         }
-        public UsersController()
+        public UserController()
         {
             _userFacade = new UserFacade(new DataAccess.Repositories.UserRepository());
         }
@@ -34,44 +34,38 @@ namespace WebApp.Api
         [Route("getUsers")]
         [ResponseType(typeof(List<UserDto>))]
         [HttpGet]
-        // GET: api/Users
+        // GET: api/users
         public IHttpActionResult GetUsers()
         {
-            //return
-            return Ok(_userFacade.GetAll());
+            return Try(() =>
+            {
+                return Ok(_userFacade.GetAll());
+            });
         }
 
-        // GET: api/Users/5
+        // GET: api/user/5
         [ResponseType(typeof(UserDto))]
         public IHttpActionResult GetUser(int id)
         {
-            return Ok(_userFacade.Get(id));
-        }
-
-        // PUT: api/Users/5
-        [ResponseType(typeof(bool))]
-        public IHttpActionResult Update(int id, UserDto user)
-        {
-
             return Try(() =>
             {
-                if (!ModelState.IsValid)
-                {
-                    return BadRequest(ModelState);
-                }
+                return Ok(_userFacade.Get(id));
+            });
+        }
 
-                if (id != user.Id)
-                {
-                    return BadRequest();
-                }
-
+        // POST: api/user/5
+        [ResponseType(typeof(UserDto))]
+        public IHttpActionResult Update(UserDto user)
+        {
+            return Try(() =>
+            {
                 return Ok(_userFacade.Update(user));
             });
         }
 
 
-        // DELETE: api/Users/5
-        [ResponseType(typeof(void))]
+        // DELETE: api/user/5
+        [ResponseType(typeof(bool))]
         public IHttpActionResult Delete(int id)
         {
             return Try(() =>

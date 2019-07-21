@@ -20,3 +20,5 @@
 /ProjectManager/Api.Extension/obj/Debug
 /ProjectManager/ProjectManager.Api.Extension/bin/Debug
 /ProjectManager/ProjectManager.Api.Extension/obj/Debug
+/ProjectManager/GeneratedReports/ReportGenerator Output
+/ProjectManager/Logs

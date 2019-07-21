@@ -165,8 +165,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\BaseApiController.cs" />
-    <Compile Include="Api\TasksController.cs" />
-    <Compile Include="Api\UsersController.cs" />
+    <Compile Include="Api\ParentTaskController.cs" />
+    <Compile Include="Api\ProjectController.cs" />
+    <Compile Include="Api\TaskController.cs" />
+    <Compile Include="Api\UserController.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\SwaggerConfig.cs" />
@@ -176,7 +178,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Helper\Extensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SerilogConfig.cs" />
     <Compile Include="UnityResolver.cs" />

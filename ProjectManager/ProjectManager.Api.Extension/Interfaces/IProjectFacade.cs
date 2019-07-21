@@ -15,6 +15,6 @@ namespace ProjectManager.Api.Extension.Interfaces
 
         ProjectDto Update(ProjectDto user);
 
-        ProjectDto Delete(int id);
+        bool Delete(int id);
     }
 }

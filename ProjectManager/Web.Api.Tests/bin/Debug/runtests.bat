@@ -1,0 +1,1 @@
+﻿..\..\..\packages\NUnit.ConsoleRunner.3.10.0\tools\nunit-console.exe Web.Api.Tests.dll /noshadow
