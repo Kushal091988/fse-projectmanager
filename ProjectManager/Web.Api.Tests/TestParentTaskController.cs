@@ -2,20 +2,33 @@
 using BusinessTier.Models;
 using DataAccess.Repositories.Intefaces;
 using Moq;
+using NBench;
 using NUnit.Framework;
 using ProjectManager.Api.Extension;
 using ProjectManager.Api.Extension.DTO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http.Results;
+using WebApp;
 using WebApp.Api;
 
 namespace Web.Api.Tests
 {
     [TestFixture]
     public class TestParentTaskController
-    { 
+    {
+        [SetUp]
+        [PerfSetup]
+        public void InitializeOneTimeData()
+        {
+            AutoMapper.Mapper.Reset();
+            AutoMapperConfig.Initialize();
+        }
+
         [Test]
+        [PerfBenchmark(NumberOfIterations = 1, RunMode = RunMode.Throughput,
+            TestMode = TestMode.Test, SkipWarmups = true)]
+        [MemoryMeasurement(MemoryMetric.TotalBytesAllocated)]
         public void GetTasks_ShouldReturnAllParenTasks()
         {
             //arrange

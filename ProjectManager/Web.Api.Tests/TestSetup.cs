@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using NBench;
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,13 +12,13 @@ namespace Web.Api.Tests
     [SetUpFixture]
     public class TestSetup
     {
-        [OneTimeSetUp]
+         
         public void InitializeOneTimeData()
         {
             AutoMapperConfig.Initialize();
         }
 
-        [OneTimeTearDown]
+        
         public void TearDown()
         {
             AutoMapper.Mapper.Reset();
