@@ -19,7 +19,7 @@ using ProjectManager.Api.Extension.Interfaces;
 namespace WebApp.Api
 {
     [RoutePrefix("api/users")]
-    public class UsersController : ApiController
+    public class UsersController : BaseApiController
     {
         private readonly IUserFacade _userFacade;
         public UsersController(IUserFacade userFacade)
@@ -31,7 +31,7 @@ namespace WebApp.Api
             _userFacade = new UserFacade(new DataAccess.Repositories.UserRepository());
         }
 
-       [Route("getUsers")]
+        [Route("getUsers")]
         [ResponseType(typeof(List<UserDto>))]
         [HttpGet]
         // GET: api/Users
@@ -39,7 +39,7 @@ namespace WebApp.Api
         {
             //return
             return Ok(_userFacade.GetAll());
-        } 
+        }
 
         // GET: api/Users/5
         [ResponseType(typeof(UserDto))]
@@ -49,28 +49,35 @@ namespace WebApp.Api
         }
 
         // PUT: api/Users/5
-        [ResponseType(typeof(void))]
+        [ResponseType(typeof(bool))]
         public IHttpActionResult Update(int id, UserDto user)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
 
-            if (id != user.Id)
+            return Try(() =>
             {
-                return BadRequest();
-            }
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
 
-            return Ok(_userFacade.Update(user));
+                if (id != user.Id)
+                {
+                    return BadRequest();
+                }
+
+                return Ok(_userFacade.Update(user));
+            });
         }
 
-        
+
         // DELETE: api/Users/5
         [ResponseType(typeof(void))]
         public IHttpActionResult Delete(int id)
         {
-            return Ok(_userFacade.Delete(id));
+            return Try(() =>
+            {
+                return Ok(_userFacade.Delete(id));
+            });
         }
     }
 }

@@ -4,6 +4,7 @@ using DataAccess.Repositories;
 using DataAccess.Repositories.Intefaces;
 using ProjectManager.Api.Extension.DTO;
 using ProjectManager.Api.Extension.Interfaces;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,11 @@ namespace ProjectManager.Api.Extension
             _userRepository = userRepository;
         }
 
+        /// <summary>
+        /// get user
+        /// </summary>
+        /// <param name="id">user id</param>
+        /// <returns>user for the given id</returns>
         public UserDto Get(int id)
         {
             var user = _userRepository.Get(id);
@@ -33,12 +39,22 @@ namespace ProjectManager.Api.Extension
         }
 
 
+        /// <summary>
+        /// delete user
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>flag to know if deleted</returns>
         public bool Delete(int id)
         {
             var user = _userRepository.Get(id);
             if (user == null)
             {
-                throw new InvalidOperationException("user does not exists");
+                throw new InvalidOperationException("user does not exists so could not be deleted");
+            }
+
+            if (user.Projects.Count > 0)
+            {
+                throw new InvalidOperationException("user has associated projects, so could not be deleted");
             }
 
             _userRepository.Remove(user);
@@ -46,9 +62,12 @@ namespace ProjectManager.Api.Extension
 
             return true;
         }
+               
 
-
-
+        /// <summary>
+        /// Get all users
+        /// </summary>
+        /// <returns>users list</returns>
         public List<UserDto> GetAll()
         {
             var users = _userRepository.GetAll();
@@ -57,6 +76,11 @@ namespace ProjectManager.Api.Extension
             return userDtos;
         }
 
+        /// <summary>
+        /// either create or update provided user
+        /// </summary>
+        /// <param name="userDto"></param>
+        /// <returns></returns>
         public UserDto Update(UserDto userDto)
         {
             var user = _userRepository.Get(userDto.Id);
