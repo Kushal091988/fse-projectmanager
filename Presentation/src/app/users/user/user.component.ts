@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { UserService } from './../user.service';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { CreateUserComponent } from '../create-user/create-user.component';
 
 @Component({
   selector: 'app-user',
@@ -6,36 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-
-  constructor() { }
-  users: any[] = [{
-    FirstName: 'FirstName01',
-    LastName: 'LastName01',
-    Id: '01',
-  },
-  {
-    FirstName: 'FirstName02',
-    LastName: 'LastName02',
-    Id: '02',
-  },
-  {
-    FirstName: 'FirstName03',
-    LastName: 'LastName03',
-    Id: '03',
-  },
-  {
-    FirstName: 'FirstName04',
-    LastName: 'LastName04',
-    Id: '04',
-  }
-    ,
-  {
-    FirstName: 'FirstName05',
-    LastName: 'LastName05',
-    Id: '05',
-  }];
+  @ViewChild(CreateUserComponent) createUserComponent: CreateUserComponent;
+  constructor(private userService: UserService) { }
+  users: any[];
   ngOnInit() {
-
+    this.refreshUsers();
   }
 
+  refreshUsers() {
+    this.userService.getAll().subscribe(
+      (result) => {
+        this.users = result;
+      },
+      (error) => { console.log(error); });
+  }
+  refreshUserForm($event: any) {
+    this.createUserComponent.refreshUserForm($event);
+  }
 }

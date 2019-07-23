@@ -13,8 +13,8 @@ export class UserService {
 
   constructor(private httpService: AppHttpService) { }
   private readonly url: string = appSettings.api.user.path;
-  getAll(): Observable<User> {
-    return this.httpService.get<User>({ url: this.url + '/getUsers' });
+  getAll(): Observable<User[]> {
+    return this.httpService.get<User[]>({ url: this.url + '/getUsers' });
   }
 
   create(user: User): Observable<User> {

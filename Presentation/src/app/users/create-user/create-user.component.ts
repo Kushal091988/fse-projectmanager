@@ -1,5 +1,5 @@
 import { User } from './../user';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { UserService } from '../user.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ConfirmationService, MessageService } from 'primeng/api';
@@ -14,7 +14,9 @@ import { ConfirmationDialogService } from 'src/app/shared/confirm-dialog/confirm
 })
 export class CreateUserComponent implements OnInit {
   userForm: FormGroup;
-  user: User = { firstName: '', lastName: '', employeeId: '' };
+
+  @Output() addedNewUser = new EventEmitter<boolean>();
+
   constructor(private userService: UserService,
     private confirmationDialogService: ConfirmationDialogService,
     private messageService: MessageService,
@@ -26,10 +28,13 @@ export class CreateUserComponent implements OnInit {
       lastName: ['', [Validators.required, Validators.maxLength(50)]],
       employeeId: ['', [Validators.required, Validators.maxLength(50)]]
     });
+
+    this.userForm.reset();
   }
 
   createNewUser() {
     const user: User = {
+      id: 0,
       firstName: this.userForm.value.firstName,
       lastName: this.userForm.value.lastName,
       employeeId: this.userForm.value.employeeId
@@ -49,6 +54,7 @@ export class CreateUserComponent implements OnInit {
             });
 
             // emit result
+            this.addedNewUser.emit(true);
           });
       });
 
