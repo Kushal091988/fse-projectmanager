@@ -35,7 +35,7 @@ namespace WebApp.Api
         [Route("getTasks")]
         [ResponseType(typeof(List<TaskDto>))]
         [HttpGet]
-        // GET: api/tasks
+        // GET: api/task/getTasks
         public IHttpActionResult GetTasks()
         {
             return Try(() =>
@@ -43,9 +43,10 @@ namespace WebApp.Api
                 return Ok(_taskFacade.GetAll());
             });
         }
-
-        // GET: api/tasks/5
+        [Route("{id}")]
         [ResponseType(typeof(TaskDto))]
+        [HttpGet]
+        // GET: api/task/5
         public IHttpActionResult GetTask(int id)
         {
             return Try(() =>
@@ -54,8 +55,10 @@ namespace WebApp.Api
             });
         }
 
-        // POST: api/tasks/5
+        [Route("update")]
         [ResponseType(typeof(TaskDto))]
+        [HttpPost]
+        // POST: api/task/update
         public IHttpActionResult Update(TaskDto task)
         {
             return Try(() =>
@@ -64,9 +67,10 @@ namespace WebApp.Api
             });
         }
 
-
-        // DELETE: api/Users/5
+        [Route("delete/{id}")]
         [ResponseType(typeof(bool))]
+        [HttpDelete]
+        // DELETE: api/task/delete/5
         public IHttpActionResult Delete(int id)
         {
             return Try(() =>

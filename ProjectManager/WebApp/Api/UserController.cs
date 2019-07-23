@@ -34,7 +34,7 @@ namespace WebApp.Api
         [Route("getUsers")]
         [ResponseType(typeof(List<UserDto>))]
         [HttpGet]
-        // GET: api/users
+        // GET: api/users/getUsers
         public IHttpActionResult GetUsers()
         {
             return Try(() =>
@@ -43,8 +43,11 @@ namespace WebApp.Api
             });
         }
 
-        // GET: api/user/5
+        
+        [Route("{id}")]
         [ResponseType(typeof(UserDto))]
+        [HttpGet]
+        // GET: api/user/5
         public IHttpActionResult GetUser(int id)
         {
             return Try(() =>
@@ -53,8 +56,10 @@ namespace WebApp.Api
             });
         }
 
-        // POST: api/user/5
+        [Route("update")]
         [ResponseType(typeof(UserDto))]
+        [HttpPost]
+        // POST: api/user/update
         public IHttpActionResult Update(UserDto user)
         {
             return Try(() =>
@@ -63,9 +68,10 @@ namespace WebApp.Api
             });
         }
 
-
-        // DELETE: api/user/5
+        [Route("delete/{id}")]
         [ResponseType(typeof(bool))]
+        [HttpDelete]
+        // DELETE: api/user/5
         public IHttpActionResult Delete(int id)
         {
             return Try(() =>

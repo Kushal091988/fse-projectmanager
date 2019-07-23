@@ -28,7 +28,7 @@ namespace WebApp.Api
         [Route("getProjects")]
         [ResponseType(typeof(List<ProjectDto>))]
         [HttpGet]
-        // GET: api/project
+        // GET: api/project/getProjects
         public IHttpActionResult GetProjects()
         {
             return Try(() =>
@@ -37,8 +37,10 @@ namespace WebApp.Api
             });
         }
 
-        // GET: api/project/5
+        [Route("{id}")]
         [ResponseType(typeof(ProjectDto))]
+        [HttpGet]
+        // GET: api/project/5
         public IHttpActionResult GetProject(int id)
         {
             return Try(() =>
@@ -47,8 +49,10 @@ namespace WebApp.Api
             });
         }
 
-        // POST: api/project/
+        [Route("update")]
         [ResponseType(typeof(ProjectDto))]
+        [HttpPost]
+        // POST: api/project/update
         public IHttpActionResult Update(ProjectDto project)
         {
             return Try(() =>
@@ -57,9 +61,10 @@ namespace WebApp.Api
             });
         }
 
-
-        // DELETE: api/project/5
+        [Route("delete/{id}")]
         [ResponseType(typeof(bool))]
+        [HttpDelete]
+        // DELETE: api/project/5
         public IHttpActionResult Delete(int id)
         {
             return Try(() =>

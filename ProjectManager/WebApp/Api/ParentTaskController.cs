@@ -35,7 +35,7 @@ namespace WebApp.Api
         [Route("getTasks")]
         [ResponseType(typeof(List<ParentTaskDto>))]
         [HttpGet]
-        // GET: api/tasks
+        // GET: api/parentTask/getTasks
         public IHttpActionResult GetTasks()
         {
             return Try(() =>
@@ -44,8 +44,10 @@ namespace WebApp.Api
             });
         }
 
-        // GET: api/parent-task/5
+        [Route("{id}")]
         [ResponseType(typeof(ParentTaskDto))]
+        [HttpGet]
+        // GET: api/parentTask/5
         public IHttpActionResult GetTask(int id)
         {
             return Try(() =>
@@ -54,8 +56,10 @@ namespace WebApp.Api
             });
         }
 
-        // POST: api/parent-task/5
+        [Route("update")]
         [ResponseType(typeof(ParentTaskDto))]
+        [HttpPost]
+        // POST: api/parentTask/update
         public IHttpActionResult Update(ParentTaskDto task)
         {
             return Try(() =>
