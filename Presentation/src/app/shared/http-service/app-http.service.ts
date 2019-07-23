@@ -4,48 +4,55 @@ import { catchError, map, retry, tap } from 'rxjs/operators';
 
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { AppHttpConfig } from './app-http-config';
+import { environment } from 'src/environments/environment';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json'
+  })
+};
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppHttpService {
+  private readonly apiUrl: string;
 
-  constructor(private http: HttpClient) { }
-
-  private createHttpOptions() {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json'
-    });
-    return {
-      headers: headers
-    };
+  constructor(private http: HttpClient) {
+    this.apiUrl = environment.api.url;
   }
 
   get<T>(config: AppHttpConfig) {
-    const httpOptions = this.createHttpOptions();
-    return this.http.get<T>(config.url, httpOptions)
+    return this.http
+      .get<T>(this.apiUrl + config.url, httpOptions)
       .pipe(
-        // retry(3), // retry a failed request up to 3 times
+        retry(environment.api.retry), // retry a failed request up to 3 times
         catchError(this.handleError)
       );
   }
 
+
   post<T>(config: AppHttpConfig, data: any) {
-    return this.http.post<T>(config.url, data, this.createHttpOptions())
+    return this.http
+      .post<T>(this.apiUrl + config.url, data, httpOptions)
       .pipe(
-        tap((r) => {
-          console.log(r);
-        }),
+        tap((r) => { }),
         catchError(this.handleError)
       );
   }
 
   update<T>(config: AppHttpConfig, data: any) {
-    return this.http.put<T>(config.url, data, this.createHttpOptions())
+    return this.http.put<T>(this.apiUrl + config.url, data, httpOptions)
       .pipe(
-        tap((r) => {
-          console.log(r);
-        }),
+        tap((r) => { }),
+        catchError(this.handleError)
+      );
+  }
+
+  delete<T>(config: AppHttpConfig) {
+    return this.http.delete<T>(this.apiUrl + config.url, httpOptions)
+      .pipe(
+        tap((r) => { }),
         catchError(this.handleError)
       );
   }

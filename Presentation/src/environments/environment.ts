@@ -4,7 +4,15 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:63204'
+  api: {
+    url: 'http://localhost:63204',
+    retry: 0
+  },
+  app: {
+    name: 'Project Manager',
+    description: 'Project Manager',
+    year: ((new Date()).getFullYear())
+  }
 };
 
 /*

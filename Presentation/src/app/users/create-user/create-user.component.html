@@ -1,6 +1,6 @@
 <div class="card">
   <div class="card-body">
-    <form novalidate (ngSubmit)="save()" [formGroup]="userForm">
+    <form novalidate [formGroup]="userForm">
 
       <div class="form-group row mb-2">
         <label class="col-md-2 col-form-label" for="firstNameId">First Name</label>
@@ -52,12 +52,11 @@
           </span>
         </div>
       </div>
-
       <div class="form-group row mb-2">
         <div class="offset-md-2 col-md-4">
           <button class="btn btn-primary mr-3" type="submit" style="width:80px"
             [title]="userForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
-            [disabled]="!userForm.valid">
+            [disabled]="!userForm.valid" (click)="createNewUser()">
             Save
           </button>
           <button class="btn btn-outline-secondary" type="button" (click)="reset()">

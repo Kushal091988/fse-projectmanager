@@ -1,7 +1,11 @@
+import { User } from './../user';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { User } from 'src/app/shared/models/user';
+import { ConfirmationService, MessageService } from 'primeng/api';
+import { ConfirmationDialogService } from 'src/app/shared/confirm-dialog/confirmation-dialog.service';
+
+
 
 @Component({
   selector: 'app-create-user',
@@ -10,16 +14,13 @@ import { User } from 'src/app/shared/models/user';
 })
 export class CreateUserComponent implements OnInit {
   userForm: FormGroup;
-  user: User = new User();
+  user: User = { firstName: '', lastName: '', employeeId: '' };
   constructor(private userService: UserService,
+    private confirmationDialogService: ConfirmationDialogService,
+    private messageService: MessageService,
     private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    // const users = this.userService.getUsers().subscribe(
-    //   (result) => {
-    //     alert(result);
-    //   },
-    //   (error) => { console.log(error); });
     this.userForm = this.formBuilder.group({
       firstName: ['', [Validators.required, Validators.minLength(3)]],
       lastName: ['', [Validators.required, Validators.maxLength(50)]],
@@ -27,21 +28,47 @@ export class CreateUserComponent implements OnInit {
     });
   }
 
+  createNewUser() {
+    const user: User = {
+      firstName: this.userForm.value.firstName,
+      lastName: this.userForm.value.lastName,
+      employeeId: this.userForm.value.employeeId
+    };
 
-  onSubmit() {
-    // TODO: Use EventEmitter with form value
-    console.warn(this.userForm.value);
+    this.confirmationDialogService.confirm('',
+      () => {
+        this.userService
+          .create(user)
+          .subscribe(result => {
+            // clear form
+            this.reset();
+            this.messageService.add({
+              severity: 'success',
+              summary: result.firstName,
+              detail: 'Saved successfully.'
+            });
+
+            // emit result
+          });
+      });
+
+
+    // this.userService.create(user).subscribe(
+    //   (result) => {
+    //     this.reset();
+    //   },
+    //   (error) => { console.log(error); });
   }
 
-  save() {
-    console.log(this.userForm);
-    console.log(JSON.stringify(this.userForm.value));
-  }
   reset() {
+    this.userForm.reset();
+  }
+
+  refreshUserForm(user: User) {
     this.userForm.patchValue({
-      firstName: '',
-      lastName: '',
-      employeeId: ''
+      firstName: user.firstName,
+      lastName: user.lastName,
+      employeeId: user.employeeId
     });
   }
 }
