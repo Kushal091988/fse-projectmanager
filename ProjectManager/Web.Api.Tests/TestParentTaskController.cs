@@ -29,6 +29,7 @@ namespace Web.Api.Tests
         [PerfBenchmark(NumberOfIterations = 1, RunMode = RunMode.Throughput,
             TestMode = TestMode.Test, SkipWarmups = true)]
         [MemoryMeasurement(MemoryMetric.TotalBytesAllocated)]
+        [CounterMeasurement("test")]
         public void GetTasks_ShouldReturnAllParenTasks()
         {
             //arrange

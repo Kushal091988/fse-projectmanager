@@ -80,10 +80,22 @@
       <ModuleName>System.Core</ModuleName>
       <Classes />
     </Module>
-    <Module skippedDueTo="Filter" hash="04-5C-66-F9-FF-BA-7C-EA-3B-40-59-BA-78-15-6F-1D-7A-9A-EA-87">
+    <Module skippedDueTo="Filter" hash="26-CD-85-4A-D7-F8-96-6E-46-B8-0F-F4-E6-1F-9E-3F-68-5A-D4-1A">
       <ModulePath>C:\Users\kuskas\Source\Repos\fse-projectmanager\ProjectManager\Web.Api.Tests\bin\Debug\Web.Api.Tests.dll</ModulePath>
-      <ModuleTime>2019-07-21T09:39:49.1426588Z</ModuleTime>
+      <ModuleTime>2019-07-21T15:47:37.4680933Z</ModuleTime>
       <ModuleName>Web.Api.Tests</ModuleName>
+      <Classes />
+    </Module>
+    <Module skippedDueTo="MissingPdb" hash="AC-C3-A2-F1-C0-76-1F-1E-51-A3-B2-05-25-EA-0A-0F-BD-AD-9D-7D">
+      <ModulePath>C:\Users\kuskas\Source\Repos\fse-projectmanager\ProjectManager\Web.Api.Tests\bin\Debug\NBench.dll</ModulePath>
+      <ModuleTime>2018-07-24T14:20:44Z</ModuleTime>
+      <ModuleName>NBench</ModuleName>
+      <Classes />
+    </Module>
+    <Module skippedDueTo="MissingPdb" hash="C2-3B-E2-23-1D-40-47-0C-2F-69-F3-61-29-B9-9C-B9-58-54-07-8F">
+      <ModulePath>C:\Users\kuskas\Source\Repos\fse-projectmanager\ProjectManager\Web.Api.Tests\bin\Debug\AutoMapper.dll</ModulePath>
+      <ModuleTime>2017-12-06T07:08:08Z</ModuleTime>
+      <ModuleName>AutoMapper</ModuleName>
       <Classes />
     </Module>
     <Module hash="34-4A-68-54-3D-4F-FF-F1-26-15-50-A5-57-7F-A4-3D-A8-6C-EA-C4">
@@ -310,19 +322,19 @@
               <Name>System.Void WebApp.AutoMapperConfig/&lt;&gt;c::&lt;Initialize&gt;b__0_0(AutoMapper.IMapperConfigurationExpression)</Name>
               <FileRef uid="2" />
               <SequencePoints>
-                <SequencePoint vc="1" uspid="22" ordinal="0" offset="0" sl="13" sc="13" el="13" ec="14" bec="0" bev="0" fileid="2" />
-                <SequencePoint vc="1" uspid="23" ordinal="1" offset="1" sl="14" sc="17" el="14" ec="48" bec="0" bev="0" fileid="2" />
-                <SequencePoint vc="1" uspid="24" ordinal="2" offset="8" sl="15" sc="17" el="15" ec="48" bec="0" bev="0" fileid="2" />
-                <SequencePoint vc="1" uspid="25" ordinal="3" offset="15" sl="17" sc="17" el="19" ec="97" bec="0" bev="0" fileid="2" />
-                <SequencePoint vc="1" uspid="26" ordinal="4" offset="208" sl="21" sc="17" el="23" ec="96" bec="0" bev="0" fileid="2" />
-                <SequencePoint vc="1" uspid="27" ordinal="5" offset="401" sl="25" sc="17" el="27" ec="97" bec="0" bev="0" fileid="2" />
-                <SequencePoint vc="1" uspid="28" ordinal="6" offset="594" sl="29" sc="17" el="31" ec="96" bec="0" bev="0" fileid="2" />
-                <SequencePoint vc="1" uspid="29" ordinal="7" offset="787" sl="33" sc="17" el="33" ec="60" bec="0" bev="0" fileid="2" />
-                <SequencePoint vc="1" uspid="30" ordinal="8" offset="794" sl="34" sc="17" el="34" ec="60" bec="0" bev="0" fileid="2" />
-                <SequencePoint vc="1" uspid="31" ordinal="9" offset="801" sl="35" sc="13" el="35" ec="14" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="19" uspid="22" ordinal="0" offset="0" sl="13" sc="13" el="13" ec="14" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="19" uspid="23" ordinal="1" offset="1" sl="14" sc="17" el="14" ec="48" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="19" uspid="24" ordinal="2" offset="8" sl="15" sc="17" el="15" ec="48" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="19" uspid="25" ordinal="3" offset="15" sl="17" sc="17" el="19" ec="97" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="19" uspid="26" ordinal="4" offset="208" sl="21" sc="17" el="23" ec="96" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="19" uspid="27" ordinal="5" offset="401" sl="25" sc="17" el="27" ec="97" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="19" uspid="28" ordinal="6" offset="594" sl="29" sc="17" el="31" ec="96" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="19" uspid="29" ordinal="7" offset="787" sl="33" sc="17" el="33" ec="60" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="19" uspid="30" ordinal="8" offset="794" sl="34" sc="17" el="34" ec="60" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="19" uspid="31" ordinal="9" offset="801" sl="35" sc="13" el="35" ec="14" bec="0" bev="0" fileid="2" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint xsi:type="SequencePoint" vc="1" uspid="22" ordinal="0" offset="0" sl="13" sc="13" el="13" ec="14" bec="0" bev="0" fileid="2" />
+              <MethodPoint xsi:type="SequencePoint" vc="19" uspid="22" ordinal="0" offset="0" sl="13" sc="13" el="13" ec="14" bec="0" bev="0" fileid="2" />
             </Method>
             <Method visited="true" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="100" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
               <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="1" visitedBranchPoints="1" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
@@ -330,10 +342,10 @@
               <Name>System.Void WebApp.AutoMapperConfig/&lt;&gt;c::&lt;Initialize&gt;b__0_2(AutoMapper.IMemberConfigurationExpression`3&lt;BusinessTier.Models.Project,ProjectManager.Api.Extension.DTO.ProjectDto,System.String&gt;)</Name>
               <FileRef uid="2" />
               <SequencePoints>
-                <SequencePoint vc="1" uspid="48" ordinal="0" offset="0" sl="18" sc="53" el="18" ec="99" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="19" uspid="48" ordinal="0" offset="0" sl="18" sc="53" el="18" ec="99" bec="0" bev="0" fileid="2" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint xsi:type="SequencePoint" vc="1" uspid="48" ordinal="0" offset="0" sl="18" sc="53" el="18" ec="99" bec="0" bev="0" fileid="2" />
+              <MethodPoint xsi:type="SequencePoint" vc="19" uspid="48" ordinal="0" offset="0" sl="18" sc="53" el="18" ec="99" bec="0" bev="0" fileid="2" />
             </Method>
             <Method visited="true" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="100" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
               <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="1" visitedBranchPoints="1" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
@@ -341,10 +353,10 @@
               <Name>System.Void WebApp.AutoMapperConfig/&lt;&gt;c::&lt;Initialize&gt;b__0_4(AutoMapper.IMemberConfigurationExpression`3&lt;BusinessTier.Models.Project,ProjectManager.Api.Extension.DTO.ProjectDto,System.String&gt;)</Name>
               <FileRef uid="2" />
               <SequencePoints>
-                <SequencePoint vc="1" uspid="49" ordinal="0" offset="0" sl="19" sc="51" el="19" ec="95" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="19" uspid="49" ordinal="0" offset="0" sl="19" sc="51" el="19" ec="95" bec="0" bev="0" fileid="2" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint xsi:type="SequencePoint" vc="1" uspid="49" ordinal="0" offset="0" sl="19" sc="51" el="19" ec="95" bec="0" bev="0" fileid="2" />
+              <MethodPoint xsi:type="SequencePoint" vc="19" uspid="49" ordinal="0" offset="0" sl="19" sc="51" el="19" ec="95" bec="0" bev="0" fileid="2" />
             </Method>
             <Method visited="true" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="100" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
               <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="1" visitedBranchPoints="1" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
@@ -352,10 +364,10 @@
               <Name>System.Void WebApp.AutoMapperConfig/&lt;&gt;c::&lt;Initialize&gt;b__0_6(AutoMapper.IMemberConfigurationExpression`3&lt;ProjectManager.Api.Extension.DTO.ProjectDto,BusinessTier.Models.Project,System.DateTime&gt;)</Name>
               <FileRef uid="2" />
               <SequencePoints>
-                <SequencePoint vc="1" uspid="50" ordinal="0" offset="0" sl="22" sc="52" el="22" ec="98" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="19" uspid="50" ordinal="0" offset="0" sl="22" sc="52" el="22" ec="98" bec="0" bev="0" fileid="2" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint xsi:type="SequencePoint" vc="1" uspid="50" ordinal="0" offset="0" sl="22" sc="52" el="22" ec="98" bec="0" bev="0" fileid="2" />
+              <MethodPoint xsi:type="SequencePoint" vc="19" uspid="50" ordinal="0" offset="0" sl="22" sc="52" el="22" ec="98" bec="0" bev="0" fileid="2" />
             </Method>
             <Method visited="true" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="100" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
               <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="1" visitedBranchPoints="1" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
@@ -363,10 +375,10 @@
               <Name>System.Void WebApp.AutoMapperConfig/&lt;&gt;c::&lt;Initialize&gt;b__0_8(AutoMapper.IMemberConfigurationExpression`3&lt;ProjectManager.Api.Extension.DTO.ProjectDto,BusinessTier.Models.Project,System.DateTime&gt;)</Name>
               <FileRef uid="2" />
               <SequencePoints>
-                <SequencePoint vc="1" uspid="51" ordinal="0" offset="0" sl="23" sc="50" el="23" ec="94" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="19" uspid="51" ordinal="0" offset="0" sl="23" sc="50" el="23" ec="94" bec="0" bev="0" fileid="2" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint xsi:type="SequencePoint" vc="1" uspid="51" ordinal="0" offset="0" sl="23" sc="50" el="23" ec="94" bec="0" bev="0" fileid="2" />
+              <MethodPoint xsi:type="SequencePoint" vc="19" uspid="51" ordinal="0" offset="0" sl="23" sc="50" el="23" ec="94" bec="0" bev="0" fileid="2" />
             </Method>
             <Method visited="true" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="100" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
               <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="1" visitedBranchPoints="1" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
@@ -374,10 +386,10 @@
               <Name>System.Void WebApp.AutoMapperConfig/&lt;&gt;c::&lt;Initialize&gt;b__0_10(AutoMapper.IMemberConfigurationExpression`3&lt;BusinessTier.Models.Task,ProjectManager.Api.Extension.DTO.TaskDto,System.String&gt;)</Name>
               <FileRef uid="2" />
               <SequencePoints>
-                <SequencePoint vc="1" uspid="52" ordinal="0" offset="0" sl="26" sc="53" el="26" ec="99" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="19" uspid="52" ordinal="0" offset="0" sl="26" sc="53" el="26" ec="99" bec="0" bev="0" fileid="2" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint xsi:type="SequencePoint" vc="1" uspid="52" ordinal="0" offset="0" sl="26" sc="53" el="26" ec="99" bec="0" bev="0" fileid="2" />
+              <MethodPoint xsi:type="SequencePoint" vc="19" uspid="52" ordinal="0" offset="0" sl="26" sc="53" el="26" ec="99" bec="0" bev="0" fileid="2" />
             </Method>
             <Method visited="true" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="100" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
               <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="1" visitedBranchPoints="1" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
@@ -385,10 +397,10 @@
               <Name>System.Void WebApp.AutoMapperConfig/&lt;&gt;c::&lt;Initialize&gt;b__0_12(AutoMapper.IMemberConfigurationExpression`3&lt;BusinessTier.Models.Task,ProjectManager.Api.Extension.DTO.TaskDto,System.String&gt;)</Name>
               <FileRef uid="2" />
               <SequencePoints>
-                <SequencePoint vc="1" uspid="53" ordinal="0" offset="0" sl="27" sc="51" el="27" ec="95" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="19" uspid="53" ordinal="0" offset="0" sl="27" sc="51" el="27" ec="95" bec="0" bev="0" fileid="2" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint xsi:type="SequencePoint" vc="1" uspid="53" ordinal="0" offset="0" sl="27" sc="51" el="27" ec="95" bec="0" bev="0" fileid="2" />
+              <MethodPoint xsi:type="SequencePoint" vc="19" uspid="53" ordinal="0" offset="0" sl="27" sc="51" el="27" ec="95" bec="0" bev="0" fileid="2" />
             </Method>
             <Method visited="true" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="100" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
               <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="1" visitedBranchPoints="1" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
@@ -396,10 +408,10 @@
               <Name>System.Void WebApp.AutoMapperConfig/&lt;&gt;c::&lt;Initialize&gt;b__0_14(AutoMapper.IMemberConfigurationExpression`3&lt;ProjectManager.Api.Extension.DTO.TaskDto,BusinessTier.Models.Task,System.DateTime&gt;)</Name>
               <FileRef uid="2" />
               <SequencePoints>
-                <SequencePoint vc="1" uspid="54" ordinal="0" offset="0" sl="30" sc="52" el="30" ec="98" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="19" uspid="54" ordinal="0" offset="0" sl="30" sc="52" el="30" ec="98" bec="0" bev="0" fileid="2" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint xsi:type="SequencePoint" vc="1" uspid="54" ordinal="0" offset="0" sl="30" sc="52" el="30" ec="98" bec="0" bev="0" fileid="2" />
+              <MethodPoint xsi:type="SequencePoint" vc="19" uspid="54" ordinal="0" offset="0" sl="30" sc="52" el="30" ec="98" bec="0" bev="0" fileid="2" />
             </Method>
             <Method visited="true" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="100" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
               <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="1" visitedBranchPoints="1" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
@@ -407,10 +419,10 @@
               <Name>System.Void WebApp.AutoMapperConfig/&lt;&gt;c::&lt;Initialize&gt;b__0_16(AutoMapper.IMemberConfigurationExpression`3&lt;ProjectManager.Api.Extension.DTO.TaskDto,BusinessTier.Models.Task,System.DateTime&gt;)</Name>
               <FileRef uid="2" />
               <SequencePoints>
-                <SequencePoint vc="1" uspid="55" ordinal="0" offset="0" sl="31" sc="50" el="31" ec="94" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="19" uspid="55" ordinal="0" offset="0" sl="31" sc="50" el="31" ec="94" bec="0" bev="0" fileid="2" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint xsi:type="SequencePoint" vc="1" uspid="55" ordinal="0" offset="0" sl="31" sc="50" el="31" ec="94" bec="0" bev="0" fileid="2" />
+              <MethodPoint xsi:type="SequencePoint" vc="19" uspid="55" ordinal="0" offset="0" sl="31" sc="50" el="31" ec="94" bec="0" bev="0" fileid="2" />
             </Method>
           </Methods>
         </Class>
@@ -1374,12 +1386,6 @@
           </Methods>
         </Class>
       </Classes>
-    </Module>
-    <Module skippedDueTo="MissingPdb" hash="C2-3B-E2-23-1D-40-47-0C-2F-69-F3-61-29-B9-9C-B9-58-54-07-8F">
-      <ModulePath>C:\Users\kuskas\Source\Repos\fse-projectmanager\ProjectManager\Web.Api.Tests\bin\Debug\AutoMapper.dll</ModulePath>
-      <ModuleTime>2017-12-06T07:08:08Z</ModuleTime>
-      <ModuleName>AutoMapper</ModuleName>
-      <Classes />
     </Module>
     <Module skippedDueTo="Filter" hash="80-AC-FA-A6-32-3D-4C-5D-A6-72-43-80-F9-0E-39-E4-AA-49-F5-6E">
       <ModulePath>C:\Users\kuskas\Source\Repos\fse-projectmanager\ProjectManager\Web.Api.Tests\bin\Debug\BusinessTier.Models.dll</ModulePath>
