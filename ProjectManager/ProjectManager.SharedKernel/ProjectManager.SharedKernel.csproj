@@ -47,8 +47,6 @@
   <ItemGroup>
     <Compile Include="CalenderLocalDate.cs" />
     <Compile Include="Extensions.cs" />
-    <Compile Include="FilterCriteria\BaseFilter.cs" />
-    <Compile Include="FilterCriteria\BaseSort.cs" />
     <Compile Include="FilterCriteria\CompositeFilterDescriptor.cs" />
     <Compile Include="FilterCriteria\Filter.cs" />
     <Compile Include="FilterCriteria\FilterDescriptor.cs" />
