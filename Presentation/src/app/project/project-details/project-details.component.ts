@@ -24,7 +24,7 @@ export class ProjectDetailsComponent implements OnInit {
   ready = true;
   public currentProject: Project;
   public selectedManager: User;
-
+  isSetDate: boolean;
   get readonly(): boolean {
     return false;
   }

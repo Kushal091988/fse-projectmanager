@@ -18,7 +18,7 @@ import { SharedModule } from './shared/shared.module';
 
 
 import * as $ from 'jquery';
-import { UserModule1 } from './users/user.module';
+import { UserModule } from './users/user.module';
 
 // https://github.com/ocombe/ng2-translate/issues/218
 export function createTranslateLoader(http: HttpClient) {
@@ -44,7 +44,7 @@ export function createTranslateLoader(http: HttpClient) {
     SharedModule.forRoot(),
     // CoreModule,
     LayoutModule,
-    UserModule1
+    UserModule
   ],
   providers: [
     { provide: ErrorHandler, useClass: AppErrorHandler },

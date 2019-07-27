@@ -44,6 +44,17 @@
               </div>
             </div>
 
+            <div *ngIf="!readonly" class="ui-g-12 ui-md-3"><label for="isSetDate"><strong></strong></label></div>
+            <div class="ui-g-12 ui-md-9">
+              <div *ngIf="!readonly">
+                <p-checkbox name="isSetDate" id="isSetDate" [(ngModel)]="isSetDate" checked="checked" binary="true"
+                  label="Set Start date and End Date"></p-checkbox>
+              </div>
+
+              <div *ngIf="readonly" style="width: 100%">
+                <label [innerHTML]="isParentTask" class="code-label"></label>
+              </div>
+            </div>
             <div class="ui-g-12 ui-md-3"><label for="startDate"><strong>Start Date</strong> <strong
                   style="color: red">*</strong></label></div>
             <div class="ui-g-12 ui-md-9">
