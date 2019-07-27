@@ -1,13 +1,16 @@
 export const appSettings = {
-    api: {
-        user: {
-            path: '/api/user'
-        },
-        task: {
-            path: '/api/task'
-        },
-        project: {
-            path: '/api/project'
-        },
-    }
+  api: {
+    user: {
+      path: 'api/user'
+    },
+    project: {
+      path: 'api/project'
+    },
+    task: {
+      path: 'api/task'
+    },
+    parentTask: {
+      path: 'api/parentTask'
+    },
+  }
 };

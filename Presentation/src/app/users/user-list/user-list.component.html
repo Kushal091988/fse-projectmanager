@@ -1,45 +1,49 @@
-  <div class="col-12">
-    <input type="search" class="col-sm-2" name=" search" value="search" [(ngModel)]='listFilter'>
-    <span class="margin">sort by:</span>
-    <input class="col-sm-2 margin btn btn-secondary" type="button" name="fistName" value="First Name"
-      (click)="sortByFirstName()">
-    <input class="col-sm-2 margin btn btn-secondary" type="button" name="lastName" value="Last Name"
-      (click)="sortByLastName()">
-    <input class="col-sm-1 margin btn btn-secondary" type="button" name="id" value="Id" (click)="sortByEmployeeId()">
+<div class="content-heading">Users</div>
+<div class="d-flex justify-content-between">
+  <div style="margin-bottom: 10px">
+    <button pButton type="submit" label="Add new user" style="margin-right: .25em" (click)="addNewUser()"></button>
   </div>
+</div>
+<p-table #dt [value]="users" [columns]="cols" [responsive]="true" [paginator]="true" [lazy]="true"
+  (onLazyLoad)="loadUserLazy($event)" [loading]="loading" [rows]="filterStateService.rows" [totalRecords]="totalRecords"
+  [rowsPerPageOptions]="filterStateService.rowsPerPageOptions" [paginator]="true" [(selection)]="selectedUser"
+  dataKey="id" editMode="row" [scrollable]="true" [resizableColumns]="true" [style]="{'width':'100%'}"
+  scrollHeight="250px">
+  <ng-template pTemplate="header" let-columns>
+    <tr>
+      <th style="width:4em"></th>
+      <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+        {{col.header}}
+        <p-sortIcon [field]="col.field" ariaLabel="Activate to sort"
+          ariaLabelDesc="Activate to sort in descending order" ariaLabelAsc="Activate to sort in ascending order">
+        </p-sortIcon>
+      </th>
+    </tr>
+    <tr>
+      <th style="width:4em"></th>
+      <th *ngFor="let col of columns" [ngSwitch]="col.field">
+        <input pInputText type="text" (keyup)="filterListHelper.onKeyup($event.target.value, col.field)"
+          style="width: 100%">
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowData let-columns="columns">
+    <tr>
+      <td style="width:4em">
+        <button pButton icon="far fa-edit" (click)="edit(rowData)"></button>
+      </td>
+      <td *ngFor="let col of columns ">
+        <span class="ui-column-title">{{col.header}}</span>
+        {{rowData[col.field]}}
+      </td>
 
-  <div *ngFor="let user of filteredUsers">
-    <div class="col-12">
-      <div class="row">
-        <div class="col-md-9">
-          <div class="list-group list-group-flush">
-            <li class=" list-group-item py-2 list-group-item-secondary justify-content-start">{{user.firstName}}
-            </li>
-            <li class="list-group-item py-2 list-group-item-secondary  justify-content-start">
-              {{user.lastName}}
-            </li>
-            <li class="list-group-item py-2 list-group-item-secondary justify-content-start">{{user.employeeId}}</li>
-          </div>
-        </div>
-
-        <div class="col-md-3">
-          <div class="list-group list-group-flush">
-            <li class=" list-group-item py-2 border-0"> <span> <button class="btn btn-secondary btn-block"
-                  (click)="editUser(user)">
-                  Edit
-                </button>
-              </span>
-            </li>
-            <li class="list-group-item py-2 border-0">
-              <span>
-                <button class="btn btn-secondary btn-block "> Reset
-                </button>
-              </span>
-            </li>
-            <li class="list-group-item py-2 border-0"> </li>
-          </div>
-        </div>
-      </div>
-    </div>
-    <hr />
-  </div>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="emptymessage" let-columns>
+    <tr>
+      <td [attr.colspan]="columns.length">
+        No records found
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

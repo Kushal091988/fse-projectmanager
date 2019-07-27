@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
-import { of, throwError } from 'rxjs';
-import { catchError, map, retry, tap } from 'rxjs/operators';
+import { HttpHeaders, HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { catchError, tap } from 'rxjs/operators';
 
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { AppHttpConfig } from './app-http-config';
 import { environment } from 'src/environments/environment';
+import { Injectable } from '@angular/core';
+import { throwError } from 'rxjs';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -26,7 +26,6 @@ export class AppHttpService {
     return this.http
       .get<T>(this.apiUrl + config.url, httpOptions)
       .pipe(
-        retry(environment.api.retry), // retry a failed request up to 3 times
         catchError(this.handleError)
       );
   }

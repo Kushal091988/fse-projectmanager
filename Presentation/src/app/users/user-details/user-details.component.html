@@ -1,0 +1,60 @@
+<div class="content-heading">User Details</div>
+<div class="row">
+  <div class="col-xl-12">
+    <form *ngIf="ready" #f="ngForm" novalidate>
+      <fieldset>
+        <legend>Details</legend>
+
+        <div class="row">
+          <div class="col-xl-8">
+            <div class="ui-g-12 ui-md-3"><label for="firstName"><strong>First Name</strong></label></div>
+            <div class="ui-g-12 ui-md-9">
+              <div *ngIf="!readonly">
+                <input name="firstName" id="firstName" type="text" size="40" pInputText
+                  [(ngModel)]="currentUser.firstName" maxlength=200 placeholder="- First Name -">
+              </div>
+              <div *ngIf="readonly" style="width: 100%">
+                <label [innerHTML]="currentUser.firstName" class="code-label"></label>
+              </div>
+
+            </div>
+            <div class="ui-g-12 ui-md-3"><label for="lastName"><strong>Last Name</strong>
+                <strong style="color: red">*</strong>
+              </label></div>
+            <div class="ui-g-12 ui-md-9">
+              <div *ngIf="!readonly">
+                <input name="lastName" id="lastName" type="text" size="40" pInputText [(ngModel)]="currentUser.lastName"
+                  maxlength=200 placeholder="- Last Name -">
+              </div>
+              <div *ngIf="readonly" style="width: 100%">
+                <label [innerHTML]="currentUser.lastName" class="code-label"></label>
+              </div>
+            </div>
+
+            <div class="ui-g-12 ui-md-3"><label for="empId"><strong>Employee Id</strong>
+                <strong style="color: red">*</strong>
+              </label></div>
+            <div class="ui-g-12 ui-md-9">
+              <div *ngIf="!readonly">
+                <input name="empId" id="empId" type="text" size="40" pInputText [(ngModel)]="currentUser.employeeId"
+                  maxlength=50 placeholder="- Employee Id -">
+              </div>
+              <div *ngIf="readonly" style="width: 100%">
+                <label [innerHTML]="currentUser.employeeId" class="code-label"></label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </fieldset>
+
+      <p-footer>
+        <button *ngIf="!readonly" pButton type="submit" label="Save" icon="pi pi-check" style="margin-right: .25em"
+          (click)="save()" [disabled]="false"></button>
+        <button pButton type="button" label="Back" icon="pi pi-times" class="ui-button-danger"
+          (click)="back()"></button>
+      </p-footer>
+
+    </form>
+  </div>
+</div>

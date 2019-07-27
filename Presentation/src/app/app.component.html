@@ -1,22 +1,3 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-3">
-  <div class="container-fluid">
-    <a href="#" class="navbar-brand mr-3">{{title}}</a>
-    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-      <div class="navbar-nav">
-        <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/user']">Add User</a></li>
-        <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/project']">Add Project</a></li>
-        <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/task']">Add Task</a></li>
-        <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/taskList']">View Task</a></li>
-      </div>
-    </div>
-  </div>
-</nav>
+<router-outlet></router-outlet>
 <p-toast position="bottom-right"></p-toast>
 <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
-
-<div class="col-8">
-  <router-outlet></router-outlet>
-</div>

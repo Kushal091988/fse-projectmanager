@@ -1,21 +1,31 @@
-import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { UserComponent } from './users/user/user.component';
-import { ProjectComponent } from './projects/project/project.component';
-import { TaskComponent } from './tasks/task/task.component';
-import { TaskListComponent } from './tasks/task-list/task-list.component';
+import { MenuService } from './core/menu/menu.service';
+import { LayoutComponent } from './layout/layout.component';
+import { NgModule } from '@angular/core';
 
 const routes: Routes = [
-  { path: 'user', component: UserComponent },
-  { path: 'project', component: ProjectComponent },
-  { path: 'task', component: TaskComponent },
-  { path: 'taskList', component: TaskListComponent },
-  { path: '', redirectTo: 'user', pathMatch: 'full' },
-  { path: '**', redirectTo: 'user', pathMatch: 'full' }
+  {
+    path: '',
+    component: LayoutComponent,
+    children: [
+      { path: 'user', loadChildren: './users/user.module#UserModule1' },
+      { path: 'project', loadChildren: './project/project.module#ProjectModule' },
+      { path: 'task', loadChildren: './task/task.module#TaskModule' },
+      { path: '', redirectTo: 'user', pathMatch: 'full' },
+      { path: '**', redirectTo: 'user', pathMatch: 'full' }
+    ]
+  }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [
+    RouterModule.forRoot(routes)
+  ],
+  exports: [RouterModule],
+  declarations: []
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+  constructor(private menuService: MenuService) {
+    this.menuService.addMenu();
+  }
+}

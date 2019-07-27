@@ -1,49 +1,56 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
-import { AppComponent } from './app.component';
-import { CreateUserComponent } from './users/create-user/create-user.component';
-import { UserListComponent } from './users/user-list/user-list.component';
-import { UserComponent } from './users/user/user.component';
-import { ProjectComponent } from './projects/project/project.component';
-import { ProjectDetailComponent } from './projects/project-detail/project-detail.component';
-import { TaskComponent } from './tasks/task/task.component';
-import { TaskListComponent } from './tasks/task-list/task-list.component';
-import { TaskDetailComponent } from './tasks/task-detail/task-detail.component';
-import { AppRoutingModule } from './app-routing.module';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { LocalStorageModule } from 'angular-2-local-storage';
 import { ConfirmationService, MessageService } from 'primeng/api';
-import { MessagesModule } from 'primeng/messages';
-import { MessageModule } from 'primeng/message';
+
+import { CurrencyPipe } from '@angular/common';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
+import { ErrorHandler, NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ToastModule } from 'primeng/toast';
-import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { AppErrorHandler } from './core/app-error-handler';
+import { CoreModule } from './core/core.module';
+import { LayoutModule } from './layout/layout.module';
+import { SharedModule } from './shared/shared.module';
+
+
+import * as $ from 'jquery';
+import { UserModule1 } from './users/user.module';
+
+// https://github.com/ocombe/ng2-translate/issues/218
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
-    AppComponent,
-    CreateUserComponent,
-    UserListComponent,
-    UserComponent,
-    ProjectComponent,
-    ProjectDetailComponent,
-    TaskComponent,
-    TaskListComponent,
-    TaskDetailComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-    FormsModule,
-    MessagesModule,
-    MessageModule,
     BrowserAnimationsModule,
-    ToastModule,
-    ConfirmDialogModule
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient]
+      }
+    }),
+    AppRoutingModule,
+    SharedModule.forRoot(),
+    // CoreModule,
+    LayoutModule,
+    UserModule1
   ],
-  providers: [ConfirmationService, MessageService],
+  providers: [
+    { provide: ErrorHandler, useClass: AppErrorHandler },
+    [MessageService, ConfirmationService],
+    CurrencyPipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,57 +1,76 @@
-import { User } from './../user';
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { User } from '../user';
+import { UserService } from '../user.service';
+import { TableFilterStateService } from 'src/app/shared/filter/table-filter-state.service';
+import { Subscription } from 'rxjs';
+import { FilterListHelper } from 'src/app/shared/filter/filter-list-helper';
+import { Router } from '@angular/router';
+import { FilterList } from 'src/app/shared/filter/filter-list';
 
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
-  styleUrls: ['./user-list.component.css']
+  styleUrls: ['./user-list.component.scss'],
+  providers: [TableFilterStateService]
 })
-export class UserListComponent implements OnInit {
-  @Input() users: User[];
-  @Output() userEdited = new EventEmitter<User>();
-  constructor() { }
-
-  _listFilter = '';
-  _fieldName = 'id';
-  get listFilter(): string {
-    return this._listFilter;
-  }
-  set listFilter(value: string) {
-    this._listFilter = value;
-    this.filteredUsers = this.listFilter ? this.performFilter(this.listFilter) : this.users;
-  }
-
-  filteredUsers: User[] = [];
-
-  performFilter(filterBy: string): User[] {
-    filterBy = filterBy.toLocaleLowerCase();
-    return this.users.filter((user: User) =>
-      user.firstName.toLocaleLowerCase().indexOf(filterBy) !== -1);
-  }
-
-  sortByFirstName() {
-    // first filter to remove other sorting
-    const filteredUsers = this.performFilter(this._listFilter);
-    this.filteredUsers = filteredUsers.sort((a, b) => a.firstName > b.firstName ? 1 : -1);
-  }
-
-  sortByLastName() {
-    // first filter to remove other sorting
-    const filteredUsers = this.performFilter(this._listFilter);
-    this.filteredUsers = filteredUsers.sort((a, b) => a.lastName > b.lastName ? 1 : -1);
-  }
-
-  sortByEmployeeId() {
-    // first filter to remove other sorting
-    const filteredUsers = this.performFilter(this._listFilter);
-    this.filteredUsers = filteredUsers.sort((a, b) => a.employeeId > b.employeeId ? 1 : -1);
+export class UserListComponent implements FilterList, OnInit, OnDestroy {
+  users: User[];
+  selectedUser: User;
+  cols: any[];
+  private subscription: Subscription;
+  totalRecords = 0;
+  loading: boolean;
+  public filterListHelper: FilterListHelper;
+  constructor(private router: Router,
+    public filterStateService: TableFilterStateService,
+    private userService: UserService) {
+    this.filterListHelper = new FilterListHelper(this, this.filterStateService);
+    this.filterStateService.onSort('id', -1);
   }
 
   ngOnInit() {
+    this.cols = [
+      { field: 'firstName', header: 'Fist Name' },
+      { field: 'lastName', header: 'Last Name' },
+      { field: 'employeeId', header: 'Employee Id' },
+    ];
+
+    this.loading = true;
   }
 
-  editUser(user: User) {
-    this.userEdited.emit(user);
+  edit(user: User): void {
+    this.router.navigate([`/user/${user.id}`]);
   }
 
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+
+  refresh() {
+    this.subscription = this.userService
+      .query(this.filterStateService.extract())
+      .subscribe(dataResult => {
+        this.users = dataResult.data;
+        this.totalRecords = dataResult.total;
+        this.loading = false;
+      });
+  }
+
+
+  loadUserLazy($event: any) {
+    this.loading = true;
+    this.filterStateService.onPaginate($event.first, $event.rows);
+    let sortField = $event.sortField;
+    let sortOrder = $event.sortOrder;
+    if (!sortField) {
+      sortField = 'id';
+      sortOrder = -1;
+    }
+    this.filterStateService.onSort(sortField, sortOrder);
+    this.refresh();
+  }
+
+  addNewUser(): void {
+    this.router.navigate([`/user/new`]);
+  }
 }

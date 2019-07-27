@@ -1,10 +1,10 @@
-import { User } from './user';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { AppHttpService } from '../shared/http-service/app-http.service';
-import { environment } from 'src/environments/environment';
-import { catchError } from 'rxjs/operators';
+import { AppHttpService } from '../core/api/app-http.service';
 import { appSettings } from '../app.settings';
+import { Observable } from 'rxjs';
+import { User } from './user';
+import { FilterState } from '../shared/filter/models/filter-state';
+import { DataResult } from '../shared/filter/models/data-result';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +13,11 @@ export class UserService {
 
   constructor(private httpService: AppHttpService) { }
   private readonly url: string = appSettings.api.user.path;
+
+  query(state: FilterState): Observable<DataResult<User>> {
+    return this.httpService.post<DataResult<User>>({ url: this.url + '/query' }, state);
+  }
+
   getAll(): Observable<User[]> {
     return this.httpService.get<User[]>({ url: this.url + '/getUsers' });
   }
@@ -25,7 +30,7 @@ export class UserService {
     return this.httpService.post<User>({ url: `${this.url}/update` }, user);
   }
 
-  get(id: number): Observable<User> {
+  get(id: string): Observable<User> {
     return this.httpService.get<User>({ url: `${this.url}/${id}` });
   }
 

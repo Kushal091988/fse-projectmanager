@@ -37,3 +37,8 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+.vs/slnx.sqlite-journal
+.vs/VSWorkspaceState.json
+.vs/slnx.sqlite
+.vs/frontend/v15/.suo
+.vs/slnx.sqlite

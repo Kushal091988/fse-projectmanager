@@ -3,29 +3,54 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "presentation-tier": {
+    "longrich-ftp": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
       "prefix": "app",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/presentation-tier",
+            "outputPath": "dist/longrich-ftp",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/web.config"
             ],
             "styles": [
-              "src/styles.css"
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/primeng/resources/themes/rhea/theme.css",
+              "node_modules/primeng/resources/primeng.min.css",
+              "node_modules/quill/dist/quill.core.css",
+              "node_modules/quill/dist/quill.snow.css",
+              "src/app/core/preloader/preloader.scss",
+              "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.js",
+              "src/app/core/preloader/preloader.js",
+              "node_modules/popper.js/dist/umd/popper.js",
+              "node_modules/chart.js/dist/Chart.bundle.js",
+              "node_modules/jqcloud2/dist/jqcloud.js",
+              "node_modules/bootstrap/js/dist/util.js",
+              "node_modules/bootstrap/js/dist/modal.js",
+              "node_modules/bootstrap/js/dist/dropdown.js",
+              "node_modules/bootstrap/js/dist/tooltip.js",
+              "node_modules/summernote/dist/summernote.js",
+              "node_modules/moment/min/moment-with-locales.min.js",
+              "node_modules/fullcalendar/dist/fullcalendar.js",
+              "node_modules/quill/dist/quill.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -41,25 +66,50 @@
               "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
-              "buildOptimizer": true
+              "buildOptimizer": true,
+              "budgets": [{
+                "type": "initial",
+                "maximumWarning": "6mb",
+                "maximumError": "7mb"
+              }]
+            },
+            "staging": {
+              "fileReplacements": [{
+                "replace": "src/environments/environment.ts",
+                "with": "src/environments/environment.staging.ts"
+              }],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [{
+                "type": "initial",
+                "maximumWarning": "6mb",
+                "maximumError": "7mb"
+              }]
             }
           }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "presentation-tier:build"
+            "browserTarget": "longrich-ftp:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "presentation-tier:build:production"
+              "browserTarget": "longrich-ftp:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "presentation-tier:build"
+            "browserTarget": "longrich-ftp:build"
           }
         },
         "test": {
@@ -70,9 +120,28 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "src/styles.css"
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/primeng/resources/themes/nova-colored/theme.css",
+              "node_modules/primeng/resources/primeng.min.css",
+              "node_modules/quill/dist/quill.core.css",
+              "node_modules/quill/dist/quill.snow.css",
+              "src/app/core/preloader/preloader.scss",
+              "src/styles.scss"
             ],
-            "scripts": [],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.js",
+              "src/app/core/preloader/preloader.js",
+              "node_modules/popper.js/dist/umd/popper.js",
+              "node_modules/jqcloud2/dist/jqcloud.js",
+              "node_modules/bootstrap/js/dist/util.js",
+              "node_modules/bootstrap/js/dist/modal.js",
+              "node_modules/bootstrap/js/dist/dropdown.js",
+              "node_modules/bootstrap/js/dist/tooltip.js",
+              "node_modules/summernote/dist/summernote.js",
+              "node_modules/moment/min/moment-with-locales.min.js",
+              "node_modules/fullcalendar/dist/fullcalendar.js",
+              "node_modules/quill/dist/quill.js"
+            ],
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -93,19 +162,20 @@
         }
       }
     },
-    "presentation-tier-e2e": {
+    "longrich-ftp-e2e": {
       "root": "e2e/",
       "projectType": "application",
+      "prefix": "",
       "architect": {
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "presentation-tier:serve"
+            "devServerTarget": "longrich-ftp:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "presentation-tier:serve:production"
+              "devServerTarget": "longrich-ftp:serve:production"
             }
           }
         },
@@ -121,5 +191,5 @@
       }
     }
   },
-  "defaultProject": "presentation-tier"
+  "defaultProject": "longrich-ftp"
 }
