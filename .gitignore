@@ -22,3 +22,5 @@
 /ProjectManager/ProjectManager.Api.Extension/obj/Debug
 /ProjectManager/GeneratedReports/ReportGenerator Output
 /ProjectManager/Logs
+/ProjectManager/ProjectManager.SharedKernel/bin/Debug
+/ProjectManager/ProjectManager.SharedKernel/obj/Debug

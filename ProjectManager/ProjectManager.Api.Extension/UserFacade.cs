@@ -4,6 +4,7 @@ using DataAccess.Repositories;
 using DataAccess.Repositories.Intefaces;
 using ProjectManager.Api.Extension.DTO;
 using ProjectManager.Api.Extension.Interfaces;
+using ProjectManager.SharedKernel.FilterCriteria;
 using Serilog;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,23 @@ namespace ProjectManager.Api.Extension
         public UserFacade(IUserRepository userRepository)
         {
             _userRepository = userRepository;
+        }
+
+        public FilterResult<UserDto> Query(FilterState filterState)
+        {
+            var filterResult = _userRepository.Query(filterState);
+
+            if (filterResult != null)
+            {
+                var users = Mapper.Map<List<UserDto>>(filterResult.Data);
+                return new FilterResult<UserDto>
+                {
+                    Total = filterResult.Total,
+                    Data = users
+                };
+            }
+
+            return null; 
         }
 
         /// <summary>

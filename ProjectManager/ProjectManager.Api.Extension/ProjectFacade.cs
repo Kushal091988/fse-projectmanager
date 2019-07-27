@@ -2,8 +2,9 @@
 using BusinessTier.Models;
 using DataAccess.Repositories.Intefaces;
 using ProjectManager.Api.Extension.DTO;
-using ProjectManager.Api.Extension.Helper;
 using ProjectManager.Api.Extension.Interfaces;
+using ProjectManager.SharedKernel;
+using ProjectManager.SharedKernel.FilterCriteria;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,23 @@ namespace ProjectManager.Api.Extension
         public ProjectFacade(IProjectRepository projectRepository)
         {
             _projectRepository = projectRepository;
+        }
+
+        public FilterResult<ProjectDto> Query(FilterState filterState)
+        {
+            var filterResult = _projectRepository.Query(filterState);
+
+            if (filterResult != null)
+            {
+                var projects = Mapper.Map<List<ProjectDto>>(filterResult.Data);
+                return new FilterResult<ProjectDto>
+                {
+                    Total = filterResult.Total,
+                    Data = projects
+                };
+            }
+
+            return null;
         }
 
         /// <summary>

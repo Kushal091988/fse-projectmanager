@@ -1,22 +1,38 @@
 ﻿using AutoMapper;
 using DataAccess.Repositories.Intefaces;
 using ProjectManager.Api.Extension.DTO;
-using ProjectManager.Api.Extension.Helper;
 using ProjectManager.Api.Extension.Interfaces;
+using ProjectManager.SharedKernel;
+using ProjectManager.SharedKernel.FilterCriteria;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProjectManager.Api.Extension
 {
     public class TaskFacade : ITaskFacade
     {
         private readonly ITaskRepository _taskRepository;
+
         public TaskFacade(ITaskRepository taskRepository)
         {
             _taskRepository = taskRepository;
+        }
+
+        public FilterResult<TaskDto> Query(FilterState filterState)
+        {
+            var filterResult = _taskRepository.Query(filterState);
+
+            if (filterResult != null)
+            {
+                var tasks = Mapper.Map<List<TaskDto>>(filterResult.Data);
+                return new FilterResult<TaskDto>
+                {
+                    Total = filterResult.Total,
+                    Data = tasks
+                };
+            }
+
+            return null;
         }
 
         /// <summary>
@@ -36,7 +52,6 @@ namespace ProjectManager.Api.Extension
             return taskDto;
         }
 
-
         /// <summary>
         /// delete task
         /// </summary>
@@ -55,7 +70,6 @@ namespace ProjectManager.Api.Extension
 
             return true;
         }
-
 
         /// <summary>
         /// Get all tasks
@@ -80,7 +94,7 @@ namespace ProjectManager.Api.Extension
             if (task == null)
             {
                 //create task
-                task = Mapper.Map< BusinessTier.Models.Task>(taskDto);
+                task = Mapper.Map<BusinessTier.Models.Task>(taskDto);
                 _taskRepository.Add(task);
             }
             else

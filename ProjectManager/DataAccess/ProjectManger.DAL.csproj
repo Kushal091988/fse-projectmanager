@@ -49,6 +49,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Filters\ProjectFilter.cs" />
+    <Compile Include="Filters\TaskFilter.cs" />
+    <Compile Include="Filters\UserFilter.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PMDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -62,6 +65,9 @@
     <Compile Include="Repositories\TaskRepository.cs" />
     <Compile Include="Repositories\ProjectRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="Sort\ProjectSort.cs" />
+    <Compile Include="Sort\TaskSort.cs" />
+    <Compile Include="Sort\UserSort.cs" />
     <Compile Include="Seed.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -73,6 +79,13 @@
       <Project>{708d0ed2-3f36-484c-8983-8763478cc9f9}</Project>
       <Name>ProjectManager.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ProjectManager.SharedKernel\ProjectManager.SharedKernel.csproj">
+      <Project>{cf6f9e8b-1171-4bc6-b49e-f0a2776891f6}</Project>
+      <Name>ProjectManager.SharedKernel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -26,5 +26,7 @@ namespace ProjectManager.Api.Extension.DTO
 
         [Required]
         public int ManagerId { get; set; }
+
+        public string ManagerDisplayName { get; set; }
     }
 }

@@ -52,5 +52,11 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ProjectManager.SharedKernel\ProjectManager.SharedKernel.csproj">
+      <Project>{cf6f9e8b-1171-4bc6-b49e-f0a2776891f6}</Project>
+      <Name>ProjectManager.SharedKernel</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -19,5 +19,6 @@ namespace ProjectManager.Api.Extension.DTO
         [Required]
         public string EmployeeId { get; set; }
 
+        public string DisplayName { get { return string.Join(" ", FirstName, LastName); } }
     }
 }

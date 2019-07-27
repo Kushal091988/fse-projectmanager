@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{57F8E88D-8F29-4E18-BA14-445C4FFE072D}</ProjectGuid>
+    <ProjectGuid>{CF6F9E8B-1171-4BC6-B49E-F0A2776891F6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ProjectManager.Api.Extension</RootNamespace>
-    <AssemblyName>ProjectManager.Api.Extension</AssemblyName>
+    <RootNamespace>ProjectManager.SharedKernel</RootNamespace>
+    <AssemblyName>ProjectManager.SharedKernel</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -32,16 +32,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
-    </Reference>
-    <Reference Include="Serilog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
-      <HintPath>..\packages\Serilog.2.8.0\lib\net46\Serilog.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,39 +45,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DTO\ParentTaskDto.cs" />
-    <Compile Include="DTO\ProjectDto.cs" />
-    <Compile Include="DTO\TaskDto.cs" />
-    <Compile Include="DTO\UserDto.cs" />
-    <Compile Include="Interfaces\IProjectFacade.cs" />
-    <Compile Include="Interfaces\IParentTaskFacade.cs" />
-    <Compile Include="Interfaces\ITaskFacade.cs" />
-    <Compile Include="Interfaces\IUserFacade.cs" />
-    <Compile Include="ProjectFacade.cs" />
-    <Compile Include="ParentTaskFacade.cs" />
-    <Compile Include="TaskFacade.cs" />
-    <Compile Include="UserFacade.cs" />
+    <Compile Include="CalenderLocalDate.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="FilterCriteria\BaseFilter.cs" />
+    <Compile Include="FilterCriteria\BaseSort.cs" />
+    <Compile Include="FilterCriteria\CompositeFilterDescriptor.cs" />
+    <Compile Include="FilterCriteria\Filter.cs" />
+    <Compile Include="FilterCriteria\FilterDescriptor.cs" />
+    <Compile Include="FilterCriteria\FilterResult.cs" />
+    <Compile Include="FilterCriteria\FilterState.cs" />
+    <Compile Include="FilterCriteria\FilterStateHelper.cs" />
+    <Compile Include="FilterCriteria\PaginatedList.cs" />
+    <Compile Include="FilterCriteria\RangeFilter.cs" />
+    <Compile Include="FilterCriteria\SortDescriptor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BusinessTier.Models\ProjectManager.Models.csproj">
-      <Project>{708d0ed2-3f36-484c-8983-8763478cc9f9}</Project>
-      <Name>ProjectManager.Models</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DataAccess\ProjectManger.DAL.csproj">
-      <Project>{01321c65-35da-4323-b8c9-2cc1e20a162e}</Project>
-      <Name>ProjectManger.DAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ProjectManager.SharedKernel\ProjectManager.SharedKernel.csproj">
-      <Project>{cf6f9e8b-1171-4bc6-b49e-f0a2776891f6}</Project>
-      <Name>ProjectManager.SharedKernel</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Helper\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

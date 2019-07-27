@@ -2,6 +2,7 @@
 using ProjectManager.Api.Extension;
 using ProjectManager.Api.Extension.DTO;
 using ProjectManager.Api.Extension.Interfaces;
+using ProjectManager.SharedKernel.FilterCriteria;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,17 @@ namespace WebApp.Api
         public ProjectController()
         {
             _projectFacade = new ProjectFacade(new ProjectRepository());
+        }
+
+        [Route("query")]
+        [HttpPost()]
+        [ResponseType(typeof(List<UserDto>))]
+        public IHttpActionResult Query([FromBody]FilterState filterState)
+        {
+            return Try(() =>
+            {
+                return Ok(_projectFacade.Query(filterState));
+            });
         }
 
         [Route("getProjects")]

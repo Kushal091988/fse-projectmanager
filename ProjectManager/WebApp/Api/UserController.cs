@@ -15,6 +15,7 @@ using DataAccess;
 using ProjectManager.Api.Extension;
 using ProjectManager.Api.Extension.DTO;
 using ProjectManager.Api.Extension.Interfaces;
+using ProjectManager.SharedKernel.FilterCriteria;
 
 namespace WebApp.Api
 {
@@ -29,6 +30,17 @@ namespace WebApp.Api
         public UserController()
         {
             _userFacade = new UserFacade(new DataAccess.Repositories.UserRepository());
+        }
+
+        [Route("query")]
+        [HttpPost()]
+        [ResponseType(typeof(List<UserDto>))]
+        public IHttpActionResult Query([FromBody]FilterState filterState)
+        {
+            return Try(() =>
+            {
+                return Ok(_userFacade.Query(filterState));
+            });
         }
 
         [Route("getUsers")]

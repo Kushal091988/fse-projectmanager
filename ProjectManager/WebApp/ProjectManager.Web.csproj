@@ -212,6 +212,10 @@
       <Project>{57f8e88d-8f29-4e18-ba14-445c4ffe072d}</Project>
       <Name>ProjectManager.Api.Extension</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ProjectManager.SharedKernel\ProjectManager.SharedKernel.csproj">
+      <Project>{cf6f9e8b-1171-4bc6-b49e-f0a2776891f6}</Project>
+      <Name>ProjectManager.SharedKernel</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

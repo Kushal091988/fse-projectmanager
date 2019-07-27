@@ -31,6 +31,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LoadTest", "LoadTest", "{AD
 		runNBench.bat = runNBench.bat
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectManager.SharedKernel", "ProjectManager.SharedKernel\ProjectManager.SharedKernel.csproj", "{CF6F9E8B-1171-4BC6-B49E-F0A2776891F6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{57F8E88D-8F29-4E18-BA14-445C4FFE072D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{57F8E88D-8F29-4E18-BA14-445C4FFE072D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{57F8E88D-8F29-4E18-BA14-445C4FFE072D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF6F9E8B-1171-4BC6-B49E-F0A2776891F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF6F9E8B-1171-4BC6-B49E-F0A2776891F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF6F9E8B-1171-4BC6-B49E-F0A2776891F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF6F9E8B-1171-4BC6-B49E-F0A2776891F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -69,6 +75,7 @@ Global
 		{57F8E88D-8F29-4E18-BA14-445C4FFE072D} = {E3FF8BCE-CCD5-4E0D-826A-37358DBAD6C0}
 		{75EE0B9C-23AC-48F9-A276-2743E82BE92E} = {9CE763C7-37CE-4795-BF5D-C4B086491386}
 		{AD6FAF77-69EC-4386-843A-1562E467AD91} = {9CE763C7-37CE-4795-BF5D-C4B086491386}
+		{CF6F9E8B-1171-4BC6-B49E-F0A2776891F6} = {78DD2425-7EF5-40B8-AD3A-EBD520E595BC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BE235882-FAD0-4E82-A46A-83248DDC6DA9}

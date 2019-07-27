@@ -15,6 +15,7 @@ using DataAccess.Repositories;
 using ProjectManager.Api.Extension;
 using ProjectManager.Api.Extension.DTO;
 using ProjectManager.Api.Extension.Interfaces;
+using ProjectManager.SharedKernel.FilterCriteria;
 
 namespace WebApp.Api
 {
@@ -30,6 +31,17 @@ namespace WebApp.Api
         public TaskController()
         {
             _taskFacade = new TaskFacade(new TaskRepository());
+        }
+
+        [Route("query")]
+        [HttpPost()]
+        [ResponseType(typeof(List<UserDto>))]
+        public IHttpActionResult Query([FromBody]FilterState filterState)
+        {
+            return Try(() =>
+            {
+                return Ok(_taskFacade.Query(filterState));
+            });
         }
 
         [Route("getTasks")]

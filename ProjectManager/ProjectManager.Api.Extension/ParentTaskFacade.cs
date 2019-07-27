@@ -2,7 +2,6 @@
 using BusinessTier.Models;
 using DataAccess.Repositories.Intefaces;
 using ProjectManager.Api.Extension.DTO;
-using ProjectManager.Api.Extension.Helper;
 using ProjectManager.Api.Extension.Interfaces;
 using System;
 using System.Collections.Generic;

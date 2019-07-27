@@ -1,4 +1,5 @@
 ﻿using ProjectManager.Api.Extension.DTO;
+using ProjectManager.SharedKernel.FilterCriteria;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,5 +17,7 @@ namespace ProjectManager.Api.Extension.Interfaces
         TaskDto Update(TaskDto task);
 
         bool Delete(int id);
+
+        FilterResult<TaskDto> Query(FilterState filterState);
     }
 }

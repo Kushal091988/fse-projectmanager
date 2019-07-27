@@ -27,10 +27,14 @@ namespace ProjectManager.Api.Extension.DTO
         [Required]
         public int ParentTaskId { get; set; }
 
+        public string ParentTaskName { get; set; }
+
         [Required]
         public int OwnerId { get; set; }
+        public string OwnerName { get; set; }
 
         [Required]
         public int ProjectId { get; set; }
+        public string ProjectName { get; set; }
     }
 }
