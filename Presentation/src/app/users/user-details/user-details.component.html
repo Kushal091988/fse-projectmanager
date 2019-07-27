@@ -15,30 +15,30 @@
                 <div class="text-danger" *ngIf="!validateName()"><em>Either First Name or Last name is required.</em>
                 </div>
               </div>
-              <div class="form-group">
-                <div class="ui-g-12 ui-md-3"><label for="lastName"><strong>Last Name</strong>
-                    <strong style="color: red">*</strong>
-                  </label></div>
-                <div class="ui-g-12 ui-md-9">
-                  <input formControlName="lastName" name="lastName" id="ud_lastName" type="text" size="40" pInputText
-                    maxlength=200 placeholder="- Last Name -" (change)="onLastNameChange()">
-                  <div class="text-danger" *ngIf="!validateName()"><em>Either
-                      First Name or Last name is required.</em>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="ui-g-12 ui-md-3"><label for="employeeId"><strong>Employee Id</strong>
-                      <strong style="color: red">*</strong>
-                    </label></div>
-                  <div class="ui-g-12 ui-md-9">
-                    <input formControlName="employeeId" name="employeeId" id="ud_employeeId" type="text" size="40"
-                      pInputText maxlength=50 placeholder="- Employee Id -">
-
-                    <div class="text-danger" *ngIf="!validateEmployeeId()"><em>Employee Id is required</em></div>
-                  </div>
+            </div>
+            <div class="form-group">
+              <div class="ui-g-12 ui-md-3"><label for="lastName"><strong>Last Name</strong>
+                  <strong style="color: red">*</strong>
+                </label></div>
+              <div class="ui-g-12 ui-md-9">
+                <input formControlName="lastName" name="lastName" id="ud_lastName" type="text" size="40" pInputText
+                  maxlength=200 placeholder="- Last Name -" (change)="onLastNameChange()">
+                <div class="text-danger" *ngIf="!validateName()"><em>Either
+                    First Name or Last name is required.</em>
                 </div>
               </div>
+            </div>
 
+            <div class="form-group">
+              <div class="ui-g-12 ui-md-3"><label for="employeeId"><strong>Employee Id</strong>
+                  <strong style="color: red">*</strong>
+                </label></div>
+              <div class="ui-g-12 ui-md-9">
+                <input formControlName="employeeId" name="employeeId" id="ud_employeeId" type="text" size="40"
+                  pInputText maxlength=50 placeholder="- Employee Id -">
+
+                <div class="text-danger" *ngIf="!validateEmployeeId()"><em>Employee Id is required</em></div>
+              </div>
             </div>
           </div>
         </div>

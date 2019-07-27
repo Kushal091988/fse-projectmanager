@@ -36,4 +36,8 @@ export class ProjectService {
   delete(id: number): Observable<Project> {
     return this.httpService.delete<Project>({ url: `${this.url}/delete/${id}` });
   }
+
+  suspend(id: number): Observable<any> {
+    return this.httpService.post<any>({ url: `${this.url}/suspend` }, id);
+  }
 }

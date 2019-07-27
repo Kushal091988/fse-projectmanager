@@ -78,7 +78,7 @@ export class AppHttpService {
       );
   }
 
-  private handleError(error: any) {
+  private handleError(error: HttpErrorResponse) {
     // return an observable with a user-facing error message
     return throwError(error);
   }

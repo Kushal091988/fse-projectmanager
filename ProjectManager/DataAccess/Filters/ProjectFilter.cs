@@ -67,57 +67,6 @@ namespace DataAccess.Filters
                         }
                         else throw new NotImplementedException("Operator not handled");
                         break;
-
-                    case "startdate":
-                        if (filter.FilterOperator == FilterOperator.GreaterThanEqual)
-                        {
-                            var compareValue = new CalendarLocalDate((DateTime)filter.Value).Value;
-                            query = query.Where(e => e.StartDate >= compareValue);
-                        }
-                        else if (filter.FilterOperator == FilterOperator.LessThanEqual)
-                        {
-                            var compareValue = new CalendarLocalDate((DateTime)filter.Value, true).Value;
-                            query = query.Where(e => e.StartDate <= compareValue);
-                        }
-                        else if (filter.FilterOperator == FilterOperator.Range)
-                        {
-                            if (filter.Value != null)
-                            {
-                                var range = filter.Value
-                                .ToString()
-                                .ToObject<RangeFilter<string>>();
-
-                                query = query.Where(e => e.StartDate.AddMinutes((double)range.TimeZoneOffset).Date >= range.From.YYYYMMDDToDate().Date
-                                    && e.StartDate.AddMinutes((double)range.TimeZoneOffset).Date <= range.To.YYYYMMDDToDate().Date);
-                            }
-                        }
-                        else throw new NotImplementedException("Operator not handled");
-                        break;
-                    case "enddate":
-                        if (filter.FilterOperator == FilterOperator.GreaterThanEqual)
-                        {
-                            var compareValue = new CalendarLocalDate((DateTime)filter.Value).Value;
-                            query = query.Where(e => e.EndDate >= compareValue);
-                        }
-                        else if (filter.FilterOperator == FilterOperator.LessThanEqual)
-                        {
-                            var compareValue = new CalendarLocalDate((DateTime)filter.Value, true).Value;
-                            query = query.Where(e => e.EndDate <= compareValue);
-                        }
-                        else if (filter.FilterOperator == FilterOperator.Range)
-                        {
-                            if (filter.Value != null)
-                            {
-                                var range = filter.Value
-                                .ToString()
-                                .ToObject<RangeFilter<string>>();
-
-                                query = query.Where(e => e.EndDate.AddMinutes((double)range.TimeZoneOffset).Date >= range.From.YYYYMMDDToDate().Date
-                                    && e.EndDate.AddMinutes((double)range.TimeZoneOffset).Date <= range.To.YYYYMMDDToDate().Date);
-                            }
-                        }
-                        else throw new NotImplementedException("Operator not handled");
-                        break;
                 }
             }
         }

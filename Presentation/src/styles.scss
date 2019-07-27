@@ -53,6 +53,10 @@ input.ng-dirty.ng-invalid.ng-touched {
   border-color: red
 }
 
+input.ng-invalid.ng-touched {
+  border-color: red
+}
+
 select.ng-invalid {
   border-color: red
 }

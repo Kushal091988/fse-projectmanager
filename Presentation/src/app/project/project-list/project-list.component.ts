@@ -6,6 +6,8 @@ import { Router } from '@angular/router';
 import { TableFilterStateService } from 'src/app/shared/filter/table-filter-state.service';
 import { ProjectService } from '../project.service';
 import { FilterList } from 'src/app/shared/filter/filter-list';
+import { ConfirmationDialogService } from 'src/app/shared/confirm-dialog/confirmation-dialog.service';
+import { MessageService } from 'primeng/components/common/messageservice';
 
 @Component({
   selector: 'app-project-list',
@@ -23,7 +25,9 @@ export class ProjectListComponent implements FilterList, OnInit, OnDestroy {
   public filterListHelper: FilterListHelper;
   constructor(private router: Router,
     public filterStateService: TableFilterStateService,
-    private projectService: ProjectService) {
+    private projectService: ProjectService,
+    private confirmationDialogService: ConfirmationDialogService,
+    private messageService: MessageService) {
     this.filterListHelper = new FilterListHelper(this, this.filterStateService);
     this.filterStateService.onSort('id', -1);
   }
@@ -31,7 +35,7 @@ export class ProjectListComponent implements FilterList, OnInit, OnDestroy {
   ngOnInit() {
     this.cols = [
       { field: 'name', header: 'Project Name' },
-      { field: 'managerDisplayName', header: 'Manager' },
+      { field: 'totalTasks', header: 'Total Tasks #' },
       { field: 'priority', header: 'Priority' },
       { field: 'startDate', header: 'Start Date' },
       { field: 'endDate', header: 'End Date' },
@@ -73,5 +77,27 @@ export class ProjectListComponent implements FilterList, OnInit, OnDestroy {
 
   addNewProject(): void {
     this.router.navigate([`/project/new`]);
+  }
+
+  suspendProject(project: Project): void {
+    this.confirmationDialogService.confirm(`Proceed to suspend this project?`,
+      () => {
+        this.projectService
+          .suspend(project.id)
+          .subscribe(result => {
+            this.messageService.add({
+              severity: 'success',
+              summary: project.name,
+              detail: 'Suspended successfully.'
+            });
+            this.refresh();
+          }, error => {
+            this.messageService.add({
+              severity: 'error',
+              summary: project.name,
+              detail: 'Project Could not be suspended'
+            });
+          });
+      });
   }
 }

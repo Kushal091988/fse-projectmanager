@@ -6,4 +6,5 @@ export interface Project {
     priority: string;
     managerDisplayName: string;
     managerId: number;
+    totalTasks?: number;
 }

@@ -29,14 +29,17 @@ namespace ProjectManager.SharedKernel
             return result;
         }
 
-        public static DateTime YYYYMMDDToDate(this string dateStr)
+        public static DateTime? YYYYMMDDToDate(this string dateStr)
         {
+            if (string.IsNullOrWhiteSpace(dateStr)) return null;
             return DateTime.ParseExact(dateStr, "yyyyMMdd", CultureInfo.InvariantCulture);
         }
 
-        public static string DateToYYYYMMDD(this DateTime date)
+        public static string DateToYYYYMMDD(this DateTime? date)
         {
-            return date.ToString("yyyyMMdd");
+            if(date ==null)return string.Empty;
+
+            return ((DateTime)date).ToString("yyyyMMdd");
         }
     }
 }

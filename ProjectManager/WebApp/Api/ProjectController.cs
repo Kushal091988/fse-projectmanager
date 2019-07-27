@@ -28,7 +28,7 @@ namespace WebApp.Api
 
         [Route("query")]
         [HttpPost()]
-        [ResponseType(typeof(List<UserDto>))]
+        [ResponseType(typeof(List<ProjectDto>))]
         public IHttpActionResult Query([FromBody]FilterState filterState)
         {
             return Try(() =>
@@ -58,6 +58,18 @@ namespace WebApp.Api
             return Try(() =>
             {
                 return Ok(_projectFacade.Get(id));
+            });
+        }
+
+        [Route("suspend")]
+        [ResponseType(typeof(bool))]
+        [HttpPost()]
+        // POST: api/project/suspend/?id=10
+        public IHttpActionResult Suspend([FromBody] int id)
+        {
+            return Try(() =>
+            {
+                return Ok(_projectFacade.Suspend(id));
             });
         }
 

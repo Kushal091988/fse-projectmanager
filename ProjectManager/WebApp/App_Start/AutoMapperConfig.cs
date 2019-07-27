@@ -17,7 +17,8 @@ namespace WebApp
                 cfg.CreateMap<Project, ProjectDto>()
                 .ForMember(x => x.StartDate, opt => opt.MapFrom(x => x.StartDate.DateToYYYYMMDD()))
                 .ForMember(x => x.EndDate, opt => opt.MapFrom(x => x.EndDate.DateToYYYYMMDD()))
-                .ForMember(x => x.ManagerDisplayName, opt => opt.MapFrom(x => x.Manager.FirstName));
+                .ForMember(x => x.ManagerDisplayName, opt => opt.MapFrom(x => x.Manager.FirstName))
+                .ForMember(x => x.TotalTasks, opt => opt.MapFrom(x => x.Tasks.Count));
 
                 cfg.CreateMap<ProjectDto, Project>()
                .ForMember(x => x.StartDate, opt => opt.MapFrom(x => x.StartDate.YYYYMMDDToDate()))

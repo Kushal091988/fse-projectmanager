@@ -120,5 +120,27 @@ namespace ProjectManager.Api.Extension
 
             return projectDto;
         }
+
+        /// <summary>
+        /// suspend project
+        /// </summary>
+        /// <param name="projectDto"></param>
+        /// <returns></returns>
+        public bool Suspend(int projectId)
+        {
+            var project = _projectRepository.Get(projectId);
+            if (project == null)
+            {
+                throw new InvalidOperationException("Project does not exists");
+            }
+            else
+            {
+                //update project
+                project.IsSuspended = true;
+            }
+            _projectRepository.SaveChanges();
+            
+            return true;
+        }
     }
 }

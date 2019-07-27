@@ -1,8 +1,7 @@
 <div class="content-heading">Projects</div>
 <div class="d-flex justify-content-between">
   <div style="margin-bottom: 10px">
-    <button pButton type="submit" label="Add new project" style="margin-right: .25em"
-      (click)="addNewProject()"></button>
+    <button pButton type="submit" label="Add New" style="margin-right: .25em" (click)="addNewProject()"></button>
   </div>
 </div>
 <p-table #dt [value]="projects" [columns]="cols" [responsive]="true" [paginator]="true" [lazy]="true"
@@ -12,7 +11,7 @@
   [style]="{'width':'100%'}" scrollHeight="250px">
   <ng-template pTemplate="header" let-columns>
     <tr>
-      <th style="width:4em"></th>
+      <th style="width:7em"></th>
       <th *ngFor="let col of columns" [pSortableColumn]="col.field">
         {{col.header}}
         <p-sortIcon [field]="col.field" ariaLabel="Activate to sort"
@@ -21,7 +20,7 @@
       </th>
     </tr>
     <tr>
-      <th style="width:4em"></th>
+      <th style="width:7em"></th>
       <th *ngFor="let col of columns" [ngSwitch]="col.field" [ngSwitch]="col.field">
         <div *ngSwitchCase="'priority'">
           Value>= {{priorityFilter}}
@@ -38,6 +37,9 @@
         <div *ngSwitchCase="'endDate'" class="ui-g">
         </div>
 
+        <div *ngSwitchCase="'totalTasks'" class="ui-g">
+        </div>
+
         <input *ngSwitchDefault pInputText type="text"
           (keyup)="filterListHelper.onKeyup($event.target.value, col.field)" style="width: 100%">
       </th>
@@ -45,8 +47,9 @@
   </ng-template>
   <ng-template pTemplate="body" let-rowData let-columns="columns">
     <tr>
-      <td style="width:4em">
+      <td style="width:7em">
         <button pButton icon="far fa-edit" (click)="edit(rowData)"></button>
+        <button style="margin-left: .5em" pButton icon="fa fa-trash" (click)="suspendProject(rowData)"></button>
       </td>
       <td *ngFor="let col of columns ">
         <span class="ui-column-title">{{col.header}}</span>

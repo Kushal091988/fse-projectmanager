@@ -157,7 +157,8 @@ export class TaskDetailComponent implements OnInit {
         projectName: '',
         projectId: 0,
         parentTaskName: '',
-        parentTaskId: 0
+        parentTaskId: 0,
+        statusId: 1
       };
     } else {
       this.currentTask = common.cloneDeep(task);
@@ -176,7 +177,8 @@ export class TaskDetailComponent implements OnInit {
       parentTaskId: common.isNil(this.selectedParentTask) ? 0 : this.selectedParentTask.id,
       ownerName: undefined,
       projectName: undefined,
-      parentTaskName: undefined
+      parentTaskName: undefined,
+      statusId: this.currentTask.statusId
     };
   }
 
