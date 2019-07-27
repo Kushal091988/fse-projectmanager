@@ -1,0 +1,50 @@
+<div class="content-heading">User Details</div>
+<div class="row">
+  <div class="col-xl-12">
+    <form *ngIf="ready" #f="ngForm" novalidate>
+      <fieldset>
+        <legend>Details</legend>
+
+        <div class="row">
+          <div class="col-xl-8">
+            <div class="form-group">
+              <div class="input-group with-focus">
+                <div><label for="firstName"><strong>First Name</strong> <strong style="color: red">*</strong></label>
+                </div>
+                <div class="form-control">
+                  <input name="firstName" id="firstName" type="text" size="40" pInputText
+                    [(ngModel)]="currentUser.firstName" maxlength=200 placeholder="- First Name -">
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="ui-g-12 ui-md-3"><label for="lastName"><strong>Last Name</strong>
+                  <strong style="color: red">*</strong>
+                </label></div>
+              <div class="ui-g-12 ui-md-9">
+                <input class="form-control" name="lastName" id="lastName" type="text" size="40" pInputText
+                  [(ngModel)]="currentUser.lastName" maxlength=200 placeholder="- Last Name -">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="ui-g-12 ui-md-3"><label for="empId"><strong>Employee Id</strong>
+                  <strong style="color: red">*</strong>
+                </label></div>
+              <div class="ui-g-12 ui-md-9">
+                <input class="form-control" name="empId" id="empId" type="text" size="40" pInputText
+                  [(ngModel)]="currentUser.employeeId" maxlength=50 placeholder="- Employee Id -">
+              </div>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+      <p-footer>
+        <button pButton type="submit" label="Save" icon="pi pi-check" style="margin-right: .25em" (click)="save()"
+          [disabled]="false"></button>
+        <button pButton type="button" label="Back" icon="pi pi-times" class="ui-button-danger"
+          (click)="back()"></button>
+      </p-footer>
+
+    </form>
+  </div>
+</div>

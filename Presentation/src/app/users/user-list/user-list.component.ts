@@ -1,11 +1,13 @@
+import { User } from './../user';
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { User } from '../user';
 import { UserService } from '../user.service';
 import { TableFilterStateService } from 'src/app/shared/filter/table-filter-state.service';
 import { Subscription } from 'rxjs';
 import { FilterListHelper } from 'src/app/shared/filter/filter-list-helper';
 import { Router } from '@angular/router';
 import { FilterList } from 'src/app/shared/filter/filter-list';
+import { ConfirmationDialogService } from 'src/app/shared/confirm-dialog/confirmation-dialog.service';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-user-list',
@@ -23,7 +25,9 @@ export class UserListComponent implements FilterList, OnInit, OnDestroy {
   public filterListHelper: FilterListHelper;
   constructor(private router: Router,
     public filterStateService: TableFilterStateService,
-    private userService: UserService) {
+    private userService: UserService,
+    private confirmationDialogService: ConfirmationDialogService,
+    private messageService: MessageService) {
     this.filterListHelper = new FilterListHelper(this, this.filterStateService);
     this.filterStateService.onSort('id', -1);
   }
@@ -40,6 +44,28 @@ export class UserListComponent implements FilterList, OnInit, OnDestroy {
 
   edit(user: User): void {
     this.router.navigate([`/user/${user.id}`]);
+  }
+  removeUser(user: User): void {
+    this.confirmationDialogService.confirm(`Proceed to delete this user, Please make sure it does not have Project/task assigned?`,
+      () => {
+        this.userService
+          .delete(user.id)
+          .subscribe(result => {
+            // clear form
+            this.messageService.add({
+              severity: 'success',
+              summary: user.firstName,
+              detail: 'Deleted successfully.'
+            });
+            this.refresh();
+          }, error => {
+            this.messageService.add({
+              severity: 'error',
+              summary: user.firstName,
+              detail: 'User Could not be deleted'
+            });
+          });
+      });
   }
 
   ngOnDestroy() {

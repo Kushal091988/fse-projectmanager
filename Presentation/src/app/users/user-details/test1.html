@@ -1,0 +1,38 @@
+<div class="col-md-8">
+  <form [formGroup]="userForm" autocomplete="off" novalidate>
+    <div class="form-group">
+      <label class="col-md-4" for="firstName">First Name</label>
+      <div class="col-md-8">
+        <input formControlName="firstName" class="form-control" id="firstName" type="text" placeholder="First Name" />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4" for="lastName">Last Name</label>
+      <div class="col-md-8">
+        <input formControlName="lastName" class="form-control" id="lastName" type="text" placeholder="Last Name" />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4" for="employeeId">Employee Id</label>
+      <div class="col-md-8">
+        <input formControlName="employeeId" class="form-control" id="employeeId" type="text"
+          placeholder="Employee Id" />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="offset-md-2 col-md-4">
+        <button class="btn btn-primary mr-3" type="submit" style="width:80px"
+          [title]="userForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
+          [disabled]="!userForm.valid" (click)="createNewUser()">
+          Save
+        </button>
+        <button class="btn btn-outline-secondary" type="button" (click)="reset()">
+          Reset
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

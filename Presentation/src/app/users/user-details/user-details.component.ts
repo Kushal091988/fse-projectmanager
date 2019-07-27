@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../user.service';
 import { User } from '../user';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-user-details',
@@ -17,7 +18,10 @@ import { User } from '../user';
 export class UserDetailsComponent implements OnInit {
 
   ready = true;
-  /** Current editing warehouse instance */
+  userForm: FormGroup;
+  private firstName: FormControl;
+  private lastName: FormControl;
+  private employeeId: FormControl;
   public currentUser: User;
 
   get readonly(): boolean {
@@ -32,11 +36,23 @@ export class UserDetailsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.instantiateUser(undefined);
-    this.load();
+    this.loadUser();
   }
 
-  load() {
+  // create user form group
+  createUserForm() {
+    this.firstName = new FormControl(this.currentUser.firstName);
+    this.lastName = new FormControl(this.currentUser.lastName);
+    this.employeeId = new FormControl(this.currentUser.employeeId, Validators.required);
+
+    this.userForm = new FormGroup({
+      firstName: this.firstName,
+      lastName: this.lastName,
+      employeeId: this.employeeId
+    });
+  }
+
+  loadUser() {
     const id = this.router.snapshot.paramMap.get('id');
     if (!common.isNil(id)) {
       this.userService.get(id)
@@ -46,54 +62,66 @@ export class UserDetailsComponent implements OnInit {
         });
     } else {
       this.ready = true;
+      this.instantiateUser(undefined);
     }
   }
-  save() {
-    const dto = this.extractDto();
-    const action = common.isNil(dto.id) ? 'create' : 'update';
-    this.confirmationDialogService.confirm(`Proceed to ${action} this user?`,
-      () => {
-        this.userService
-          .update(dto)
-          .subscribe(result => {
-            // clear form
-            this.instantiateUser(null);
-            this.messageService.add({
-              severity: 'success',
-              summary: this.currentUser.firstName,
-              detail: 'Saved successfully.'
+
+  save(user: User) {
+    if (this.userForm.valid) {
+      const dto = {
+        id: this.currentUser.id,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        employeeId: user.employeeId
+      };
+      const action = common.isNil(dto.id) ? 'create' : 'update';
+      this.confirmationDialogService.confirm(`Proceed to ${action} this user?`,
+        () => {
+          this.userService
+            .update(dto)
+            .subscribe(result => {
+              // clear form
+              this.instantiateUser(null);
+              this.messageService.add({
+                severity: 'success',
+                summary: this.currentUser.firstName,
+                detail: 'Saved successfully.'
+              });
+              this.back();
             });
-            this.back();
-          });
-      });
+        });
+    }
   }
   back() {
     this.route.navigate(['user/list']);
   }
 
+  validateEmployeeId() {
+    return this.employeeId.valid || this.employeeId.untouched;
+  }
 
+  validateName() {
+    return this.firstName.valid || this.firstName.untouched || this.lastName.untouched;
+  }
 
   instantiateUser(user: User) {
 
     if (common.isNil(user)) {
       this.currentUser = {
-        id: 0,
-        firstName: '',
-        lastName: '',
-        employeeId: ''
+        id: undefined,
+        firstName: undefined,
+        lastName: undefined,
+        employeeId: undefined
       };
     } else {
       this.currentUser = common.cloneDeep(user);
     }
+
+    // after instantiating user, create user form group
+    this.createUserForm();
   }
 
-  public extractDto(): User {
-    return {
-      id: this.currentUser.id,
-      firstName: this.currentUser.firstName,
-      lastName: this.currentUser.lastName,
-      employeeId: this.currentUser.employeeId
-    };
+  onLastNameChange() {
+    this.userForm.controls['firstName'].updateValueAndValidity();
   }
-
 }
