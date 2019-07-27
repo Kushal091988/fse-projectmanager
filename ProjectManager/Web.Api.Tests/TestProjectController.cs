@@ -6,7 +6,6 @@ using NBench;
 using NUnit.Framework;
 using ProjectManager.Api.Extension;
 using ProjectManager.Api.Extension.DTO;
-using ProjectManager.Api.Extension.Helper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
