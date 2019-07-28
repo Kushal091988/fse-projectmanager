@@ -6,6 +6,7 @@ using ProjectManager.SharedKernel;
 using ProjectManager.SharedKernel.FilterCriteria;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ProjectManager.Api.Extension
 {
@@ -77,7 +78,9 @@ namespace ProjectManager.Api.Extension
         /// <returns>tasks list</returns>
         public List<TaskDto> GetAll()
         {
-            var tasks = _taskRepository.GetAll();
+            var tasks = _taskRepository.GetAll()
+                                       .OrderByDescending(p => p.Id);
+
             var taskDtos = Mapper.Map<List<TaskDto>>(tasks);
 
             return taskDtos;
@@ -103,7 +106,7 @@ namespace ProjectManager.Api.Extension
                 task.Name = taskDto.Name;
                 task.StartDate = taskDto.StartDate.YYYYMMDDToDate();
                 task.EndDate = taskDto.EndDate.YYYYMMDDToDate();
-                task.ProjectId = taskDto.ProjectId;
+                task.ParentTaskId = taskDto.ParentTaskId;
             }
             _taskRepository.SaveChanges();
 

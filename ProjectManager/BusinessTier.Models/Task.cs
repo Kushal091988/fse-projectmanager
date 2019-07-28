@@ -15,7 +15,7 @@ namespace BusinessTier.Models
 
         public int Priority { get; set; }
 
-        public int ParentTaskId { get; set; }
+        public int? ParentTaskId { get; set; }
 
         public virtual ParentTask ParentTask { get; set; }
 

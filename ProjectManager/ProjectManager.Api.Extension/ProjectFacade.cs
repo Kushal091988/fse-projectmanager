@@ -88,7 +88,10 @@ namespace ProjectManager.Api.Extension
         /// <returns>projects list</returns>
         public List<ProjectDto> GetAll()
         {
-            var projects = _projectRepository.GetAll();
+            var projects = _projectRepository.GetAll()
+                                             .Where(p=>!p.IsSuspended)
+                                             .OrderByDescending(p=>p.Id);
+
             var projectDtos = Mapper.Map<List<ProjectDto>>(projects);
 
             return projectDtos;

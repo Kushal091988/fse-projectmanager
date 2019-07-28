@@ -22,8 +22,8 @@ import { Project } from 'src/app/project/Project';
   styleUrls: ['./task-detail.component.scss']
 })
 export class TaskDetailComponent implements OnInit {
-  startDate: Date;
-  endDate: Date;
+  _startDate: Date;
+  _endDate: Date;
   projectOptions: Project[];
   ownerOptions: User[];
   parentTaskOptions: Task[];
@@ -35,8 +35,42 @@ export class TaskDetailComponent implements OnInit {
   public selectedParentTask: Task;
 
   get readonly(): boolean {
-    return false;
+    return !common.isNil(this.currentTask.id);
   }
+
+  get startDate(): any {
+    if (common.isNil(this._startDate)) {
+      this._startDate = new Date();
+    }
+    return this._startDate;
+  }
+
+  set startDate(value: any) {
+    this._startDate = value;
+  }
+
+  get endDate(): any {
+    if (common.isNil(this._endDate)) {
+      this.endDate = new Date();
+      this._endDate.setDate(this.startDate.getDate() + 1);
+    }
+    return this._endDate;
+  }
+
+  set endDate(value: any) {
+    if (value < this.startDate) {
+      this.messageService.add({
+        severity: 'error',
+        summary: value,
+        detail: 'end date cannot be prior to start date.'
+      });
+
+      this.endDate = undefined;
+    } else {
+      this._endDate = value;
+    }
+  }
+
 
   constructor(private router: ActivatedRoute,
     private route: Router,
@@ -100,7 +134,7 @@ export class TaskDetailComponent implements OnInit {
     const dto = this.extractDto();
     const action = common.isNil(dto.id) ? 'create' : 'update';
     this.confirmationDialogService.confirm(`Proceed to ${action} this task?`,
-      () => {
+      (result) => {
 
         if (this.isParentTask) {
           this.saveParentTask(dto);
@@ -111,18 +145,38 @@ export class TaskDetailComponent implements OnInit {
   }
 
   saveTask(dto: Task) {
-    this.taskService
-      .update(dto)
-      .subscribe(result => {
-        // clear form
-        this.instantiateTask(null);
-        this.messageService.add({
-          severity: 'success',
-          summary: this.currentTask.name,
-          detail: 'Saved successfully.'
-        });
-        this.back();
+    if (common.isNil(this.selectedOwner)) {
+      this.messageService.add({
+        severity: 'error',
+        summary: this.currentTask.name,
+        detail: 'Please choose owner.'
       });
+    } else if (common.isNil(this.selectedProject)) {
+      this.messageService.add({
+        severity: 'error',
+        summary: this.currentTask.name,
+        detail: 'Please choose project.'
+      });
+    } else {
+      this.taskService
+        .update(dto)
+        .subscribe(() => {
+          // clear form
+          this.instantiateTask(null);
+          this.messageService.add({
+            severity: 'success',
+            summary: this.currentTask.name,
+            detail: 'Saved successfully.'
+          });
+          this.back();
+        }, (error) => {
+          this.messageService.add({
+            severity: 'error',
+            summary: this.currentTask.name,
+            detail: 'Task Could not be saved.'
+          });
+        });
+    }
   }
 
   saveParentTask(dto: Task) {
@@ -137,6 +191,12 @@ export class TaskDetailComponent implements OnInit {
           detail: 'Saved successfully.'
         });
         this.back();
+      }, (error) => {
+        this.messageService.add({
+          severity: 'error',
+          summary: this.currentTask.name,
+          detail: 'Parent task Could not be saved.'
+        });
       });
   }
 
@@ -147,18 +207,17 @@ export class TaskDetailComponent implements OnInit {
   instantiateTask(task: Task) {
     if (common.isNil(task)) {
       this.currentTask = {
-        id: 0,
+        id: undefined,
         name: '',
         startDate: '',
         endDate: '',
         priority: '0',
         ownerName: '',
-        ownerId: 0,
+        ownerId: undefined,
         projectName: '',
-        projectId: 0,
+        projectId: undefined,
         parentTaskName: '',
-        parentTaskId: 0,
-        statusId: 1
+        parentTaskId: undefined,
       };
     } else {
       this.currentTask = common.cloneDeep(task);
@@ -172,13 +231,12 @@ export class TaskDetailComponent implements OnInit {
       startDate: common.isNil(this.startDate) ? '' : common.dateToYYYYMMDD(this.startDate),
       endDate: common.isNil(this.endDate) ? '' : common.dateToYYYYMMDD(this.endDate),
       priority: this.currentTask.priority,
-      ownerId: common.isNil(this.selectedOwner) ? 0 : this.selectedOwner.id,
-      projectId: common.isNil(this.selectedProject) ? 0 : this.selectedProject.id,
-      parentTaskId: common.isNil(this.selectedParentTask) ? 0 : this.selectedParentTask.id,
+      ownerId: common.isNil(this.selectedOwner) ? undefined : this.selectedOwner.id,
+      projectId: common.isNil(this.selectedProject) ? undefined : this.selectedProject.id,
+      parentTaskId: common.isNil(this.selectedParentTask) ? undefined : this.selectedParentTask.id,
       ownerName: undefined,
       projectName: undefined,
       parentTaskName: undefined,
-      statusId: this.currentTask.statusId
     };
   }
 

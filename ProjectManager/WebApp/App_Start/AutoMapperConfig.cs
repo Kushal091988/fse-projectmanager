@@ -28,7 +28,7 @@ namespace WebApp
                 .ForMember(x => x.StartDate, opt => opt.MapFrom(x => x.StartDate.DateToYYYYMMDD()))
                 .ForMember(x => x.EndDate, opt => opt.MapFrom(x => x.EndDate.DateToYYYYMMDD()))
                 .ForMember(x => x.ParentTaskName, opt => opt.MapFrom(x => x.ParentTask.Name))
-                .ForMember(x => x.OwnerName, opt => opt.MapFrom(x => x.Owner.FirstName))
+                .ForMember(x => x.OwnerName, opt => opt.MapFrom(x => string.Join(" ",x.Owner.FirstName, x.Owner.LastName)))
                 .ForMember(x => x.ProjectName, opt => opt.MapFrom(x => x.Project.Name));
 
                 cfg.CreateMap<TaskDto, Task>()

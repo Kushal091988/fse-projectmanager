@@ -30,15 +30,11 @@ namespace DataAccess
 
             modelBuilder.Entity<ParentTask>().HasKey<int>(s => s.Id);
 
-            //modelBuilder.Entity<BusinessTier.Models.Task>()
-            //    .HasRequired<User>(s => s.Owner)
-            //    .WithMany()
-            //    .WillCascadeOnDelete(false);
-
-            //modelBuilder.Entity<BusinessTier.Models.Task>()
-            //    .HasRequired<ParentTask>(s => s.ParentTask)
-            //    .WithMany()
-            //    .WillCascadeOnDelete(false);
+            modelBuilder.Entity<BusinessTier.Models.Task>()
+                .HasOptional<ParentTask>(s => s.ParentTask)
+                .WithMany(p=>p.Tasks)
+                .HasForeignKey<int?>(t=>t.ParentTaskId)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Project>()
               .HasRequired<User>(p => p.Manager)

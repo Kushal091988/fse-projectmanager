@@ -93,7 +93,9 @@ namespace ProjectManager.Api.Extension
         /// <returns>users list</returns>
         public List<UserDto> GetAll()
         {
-            var users = _userRepository.GetAll();
+            var users = _userRepository.GetAll()
+                                       .OrderByDescending(p => p.Id);
+
             var userDtos = Mapper.Map<List<UserDto>>(users);
 
             return userDtos;

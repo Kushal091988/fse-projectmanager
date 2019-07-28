@@ -17,7 +17,7 @@ namespace DataAccess.Repositories
         public FilterResult<BusinessTier.Models.Task> Query(FilterState filterState)
         {
             var result = new FilterResult<BusinessTier.Models.Task>();
-            IQueryable<BusinessTier.Models.Task> query = Context.Tasks;
+            IQueryable<BusinessTier.Models.Task> query = Context.Tasks.Include(t=>t.ParentTask);
             if (filterState != null)
             {
                 // Filtering
