@@ -43,7 +43,8 @@ namespace ProjectManager.Api.Extension
         /// <returns>tasks list</returns>
         public List<ParentTaskDto> GetAll()
         {
-            var tasks = _taskRepository.GetAll();
+            var tasks = _taskRepository.GetAll()
+                        .OrderByDescending(p => p.Id);
             var taskDtos = Mapper.Map<List<ParentTaskDto>>(tasks);
 
             return taskDtos;

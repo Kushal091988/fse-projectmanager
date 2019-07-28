@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
+import { NameValidatorDirective } from './user-details/name-validator.directive';
 
 const routes: Routes = [
   { path: 'list', component: UserListComponent },
@@ -12,11 +13,11 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [UserListComponent, UserDetailsComponent],
+  declarations: [UserListComponent, UserDetailsComponent, NameValidatorDirective],
   imports: [
     CommonModule,
     SharedModule,
     RouterModule.forChild(routes)
   ]
 })
-export class UserModule1 { }
+export class UserModule { }

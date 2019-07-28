@@ -33,4 +33,8 @@ export class TaskService {
   delete(id: number): Observable<Task> {
     return this.httpService.delete<Task>({ url: `${this.url}/delete/${id}` });
   }
+
+  complete(id: number): Observable<any> {
+    return this.httpService.post<any>({ url: `${this.url}/complete` }, id);
+  }
 }

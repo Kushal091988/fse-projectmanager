@@ -75,6 +75,11 @@ namespace ProjectManager.Api.Extension
                 throw new InvalidOperationException("user has associated projects, so could not be deleted");
             }
 
+            if (user.Tasks.Count > 0)
+            {
+                throw new InvalidOperationException("user has associated tasks, so could not be deleted");
+            }
+
             _userRepository.Remove(user);
             _userRepository.SaveChanges();
 
@@ -88,7 +93,9 @@ namespace ProjectManager.Api.Extension
         /// <returns>users list</returns>
         public List<UserDto> GetAll()
         {
-            var users = _userRepository.GetAll();
+            var users = _userRepository.GetAll()
+                                       .OrderByDescending(p => p.Id);
+
             var userDtos = Mapper.Map<List<UserDto>>(users);
 
             return userDtos;
@@ -101,6 +108,10 @@ namespace ProjectManager.Api.Extension
         /// <returns></returns>
         public UserDto Update(UserDto userDto)
         {
+            if (string.IsNullOrWhiteSpace(userDto.FirstName) && string.IsNullOrWhiteSpace(userDto.LastName))
+            {
+                throw new InvalidOperationException("Either First Name or Last Name required");
+            }
             var user = _userRepository.Get(userDto.Id);
             if (user == null)
             {

@@ -95,6 +95,15 @@ namespace DataAccess.Filters
                         }
                         else throw new NotImplementedException("Operator not handled");
                         break;
+
+                    case "status":
+                        if(filter.FilterOperator == FilterOperator.NotEqualTo)
+                        {
+                            filterValue = Convert.ToInt32(filter.Value.ToString());
+                            query = query.Where(q => q.StatusId != filterValue);
+                        }
+                        else throw new NotImplementedException("Operator not handled");
+                        break;
                 }
             }
         }

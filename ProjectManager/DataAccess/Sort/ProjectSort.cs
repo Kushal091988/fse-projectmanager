@@ -79,6 +79,17 @@ namespace DataAccess.Sort
                             query = query.OrderByDescending(q => q.Manager.FirstName);
                         }
                         break;
+
+                    case "totaltasks":
+                        if (sort.Direction == SortDirection.ASC)
+                        {
+                            query = query.OrderBy(q => q.Tasks.Count);
+                        }
+                        else
+                        {
+                            query = query.OrderByDescending(q => q.Tasks.Count);
+                        }
+                        break;
                 }
             }
         }

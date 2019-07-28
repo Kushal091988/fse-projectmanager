@@ -12,12 +12,10 @@ namespace ProjectManager.Api.Extension.DTO
 
         [Required]
         public string Name { get; set; }
-
-        [Required]
+         
         [DataType(DataType.Date)]
         public string StartDate { get; set; }
-
-        [Required]
+         
         [DataType(DataType.Date)]
         public string EndDate { get; set; }
 
@@ -28,5 +26,10 @@ namespace ProjectManager.Api.Extension.DTO
         public int ManagerId { get; set; }
 
         public string ManagerDisplayName { get; set; }
+
+        public int TotalTasks { get; set; }
+        public int TotalCompletedTasks { get; set; }
+
+        public bool IsSuspended { get; set; }
     }
 }

@@ -5,9 +5,10 @@ export interface Task {
     endDate: string;
     priority: string;
     parentTaskName: string;
-    parentTaskId: number;
+    parentTaskId?: number;
     ownerName: string;
     ownerId: number;
     projectName: string;
     projectId: number;
+    statusId?: number;
 }

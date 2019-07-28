@@ -19,14 +19,50 @@ import { UserService } from 'src/app/users/user.service';
 })
 export class ProjectDetailsComponent implements OnInit {
   startDate: Date;
-  endDate: Date;
+  _endDate: Date;
   managerOptions: User[];
   ready = true;
   public currentProject: Project;
   public selectedManager: User;
+  _isSetDate: boolean;
 
-  get readonly(): boolean {
-    return false;
+
+  get isSetDate(): any {
+    return this._isSetDate;
+  }
+
+  set isSetDate(value: any) {
+    this._isSetDate = value;
+    if (this._isSetDate) {
+      if (common.isNil(this.startDate)) {
+        this.startDate = new Date();
+        this._endDate = new Date();
+        this._endDate.setDate(this.startDate.getDate() + 1);
+      }
+    } else {
+      if (common.dateToYYYYMMDD(this.startDate) !== (this.currentProject.startDate)) {
+        this.startDate = common.YYYYMMDDToDate(this.currentProject.startDate);
+        this._endDate = common.YYYYMMDDToDate(this.currentProject.endDate);
+      }
+    }
+  }
+
+  get endDate(): any {
+    return this._endDate;
+  }
+
+  set endDate(value: any) {
+    if (value < this.startDate) {
+      this.messageService.add({
+        severity: 'error',
+        summary: value,
+        detail: 'end date cannot be prior to start date.'
+      });
+
+      this._endDate = undefined;
+    } else {
+      this._endDate = value;
+    }
   }
 
   constructor(private router: ActivatedRoute,
@@ -57,6 +93,7 @@ export class ProjectDetailsComponent implements OnInit {
           this.ready = true;
           this.startDate = common.YYYYMMDDToDate(this.currentProject.startDate);
           this.endDate = common.YYYYMMDDToDate(this.currentProject.endDate);
+          this.isSetDate = !common.isNil(this.startDate);
           this.loadManagers();
         });
     } else {
@@ -65,35 +102,47 @@ export class ProjectDetailsComponent implements OnInit {
     }
   }
   save() {
-    const dto = this.extractDto();
-    const action = common.isNil(dto.id) ? 'create' : 'update';
-    this.confirmationDialogService.confirm(`Proceed to ${action} this user?`,
-      () => {
-        this.projectService
-          .update(dto)
-          .subscribe(result => {
-            // clear form
-            this.instantiateProject(null);
-            this.messageService.add({
-              severity: 'success',
-              summary: this.currentProject.name,
-              detail: 'Saved successfully.'
-            });
-            this.back();
-          });
+    if (common.isNil(this.selectedManager)) {
+      this.messageService.add({
+        severity: 'error',
+        summary: this.currentProject.name,
+        detail: 'Please select Project manager first.'
       });
+    } else {
+      const dto = this.extractDto();
+      const action = common.isNil(dto.id) ? 'create' : 'update';
+      this.confirmationDialogService.confirm(`Proceed to ${action} this project?`,
+        () => {
+          this.projectService
+            .update(dto)
+            .subscribe(result => {
+              // clear form
+              this.instantiateProject(null);
+              this.messageService.add({
+                severity: 'success',
+                summary: this.currentProject.name,
+                detail: 'Saved successfully.'
+              });
+              this.back();
+            }, error => {
+              this.messageService.add({
+                severity: 'error',
+                summary: this.currentProject.name,
+                detail: 'Project Could not be saved.'
+              });
+            });
+        });
+    }
   }
   back() {
     this.route.navigate(['project/list']);
   }
 
-
-
   instantiateProject(project: Project) {
 
     if (common.isNil(project)) {
       this.currentProject = {
-        id: 0,
+        id: undefined,
         name: '',
         startDate: '',
         endDate: '',
@@ -113,8 +162,8 @@ export class ProjectDetailsComponent implements OnInit {
       startDate: common.isNil(this.startDate) ? '' : common.dateToYYYYMMDD(this.startDate),
       endDate: common.isNil(this.endDate) ? '' : common.dateToYYYYMMDD(this.endDate),
       priority: this.currentProject.priority,
-      managerDisplayName: this.selectedManager.displayName,
-      managerId: this.selectedManager.id
+      managerDisplayName: common.isNil(this.selectedManager) ? '' : this.selectedManager.displayName,
+      managerId: common.isNil(this.selectedManager) ? undefined : this.selectedManager.id
     };
   }
   onManagerChange($event: any) {

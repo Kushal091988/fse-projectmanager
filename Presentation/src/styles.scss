@@ -49,7 +49,11 @@ body {
   line-height: 1.4 !important;
 }
 
-input.ng-invalid:not(#login_username):not(#login_password) {
+input.ng-dirty.ng-invalid.ng-touched {
+  border-color: red
+}
+
+input.ng-invalid.ng-touched {
   border-color: red
 }
 

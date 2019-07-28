@@ -8,11 +8,11 @@ const routes: Routes = [
     path: '',
     component: LayoutComponent,
     children: [
-      { path: 'user', loadChildren: './users/user.module#UserModule1' },
+      { path: 'user', loadChildren: './users/user.module#UserModule' },
       { path: 'project', loadChildren: './project/project.module#ProjectModule' },
       { path: 'task', loadChildren: './task/task.module#TaskModule' },
-      { path: '', redirectTo: 'user', pathMatch: 'full' },
-      { path: '**', redirectTo: 'user', pathMatch: 'full' }
+      { path: '', redirectTo: 'user/list', pathMatch: 'full' },
+      { path: '**', redirectTo: 'user/list', pathMatch: 'full' }
     ]
   }
 ];

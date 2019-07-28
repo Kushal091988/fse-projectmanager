@@ -90,5 +90,17 @@ namespace WebApp.Api
                 return Ok(_taskFacade.Delete(id));
             });
         }
+
+        [Route("complete")]
+        [ResponseType(typeof(bool))]
+        [HttpPost()]
+        // POST: api/task/complete
+        public IHttpActionResult Complete([FromBody] int taskId)
+        {
+            return Try(() =>
+            {
+                return Ok(_taskFacade.Complete(taskId));
+            });
+        }
     }
 }

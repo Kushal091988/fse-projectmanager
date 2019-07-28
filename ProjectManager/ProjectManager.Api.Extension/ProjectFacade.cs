@@ -88,7 +88,10 @@ namespace ProjectManager.Api.Extension
         /// <returns>projects list</returns>
         public List<ProjectDto> GetAll()
         {
-            var projects = _projectRepository.GetAll();
+            var projects = _projectRepository.GetAll()
+                                             .Where(p=>!p.IsSuspended)
+                                             .OrderByDescending(p=>p.Id);
+
             var projectDtos = Mapper.Map<List<ProjectDto>>(projects);
 
             return projectDtos;
@@ -119,6 +122,28 @@ namespace ProjectManager.Api.Extension
             _projectRepository.SaveChanges();
 
             return projectDto;
+        }
+
+        /// <summary>
+        /// suspend project
+        /// </summary>
+        /// <param name="projectDto"></param>
+        /// <returns></returns>
+        public bool Suspend(int projectId)
+        {
+            var project = _projectRepository.Get(projectId);
+            if (project == null)
+            {
+                throw new InvalidOperationException("Project does not exists");
+            }
+            else
+            {
+                //update project
+                project.IsSuspended = true;
+            }
+            _projectRepository.SaveChanges();
+            
+            return true;
         }
     }
 }

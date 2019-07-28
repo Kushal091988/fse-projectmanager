@@ -98,8 +98,8 @@ namespace ProjectManager.SharedKernel.FilterCriteria
                     case "eq":
                         return FilterOperator.EqualTo;
 
-                    case "rng":
-                        return FilterOperator.Range;
+                    case "neq":
+                        return FilterOperator.NotEqualTo;
 
                     default:
                         throw new NotImplementedException($"[{Operator.Trim().ToLower()}] Operator not handled");

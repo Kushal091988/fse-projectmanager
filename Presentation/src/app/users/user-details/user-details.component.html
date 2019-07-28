@@ -1,56 +1,51 @@
 <div class="content-heading">User Details</div>
 <div class="row">
   <div class="col-xl-12">
-    <form *ngIf="ready" #f="ngForm" novalidate>
+    <form *ngIf="ready && userForm" (ngSubmit)="save(userForm.value)" [formGroup]="userForm" novalidate>
       <fieldset>
         <legend>Details</legend>
-
         <div class="row">
           <div class="col-xl-8">
-            <div class="ui-g-12 ui-md-3"><label for="firstName"><strong>First Name</strong></label></div>
-            <div class="ui-g-12 ui-md-9">
-              <div *ngIf="!readonly">
-                <input name="firstName" id="firstName" type="text" size="40" pInputText
-                  [(ngModel)]="currentUser.firstName" maxlength=200 placeholder="- First Name -">
-              </div>
-              <div *ngIf="readonly" style="width: 100%">
-                <label [innerHTML]="currentUser.firstName" class="code-label"></label>
-              </div>
-
-            </div>
-            <div class="ui-g-12 ui-md-3"><label for="lastName"><strong>Last Name</strong>
-                <strong style="color: red">*</strong>
-              </label></div>
-            <div class="ui-g-12 ui-md-9">
-              <div *ngIf="!readonly">
-                <input name="lastName" id="lastName" type="text" size="40" pInputText [(ngModel)]="currentUser.lastName"
-                  maxlength=200 placeholder="- Last Name -">
-              </div>
-              <div *ngIf="readonly" style="width: 100%">
-                <label [innerHTML]="currentUser.lastName" class="code-label"></label>
+            <div class="form-group">
+              <div class="ui-g-12 ui-md-3"><label for="firstName"><strong>First Name</strong>
+                  <strong style="color: red">*</strong></label></div>
+              <div class="ui-g-12 ui-md-9">
+                <input formControlName="firstName" name="firstName" id="ud_firstName" type="text" size="40" pInputText
+                  maxlength=200 placeholder="- First Name -" appValidateName>
+                <div class="text-danger" *ngIf="!validateName()"><em>Either First Name or Last name is required.</em>
+                </div>
               </div>
             </div>
-
-            <div class="ui-g-12 ui-md-3"><label for="empId"><strong>Employee Id</strong>
-                <strong style="color: red">*</strong>
-              </label></div>
-            <div class="ui-g-12 ui-md-9">
-              <div *ngIf="!readonly">
-                <input name="empId" id="empId" type="text" size="40" pInputText [(ngModel)]="currentUser.employeeId"
-                  maxlength=50 placeholder="- Employee Id -">
+            <div class="form-group">
+              <div class="ui-g-12 ui-md-3"><label for="lastName"><strong>Last Name</strong>
+                  <strong style="color: red">*</strong>
+                </label></div>
+              <div class="ui-g-12 ui-md-9">
+                <input formControlName="lastName" name="lastName" id="ud_lastName" type="text" size="40" pInputText
+                  maxlength=200 placeholder="- Last Name -" (change)="onLastNameChange()">
+                <div class="text-danger" *ngIf="!validateName()"><em>Either
+                    First Name or Last name is required.</em>
+                </div>
               </div>
-              <div *ngIf="readonly" style="width: 100%">
-                <label [innerHTML]="currentUser.employeeId" class="code-label"></label>
+            </div>
+
+            <div class="form-group">
+              <div class="ui-g-12 ui-md-3"><label for="employeeId"><strong>Employee Id</strong>
+                  <strong style="color: red">*</strong>
+                </label></div>
+              <div class="ui-g-12 ui-md-9">
+                <input formControlName="employeeId" name="employeeId" id="ud_employeeId" type="text" size="40"
+                  pInputText maxlength=50 placeholder="- Employee Id -">
+
+                <div class="text-danger" *ngIf="!validateEmployeeId()"><em>Employee Id is required</em></div>
               </div>
             </div>
           </div>
         </div>
-
       </fieldset>
-
       <p-footer>
-        <button *ngIf="!readonly" pButton type="submit" label="Save" icon="pi pi-check" style="margin-right: .25em"
-          (click)="save()" [disabled]="false"></button>
+        <button [disabled]="userForm.invalid" pButton type="submit" label="Save" icon="pi pi-check"
+          style="margin-right: .25em"></button>
         <button pButton type="button" label="Back" icon="pi pi-times" class="ui-button-danger"
           (click)="back()"></button>
       </p-footer>
