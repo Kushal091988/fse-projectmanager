@@ -47,6 +47,9 @@ export class TaskDetailComponent implements OnInit {
 
   set startDate(value: any) {
     this._startDate = value;
+    if (this._startDate >= this._endDate) {
+      this._endDate = value;
+    }
   }
 
   get endDate(): any {

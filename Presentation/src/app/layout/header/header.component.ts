@@ -5,9 +5,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MenuService } from '../../core/menu/menu.service';
 import { SettingsService } from '../../core/settings/settings.service';
 
-
-// CM: don't need the function
-// const screenfull = require('screenfull');
 declare var $: any;
 
 @Component({

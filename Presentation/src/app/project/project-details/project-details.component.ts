@@ -18,7 +18,7 @@ import { UserService } from 'src/app/users/user.service';
   styleUrls: ['./project-details.component.scss']
 })
 export class ProjectDetailsComponent implements OnInit {
-  startDate: Date;
+  _startDate: Date;
   _endDate: Date;
   managerOptions: User[];
   ready = true;
@@ -26,6 +26,15 @@ export class ProjectDetailsComponent implements OnInit {
   public selectedManager: User;
   _isSetDate: boolean;
 
+  get startDate(): any {
+    return this._startDate;
+  }
+  set startDate(value: any) {
+    this._startDate = value;
+    if (this._startDate >= this._endDate) {
+      this._endDate = value;
+    }
+  }
 
   get isSetDate(): any {
     return this._isSetDate;
@@ -58,8 +67,6 @@ export class ProjectDetailsComponent implements OnInit {
         summary: value,
         detail: 'end date cannot be prior to start date.'
       });
-
-      this._endDate = undefined;
     } else {
       this._endDate = value;
     }

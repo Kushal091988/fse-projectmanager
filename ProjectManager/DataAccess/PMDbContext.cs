@@ -6,7 +6,7 @@ namespace DataAccess
     public partial class PMDbContext : DbContext
     {
         public PMDbContext() :
-          base("ConnectionString")
+          base("fse")
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<PMDbContext, Migrations.Configuration>());
         }
