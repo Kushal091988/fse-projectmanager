@@ -25,7 +25,7 @@ class Common {
 
 
   YYYYMMDDToDate(dateStr: string): Date {
-    if (dateStr || dateStr.length === 0) {
+    if (common.isNil(dateStr) || dateStr.length === 0) {
       return undefined;
     }
     const year = dateStr.substring(0, 4);

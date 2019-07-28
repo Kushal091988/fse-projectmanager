@@ -34,12 +34,16 @@ export class ProjectDetailsComponent implements OnInit {
   set isSetDate(value: any) {
     this._isSetDate = value;
     if (this._isSetDate) {
-      this.startDate = new Date();
-      this._endDate = new Date();
-      this._endDate.setDate(this.startDate.getDate() + 1);
+      if (common.isNil(this.startDate)) {
+        this.startDate = new Date();
+        this._endDate = new Date();
+        this._endDate.setDate(this.startDate.getDate() + 1);
+      }
     } else {
-      this.startDate = undefined;
-      this._endDate = undefined;
+      if (common.dateToYYYYMMDD(this.startDate) !== (this.currentProject.startDate)) {
+        this.startDate = common.YYYYMMDDToDate(this.currentProject.startDate);
+        this._endDate = common.YYYYMMDDToDate(this.currentProject.endDate);
+      }
     }
   }
 
@@ -89,6 +93,7 @@ export class ProjectDetailsComponent implements OnInit {
           this.ready = true;
           this.startDate = common.YYYYMMDDToDate(this.currentProject.startDate);
           this.endDate = common.YYYYMMDDToDate(this.currentProject.endDate);
+          this.isSetDate = !common.isNil(this.startDate);
           this.loadManagers();
         });
     } else {
