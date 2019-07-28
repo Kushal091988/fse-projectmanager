@@ -37,9 +37,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { RemarkDialogComponent } from './remark-dialog/remark-dialog.component';
-import {
-  ValidationMessageComponent
-} from './validations/validation-message/validation-message.component';
 
 @NgModule({
   imports: [
@@ -73,7 +70,6 @@ import {
     FormsModule,
     ReactiveFormsModule,
     TranslateModule,
-    ValidationMessageComponent,
 
     /** ngx-bootstrap */
     TabsModule,
@@ -99,11 +95,6 @@ import {
     CheckboxModule,
   ],
   declarations: [
-    ValidationMessageComponent,
-    /** cm: Moved the declarations of from purchaseOrderModule {PurchaseOrderDetailComponent} to shareModule's [entryComponents].
-       * This is because we want to shared {PurchaseOrderDetailComponent} as a dialog,
-       * and to to be used by primeNg dialogService
-      */
     RemarkDialogComponent,
   ],
   entryComponents: [
