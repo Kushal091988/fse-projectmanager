@@ -37,6 +37,9 @@ class Common {
 
 
   dateToYYYYMMDD(value: Date): string {
+    if (this.isNil(value)) {
+      return undefined;
+    }
     const y = value.getFullYear();
     const m = value.getMonth() + 1;
     const d = value.getDate();
