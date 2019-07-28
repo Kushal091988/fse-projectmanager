@@ -10,4 +10,5 @@ export interface Task {
     ownerId: number;
     projectName: string;
     projectId: number;
+    statusId?: number;
 }

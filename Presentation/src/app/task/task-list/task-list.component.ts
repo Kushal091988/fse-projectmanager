@@ -6,6 +6,9 @@ import { TableFilterStateService } from 'src/app/shared/filter/table-filter-stat
 import { FilterList } from 'src/app/shared/filter/filter-list';
 import { Task } from '../task';
 import { TaskService } from '../task.service';
+import { ConfirmationDialogService } from 'src/app/shared/confirm-dialog/confirmation-dialog.service';
+import { MessageService } from 'primeng/api';
+import { FilterOperatorType } from 'src/app/shared/filter/models/filter-enums';
 
 
 @Component({
@@ -24,9 +27,12 @@ export class TaskListComponent implements FilterList, OnInit, OnDestroy {
   public filterListHelper: FilterListHelper;
   constructor(private router: Router,
     public filterStateService: TableFilterStateService,
-    private taskService: TaskService) {
+    private taskService: TaskService,
+    private confirmationDialogService: ConfirmationDialogService,
+    private messageService: MessageService) {
     this.filterListHelper = new FilterListHelper(this, this.filterStateService);
     this.filterStateService.onSort('id', -1);
+    this.filterStateService.onFilter('status', '3', FilterOperatorType.notEqualTo);
   }
 
   ngOnInit() {
@@ -76,5 +82,27 @@ export class TaskListComponent implements FilterList, OnInit, OnDestroy {
 
   addNewTask(): void {
     this.router.navigate([`/task/new`]);
+  }
+
+  completeTask(task: Task): void {
+    this.confirmationDialogService.confirm(`Proceed to complete this task?`,
+      () => {
+        this.taskService
+          .complete(task.id)
+          .subscribe(result => {
+            this.messageService.add({
+              severity: 'success',
+              summary: task.name,
+              detail: 'Completed successfully.'
+            });
+            this.refresh();
+          }, error => {
+            this.messageService.add({
+              severity: 'error',
+              summary: task.name,
+              detail: 'Task Could not be completed'
+            });
+          });
+      });
   }
 }

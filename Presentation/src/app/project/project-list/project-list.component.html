@@ -39,6 +39,8 @@
 
         <div *ngSwitchCase="'totalTasks'" class="ui-g">
         </div>
+        <div *ngSwitchCase="'totalCompletedTasks'" class="ui-g">
+        </div>
 
         <input *ngSwitchDefault pInputText type="text"
           (keyup)="filterListHelper.onKeyup($event.target.value, col.field)" style="width: 100%">

@@ -55,7 +55,7 @@ export class ProjectDetailsComponent implements OnInit {
         detail: 'end date cannot be prior to start date.'
       });
 
-      this._endDate = this.startDate;
+      this._endDate = undefined;
     } else {
       this._endDate = value;
     }

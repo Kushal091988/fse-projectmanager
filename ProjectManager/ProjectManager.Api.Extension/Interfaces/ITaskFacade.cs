@@ -19,5 +19,7 @@ namespace ProjectManager.Api.Extension.Interfaces
         bool Delete(int id);
 
         FilterResult<TaskDto> Query(FilterState filterState);
+
+        bool Complete(int taskId);
     }
 }

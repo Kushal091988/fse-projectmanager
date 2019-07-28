@@ -3,5 +3,6 @@ export enum FilterOperatorType {
   lessThanEqual = 'lte',
   greaterThanEqual = 'gte',
   equalTo = 'eq',
+  notEqualTo = 'neq',
   range = 'rng'
 }

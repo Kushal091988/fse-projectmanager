@@ -11,7 +11,7 @@
   scrollHeight="250px">
   <ng-template pTemplate="header" let-columns>
     <tr>
-      <th style="width:4em"></th>
+      <th style="width:7em"></th>
       <th *ngFor="let col of columns" [pSortableColumn]="col.field">
         {{col.header}}
         <p-sortIcon [field]="col.field" ariaLabel="Activate to sort"
@@ -20,7 +20,7 @@
       </th>
     </tr>
     <tr>
-      <th style="width:4em"></th>
+      <th style="width:7em"></th>
       <th *ngFor="let col of columns" [ngSwitch]="col.field" [ngSwitch]="col.field">
         <div *ngSwitchCase="'priority'">
           Value>= {{priorityFilter}}
@@ -44,8 +44,9 @@
   </ng-template>
   <ng-template pTemplate="body" let-rowData let-columns="columns">
     <tr>
-      <td style="width:4em">
+      <td style="width:7em">
         <button pButton icon="far fa-edit" (click)="edit(rowData)"></button>
+        <button style="margin-left: .5em" pButton icon="fa fa-check" (click)="completeTask(rowData)"></button>
       </td>
       <td *ngFor="let col of columns ">
         <span class="ui-column-title">{{col.header}}</span>

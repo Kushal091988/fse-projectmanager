@@ -28,6 +28,7 @@ namespace ProjectManager.Api.Extension.DTO
         public string ManagerDisplayName { get; set; }
 
         public int TotalTasks { get; set; }
+        public int TotalCompletedTasks { get; set; }
 
         public bool IsSuspended { get; set; }
     }

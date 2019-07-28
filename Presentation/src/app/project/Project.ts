@@ -7,4 +7,5 @@ export interface Project {
     managerDisplayName: string;
     managerId: number;
     totalTasks?: number;
+    totalCompletedTasks?: number;
 }

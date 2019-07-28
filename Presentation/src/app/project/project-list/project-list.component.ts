@@ -36,6 +36,7 @@ export class ProjectListComponent implements FilterList, OnInit, OnDestroy {
     this.cols = [
       { field: 'name', header: 'Project Name' },
       { field: 'totalTasks', header: 'Total Tasks #' },
+      { field: 'totalCompletedTasks', header: 'Completed Tasks #' },
       { field: 'priority', header: 'Priority' },
       { field: 'startDate', header: 'Start Date' },
       { field: 'endDate', header: 'End Date' },

@@ -3,6 +3,7 @@ using DataAccess.Repositories.Intefaces;
 using ProjectManager.Api.Extension.DTO;
 using ProjectManager.Api.Extension.Interfaces;
 using ProjectManager.SharedKernel;
+using ProjectManager.SharedKernel.Enums;
 using ProjectManager.SharedKernel.FilterCriteria;
 using System;
 using System.Collections.Generic;
@@ -98,6 +99,7 @@ namespace ProjectManager.Api.Extension
             {
                 //create task
                 task = Mapper.Map<BusinessTier.Models.Task>(taskDto);
+                task.StatusId = (int)TaskStatusEnum.InProgress;
                 _taskRepository.Add(task);
             }
             else
@@ -111,6 +113,27 @@ namespace ProjectManager.Api.Extension
             _taskRepository.SaveChanges();
 
             return taskDto;
+        }
+
+        /// <summary>
+        /// complete task
+        /// </summary>
+        /// <param name="taskId"></param>
+        /// <returns></returns>
+        public bool Complete(int taskId)
+        {
+            var task = _taskRepository.Get(taskId);
+            if (task == null)
+            {
+                throw new InvalidOperationException("Task does not exists");
+            }
+            else
+            {
+                //update project
+                task.StatusId = (int)TaskStatusEnum.Completed;
+            }
+            _taskRepository.SaveChanges();
+            return true;
         }
     }
 }
