@@ -110,10 +110,13 @@ namespace Web.Api.Tests
         public void QueryProjects_ShouldReturnTaskWithPriorityGreaterThanAndEqualToZero()
         {
             //arrange
-            var testProjects = GetTestProjects();
+            var testProjects = GetTestProjects().Where(p=>p.Priority>=0);
             var queryResult = new FilterResult<Project>() { Data = testProjects, Total = testProjects.Count() };
+            var mockProjectRepository = new Mock<IProjectRepository>().Object;
+            Mock.Get<IProjectRepository>(mockProjectRepository).Setup(r => r.Query(It.IsAny<FilterState>())).Returns(queryResult);
 
-            var projectController = new ProjectController();
+            var projectFacade = new ProjectFacade(mockProjectRepository);
+            var projectController = new ProjectController(projectFacade);
             var thisAssembly = Assembly.GetExecutingAssembly();
             var jsonFilePath = Path.Combine(Directory.GetParent(thisAssembly.Location).FullName, @"TestData\FilerStat.Json");
             var fileStatString = File.ReadAllText(jsonFilePath);
