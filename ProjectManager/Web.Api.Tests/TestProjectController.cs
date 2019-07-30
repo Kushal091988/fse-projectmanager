@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Web.Http.Results;
 using WebApp;
 using WebApp.Api;
@@ -113,7 +114,8 @@ namespace Web.Api.Tests
             var queryResult = new FilterResult<Project>() { Data = testProjects, Total = testProjects.Count() };
 
             var projectController = new ProjectController();
-            var jsonFilePath = @"C:\Users\kuskas\Source\Repos\fse-projectmanager\ProjectManager\Web.Api.Tests\TestData\FilerStat.json";
+            var thisAssembly = Assembly.GetExecutingAssembly();
+            var jsonFilePath = Path.Combine(Directory.GetParent(thisAssembly.Location).FullName, @"TestData\FilerStat.Json");
             var fileStatString = File.ReadAllText(jsonFilePath);
             var filterState = fileStatString.ToObject<FilterState>();
 
