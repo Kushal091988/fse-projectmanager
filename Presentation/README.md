@@ -1,5 +1,5 @@
 
-# Longrich-FTP
+# Project Manager
 
 Install node.js
 Install npm
@@ -10,11 +10,6 @@ Run `npm install -g @angular/cli@latest`
 
 Run `npm install`
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.3.
-
-# Rules
-1. Always `clone()` the return object on `xxxService.get()` & `xxxxService.tryInstantGet()` before return
-2. Do not modify any `getFullList()` `return data` (`clone()` if modification of data is needed)
 
 ## Debugger for Chrome
 https://github.com/Microsoft/vscode-recipes/tree/master/Angular-CLI
@@ -38,9 +33,6 @@ https://dzone.com/articles/deploy-an-angular-app-from-visual-studio-code-to-a-1
 ## Build
 https://stackoverflow.com/questions/51258031/angular-cli-how-to-use-ng-build-prod-command-for-with-environment-staging-t
 
-## Staging
- ng build --prod --configuration=staging
-[/base/] ng build --base-href /longrich-uat/ --prod --configuration=staging
 
 ## UX upgrade
 1. https://wrapbootstrap.com/theme/angle-bootstrap-admin-template-WB04HF123
@@ -59,17 +51,3 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Reading materials
-1. ngModel in Form - https://stackoverflow.com/questions/39126638/ngmodel-cannot-be-used-to-register-form-controls-with-a-parent-formgroup-directi
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).

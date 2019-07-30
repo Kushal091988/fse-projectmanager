@@ -15,9 +15,6 @@ namespace WebApp
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
-
-            
-
             //auto mapper configurations
             AutoMapperConfig.Initialize();
 
