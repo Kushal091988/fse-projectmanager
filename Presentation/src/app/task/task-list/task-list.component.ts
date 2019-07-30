@@ -9,6 +9,7 @@ import { TaskService } from '../task.service';
 import { ConfirmationDialogService } from 'src/app/shared/confirm-dialog/confirmation-dialog.service';
 import { MessageService } from 'primeng/api';
 import { FilterOperatorType } from 'src/app/shared/filter/models/filter-enums';
+import { common } from 'src/app/core/common';
 
 
 @Component({
@@ -32,12 +33,13 @@ export class TaskListComponent implements FilterList, OnInit, OnDestroy {
     private messageService: MessageService) {
     this.filterListHelper = new FilterListHelper(this, this.filterStateService);
     this.filterStateService.onSort('id', -1);
-    this.filterStateService.onFilter('status', '3', FilterOperatorType.notEqualTo);
+    // this.filterStateService.onFilter('status', '3', FilterOperatorType.notEqualTo);
   }
 
   ngOnInit() {
     this.cols = [
       { field: 'name', header: 'Task' },
+      { field: 'isCompleted', header: 'Completed?' },
       { field: 'parentTaskName', header: 'Parent Task' },
       { field: 'priority', header: 'Priority#' },
       { field: 'projectName', header: 'Project' },
@@ -62,9 +64,19 @@ export class TaskListComponent implements FilterList, OnInit, OnDestroy {
       .query(this.filterStateService.extract())
       .subscribe(dataResult => {
         this.tasks = dataResult.data;
+        this.format(this.tasks);
         this.totalRecords = dataResult.total;
         this.loading = false;
       });
+  }
+  format(tasks: Task[]) {
+    tasks.forEach(t => {
+      if (t.statusId === 3) {
+        t.isCompleted = 'Yes';
+      } else {
+        t.isCompleted = 'No';
+      }
+    });
   }
 
   loadTaskLazy($event: any) {
@@ -84,23 +96,31 @@ export class TaskListComponent implements FilterList, OnInit, OnDestroy {
     this.router.navigate([`/task/new`]);
   }
 
-  completeTask(task: Task): void {
-    this.confirmationDialogService.confirm(`Proceed to complete this task?`,
+  changeTaskState(task: Task, isCompleted: boolean): void {
+    const taskDto = common.cloneDeep(task);
+    if (isCompleted) {
+      taskDto.statusId = 3;
+    } else {
+      taskDto.statusId = 2;
+    }
+    const action = isCompleted ? 'complete' : 'incomplete';
+    const actionResult = isCompleted ? 'Completed' : 'Incomplete';
+    this.confirmationDialogService.confirm(`Proceed to ${action} this task?`,
       () => {
         this.taskService
-          .complete(task.id)
+          .updateTaskState(taskDto)
           .subscribe(result => {
             this.messageService.add({
               severity: 'success',
-              summary: task.name,
-              detail: 'Completed successfully.'
+              summary: taskDto.name,
+              detail: `Task updated to ${actionResult} successfully.`
             });
             this.refresh();
           }, error => {
             this.messageService.add({
               severity: 'error',
-              summary: task.name,
-              detail: 'Task Could not be completed'
+              summary: taskDto.name,
+              detail: `Task Could not be ${actionResult}`
             });
           });
       });

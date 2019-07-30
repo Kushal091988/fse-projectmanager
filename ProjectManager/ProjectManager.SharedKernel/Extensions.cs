@@ -20,15 +20,6 @@ namespace ProjectManager.SharedKernel
             return JsonConvert.SerializeObject(value);
         }
 
-        public static int ToInt(this string value)
-        {
-            if (string.IsNullOrWhiteSpace(value)) return 0;
-
-            int.TryParse(value, out int result);
-
-            return result;
-        }
-
         public static DateTime? YYYYMMDDToDate(this string dateStr)
         {
             if (string.IsNullOrWhiteSpace(dateStr)) return null;

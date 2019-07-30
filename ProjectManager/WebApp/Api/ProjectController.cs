@@ -61,15 +61,15 @@ namespace WebApp.Api
             });
         }
 
-        [Route("suspend")]
+        [Route("updateProjectState")]
         [ResponseType(typeof(bool))]
         [HttpPost()]
         // POST: api/project/suspend/?id=10
-        public IHttpActionResult Suspend([FromBody] int id)
+        public IHttpActionResult UpdateProjectState(ProjectDto project)
         {
             return Try(() =>
             {
-                return Ok(_projectFacade.Suspend(id));
+                return Ok(_projectFacade.UpdateProjectState(project.Id, project.IsSuspended));
             });
         }
 

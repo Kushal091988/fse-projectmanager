@@ -47,7 +47,7 @@ namespace ProjectManager.Api.Extension
             var task = _taskRepository.Get(id);
             if (task == null)
             {
-                throw new InvalidOperationException("user does not exists");
+                throw new InvalidOperationException("task does not exists");
             }
 
             var taskDto = Mapper.Map<TaskDto>(task);
@@ -109,6 +109,7 @@ namespace ProjectManager.Api.Extension
                 task.StartDate = taskDto.StartDate.YYYYMMDDToDate();
                 task.EndDate = taskDto.EndDate.YYYYMMDDToDate();
                 task.ParentTaskId = taskDto.ParentTaskId;
+                task.Priority = taskDto.Priority;
             }
             _taskRepository.SaveChanges();
 
@@ -116,11 +117,12 @@ namespace ProjectManager.Api.Extension
         }
 
         /// <summary>
-        /// complete task
+        /// update task state
         /// </summary>
         /// <param name="taskId"></param>
+        /// <param name="statusId"></param>
         /// <returns></returns>
-        public bool Complete(int taskId)
+        public bool UpdateTaskState(int taskId, int statusId)
         {
             var task = _taskRepository.Get(taskId);
             if (task == null)
@@ -129,8 +131,10 @@ namespace ProjectManager.Api.Extension
             }
             else
             {
+                if (task.StatusId == statusId) throw new InvalidOperationException("Task state is already up to date");
                 //update project
-                task.StatusId = (int)TaskStatusEnum.Completed;
+                Enum.TryParse<TaskStatusEnum>(statusId.ToString(), out TaskStatusEnum taskStatusEnum);
+                task.StatusId = (int)taskStatusEnum;
             }
             _taskRepository.SaveChanges();
             return true;

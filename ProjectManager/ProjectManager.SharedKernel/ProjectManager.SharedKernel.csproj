@@ -45,7 +45,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CalenderLocalDate.cs" />
     <Compile Include="Enums\TaskStatusEnum.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="FilterCriteria\CompositeFilterDescriptor.cs" />
@@ -54,7 +53,6 @@
     <Compile Include="FilterCriteria\FilterResult.cs" />
     <Compile Include="FilterCriteria\FilterState.cs" />
     <Compile Include="FilterCriteria\FilterStateHelper.cs" />
-    <Compile Include="FilterCriteria\PaginatedList.cs" />
     <Compile Include="FilterCriteria\RangeFilter.cs" />
     <Compile Include="FilterCriteria\SortDescriptor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

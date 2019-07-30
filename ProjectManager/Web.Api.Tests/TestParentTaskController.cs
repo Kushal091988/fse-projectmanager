@@ -6,8 +6,11 @@ using NBench;
 using NUnit.Framework;
 using ProjectManager.Api.Extension;
 using ProjectManager.Api.Extension.DTO;
+using ProjectManager.SharedKernel.FilterCriteria;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web.Http.ModelBinding;
 using System.Web.Http.Results;
 using WebApp;
 using WebApp.Api;
@@ -26,10 +29,11 @@ namespace Web.Api.Tests
         }
 
         [Test]
-        [PerfBenchmark(NumberOfIterations = 1, RunMode = RunMode.Throughput,
-            TestMode = TestMode.Test, SkipWarmups = true)]
+        [PerfBenchmark(NumberOfIterations = 500, RunMode = RunMode.Throughput,
+            TestMode = TestMode.Test, SkipWarmups = true, RunTimeMilliseconds = 6000)]
+        [ElapsedTimeAssertion(MaxTimeMilliseconds = 5000)]
         [MemoryMeasurement(MemoryMetric.TotalBytesAllocated)]
-        [CounterMeasurement("test")]
+        [TimingMeasurement]
         public void GetTasks_ShouldReturnAllParenTasks()
         {
             //arrange
@@ -48,7 +52,12 @@ namespace Web.Api.Tests
         }
 
         [Test]
-        public void  GetUser_ShouldReturnCorrectUser()
+        [PerfBenchmark(NumberOfIterations = 500, RunMode = RunMode.Throughput,
+             TestMode = TestMode.Test, SkipWarmups = true, RunTimeMilliseconds = 6000)]
+        [ElapsedTimeAssertion(MaxTimeMilliseconds = 5000)]
+        [MemoryMeasurement(MemoryMetric.TotalBytesAllocated)]
+        [TimingMeasurement]
+        public void  GetparentTask_ShouldReturnCorrectparentTask()
         {
             //arrange
             var taskIdToBeQueried = 1;
@@ -59,27 +68,77 @@ namespace Web.Api.Tests
 
             var taskFacade = new ParentTaskFacade(mockParentTaskRepository);
             var taskController = new ParentTaskController(taskFacade);
-            var expectetUser = testTasks.First(u => u.Id == taskIdToBeQueried);
+            var expectetparentTask = testTasks.First(u => u.Id == taskIdToBeQueried);
 
             //act
             var result = taskController.GetTask(taskIdToBeQueried) as OkNegotiatedContentResult<ParentTaskDto>;
 
             //assert
-            Assert.AreEqual(expectetUser.Name, result.Content.Name);
+            Assert.AreEqual(expectetparentTask.Name, result.Content.Name);
+        }
+
+
+        [Test]
+        [PerfBenchmark(NumberOfIterations = 500, RunMode = RunMode.Throughput,
+              TestMode = TestMode.Test, SkipWarmups = true, RunTimeMilliseconds = 6000)]
+        [ElapsedTimeAssertion(MaxTimeMilliseconds = 5000)]
+        [MemoryMeasurement(MemoryMetric.TotalBytesAllocated)]
+        [TimingMeasurement]
+        public void GetparentTask_ShouldNotReturnTask()
+        {
+            //arrange
+            var taskIdToBeQueried = 1000;
+
+            var mockParentTaskRepository = new Mock<IParentTaskRepository>().Object;
+            Mock.Get<IParentTaskRepository>(mockParentTaskRepository).Setup(r => r.Get(taskIdToBeQueried));
+
+            var taskFacade = new ParentTaskFacade(mockParentTaskRepository);
+            var taskController = new ParentTaskController(taskFacade);
+
+            //act
+            var result = taskController.GetTask(taskIdToBeQueried) as OkNegotiatedContentResult<ParentTaskDto>;
+
+            //assert
+            Assert.AreEqual(result, null);
         }
 
         [Test]
-        public void Update_ShouldAddNewUser()
+        [PerfBenchmark(NumberOfIterations = 500, RunMode = RunMode.Throughput,
+             TestMode = TestMode.Test, SkipWarmups = true, RunTimeMilliseconds = 6000)]
+        [ElapsedTimeAssertion(MaxTimeMilliseconds = 5000)]
+        [MemoryMeasurement(MemoryMetric.TotalBytesAllocated)]
+        [TimingMeasurement]
+        public void GetparentTask_ShouldNotReturnTask_DB()
+        {
+            //arrange
+            var taskIdToBeQueried = -1; 
+            var taskController = new ParentTaskController();
+
+            //act
+            var result = taskController.GetTask(taskIdToBeQueried) as OkNegotiatedContentResult<ParentTaskDto>;
+
+            //assert
+            Assert.AreEqual(result, null);
+        }
+
+
+        [Test]
+        [PerfBenchmark(NumberOfIterations = 500, RunMode = RunMode.Throughput,
+             TestMode = TestMode.Test, SkipWarmups = true, RunTimeMilliseconds = 6000)]
+        [ElapsedTimeAssertion(MaxTimeMilliseconds = 5000)]
+        [MemoryMeasurement(MemoryMetric.TotalBytesAllocated)]
+        [TimingMeasurement]
+        public void Update_ShouldAddNewparentTask()
         {
             //arrange
             var testTasks = GetTestTasks();
             var newTaskDto = new ParentTaskDto() {
                 Name = "Name_Mocked",
             };
-            var newUser = Mapper.Map<ParentTask>(newTaskDto);
+            var newparentTask = Mapper.Map<ParentTask>(newTaskDto);
 
             var mockParentTaskRepository = new Mock<IParentTaskRepository>().Object;
-            Mock.Get<IParentTaskRepository>(mockParentTaskRepository).Setup(r => r.Add(newUser)).Returns(newUser);
+            Mock.Get<IParentTaskRepository>(mockParentTaskRepository).Setup(r => r.Add(newparentTask)).Returns(newparentTask);
 
             var taskFacade = new ParentTaskFacade(mockParentTaskRepository);
             var taskController = new ParentTaskController(taskFacade);
@@ -92,29 +151,34 @@ namespace Web.Api.Tests
         }
 
         [Test]
-        public void Update_ShouldUpdateCorrectUser()
+        [PerfBenchmark(NumberOfIterations = 500, RunMode = RunMode.Throughput,
+             TestMode = TestMode.Test, SkipWarmups = true, RunTimeMilliseconds = 6000)]
+        [ElapsedTimeAssertion(MaxTimeMilliseconds = 5000)]
+        [MemoryMeasurement(MemoryMetric.TotalBytesAllocated)]
+        [TimingMeasurement]
+        public void Update_ShouldUpdateCorrectParentTask()
         {
             //arrange
             var testTasks = GetTestTasks();
-            var userDtoToBeUpdated = new ParentTaskDto()
+            var parentTaskDtoToBeUpdated = new ParentTaskDto()
             {
                 Id = 2,
                 Name = "Name_updated"
             };
 
-            var oldTask = testTasks.First(u => u.Id == userDtoToBeUpdated.Id);
+            var oldTask = testTasks.First(u => u.Id == parentTaskDtoToBeUpdated.Id);
 
             var mockParentTaskRepository = new Mock<IParentTaskRepository>().Object;
-            Mock.Get<IParentTaskRepository>(mockParentTaskRepository).Setup(r => r.Get(userDtoToBeUpdated.Id)).Returns(oldTask);
+            Mock.Get<IParentTaskRepository>(mockParentTaskRepository).Setup(r => r.Get(parentTaskDtoToBeUpdated.Id)).Returns(oldTask);
 
             var taskFacade = new ParentTaskFacade(mockParentTaskRepository);
             var taskController = new ParentTaskController(taskFacade);
 
             //act
-            var result = taskController.Update(userDtoToBeUpdated) as OkNegotiatedContentResult<ParentTaskDto>;
+            var result = taskController.Update(parentTaskDtoToBeUpdated) as OkNegotiatedContentResult<ParentTaskDto>;
 
             //assert
-            Assert.AreEqual(userDtoToBeUpdated.Name, result.Content.Name); 
+            Assert.AreEqual(parentTaskDtoToBeUpdated.Name, result.Content.Name); 
         }
 
 
@@ -125,7 +189,6 @@ namespace Web.Api.Tests
             new BusinessTier.Models.ParentTask { Id =1, Name = "ParentTask_1"},
             new BusinessTier.Models.ParentTask { Id =2, Name = "parentTask_2" },
             };
-
             return parentTask.AsQueryable();
         }
     }

@@ -20,8 +20,6 @@ namespace ProjectManager.SharedKernel.FilterCriteria
 
                 case FilterOperator.EqualTo: return "eq";
 
-                case FilterOperator.Range: return "rng";
-
                 default:
                     throw new NotImplementedException($"[{value.ToString()}] Operator not handled");
             }

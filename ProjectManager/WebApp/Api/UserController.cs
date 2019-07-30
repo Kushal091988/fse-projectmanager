@@ -16,6 +16,7 @@ using ProjectManager.Api.Extension;
 using ProjectManager.Api.Extension.DTO;
 using ProjectManager.Api.Extension.Interfaces;
 using ProjectManager.SharedKernel.FilterCriteria;
+using Unity;
 
 namespace WebApp.Api
 {

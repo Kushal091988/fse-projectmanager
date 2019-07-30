@@ -62,7 +62,7 @@ export class UserListComponent implements FilterList, OnInit, OnDestroy {
             this.messageService.add({
               severity: 'error',
               summary: user.firstName,
-              detail: 'User Could not be deleted'
+              detail: `User ${user.firstName} Could not be deleted. Possibly projects/tasks are mapped to it.`
             });
           });
       });

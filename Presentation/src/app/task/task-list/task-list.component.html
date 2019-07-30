@@ -31,6 +31,8 @@
           </p-slider>
         </div>
 
+        <div *ngSwitchCase="'isCompleted'" class="ui-g">
+        </div>
         <div *ngSwitchCase="'startDate'" class="ui-g">
         </div>
 
@@ -45,8 +47,11 @@
   <ng-template pTemplate="body" let-rowData let-columns="columns">
     <tr>
       <td style="width:7em">
-        <button pButton icon="far fa-edit" (click)="edit(rowData)"></button>
-        <button style="margin-left: .5em" pButton icon="fa fa-check" (click)="completeTask(rowData)"></button>
+        <button [disabled]="rowData['statusId']==3" pButton icon="far fa-edit" (click)="edit(rowData)"></button>
+        <button *ngIf="rowData['statusId']!=3" style="margin-left: .5em" pButton icon="fa fa-check"
+          (click)="changeTaskState(rowData, true)"></button>
+        <button *ngIf="rowData['statusId']==3" style="margin-left: .5em" pButton icon="fa fa-undo"
+          (click)="changeTaskState(rowData, false)"></button>
       </td>
       <td *ngFor="let col of columns ">
         <span class="ui-column-title">{{col.header}}</span>

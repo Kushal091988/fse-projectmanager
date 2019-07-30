@@ -125,12 +125,13 @@ namespace ProjectManager.Api.Extension
             return projectDto;
         }
 
-        /// <summary>
-        /// suspend project
-        /// </summary>
-        /// <param name="projectDto"></param>
-        /// <returns></returns>
-        public bool Suspend(int projectId)
+       /// <summary>
+       /// update project status
+       /// </summary>
+       /// <param name="projectId"></param>
+       /// <param name="isSuspended"></param>
+       /// <returns></returns>
+        public bool UpdateProjectState(int projectId, bool isSuspended)
         {
             var project = _projectRepository.Get(projectId);
             if (project == null)
@@ -139,8 +140,9 @@ namespace ProjectManager.Api.Extension
             }
             else
             {
+                if (project.IsSuspended == isSuspended) throw new InvalidOperationException($"Project state is already updated");
                 //update project
-                project.IsSuspended = true;
+                project.IsSuspended = isSuspended;
             }
             _projectRepository.SaveChanges();
             

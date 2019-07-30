@@ -34,7 +34,7 @@ export class TaskService {
     return this.httpService.delete<Task>({ url: `${this.url}/delete/${id}` });
   }
 
-  complete(id: number): Observable<any> {
-    return this.httpService.post<any>({ url: `${this.url}/complete` }, id);
+  updateTaskState(task: Task): Observable<any> {
+    return this.httpService.post<any>({ url: `${this.url}/updateTaskState` }, task);
   }
 }

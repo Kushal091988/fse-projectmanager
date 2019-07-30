@@ -8,4 +8,6 @@ export interface Project {
     managerId: number;
     totalTasks?: number;
     totalCompletedTasks?: number;
+    isSuspended?: boolean;
+    isSuspendedText?: string;
 }

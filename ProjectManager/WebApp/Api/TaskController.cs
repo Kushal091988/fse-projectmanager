@@ -91,15 +91,15 @@ namespace WebApp.Api
             });
         }
 
-        [Route("complete")]
+        [Route("updateTaskState")]
         [ResponseType(typeof(bool))]
         [HttpPost()]
         // POST: api/task/complete
-        public IHttpActionResult Complete([FromBody] int taskId)
+        public IHttpActionResult UpdateTaskState([FromBody] TaskDto task)
         {
             return Try(() =>
             {
-                return Ok(_taskFacade.Complete(taskId));
+                return Ok(_taskFacade.UpdateTaskState(task.Id, task.StatusId));
             });
         }
     }

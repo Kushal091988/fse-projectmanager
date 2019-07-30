@@ -6,6 +6,7 @@ using NBench;
 using NUnit.Framework;
 using ProjectManager.Api.Extension;
 using ProjectManager.Api.Extension.DTO;
+using ProjectManager.SharedKernel.FilterCriteria;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http.Results;
@@ -26,6 +27,11 @@ namespace Web.Api.Tests
         }
 
         [Test]
+        [PerfBenchmark(NumberOfIterations = 500, RunMode = RunMode.Throughput,
+            TestMode = TestMode.Test, SkipWarmups = true, RunTimeMilliseconds = 6000)]
+        [ElapsedTimeAssertion(MaxTimeMilliseconds = 5000)]
+        [MemoryMeasurement(MemoryMetric.TotalBytesAllocated)]
+        [TimingMeasurement]
         public void GetUsers_ShouldReturnAllUsers()
         {
             //arrange
@@ -44,6 +50,59 @@ namespace Web.Api.Tests
         }
 
         [Test]
+        [PerfBenchmark(NumberOfIterations = 500, RunMode = RunMode.Throughput,
+             TestMode = TestMode.Test, SkipWarmups = true, RunTimeMilliseconds = 6000)]
+        [ElapsedTimeAssertion(MaxTimeMilliseconds = 5000)]
+        [MemoryMeasurement(MemoryMetric.TotalBytesAllocated)]
+        [TimingMeasurement]
+        public void QueryUsers_ShouldReturnAllUsers()
+        {
+            //arrange
+            var testUsers = GetTestUsers();
+            var queryResult = new FilterResult<User>() { Data = testUsers, Total = testUsers.Count() };
+            var mockUserRepository = new Mock<IUserRepository>().Object;
+            Mock.Get<IUserRepository>(mockUserRepository).Setup(r => r.Query(It.IsAny<FilterState>())).Returns(queryResult);
+
+            var userFacade = new UserFacade(mockUserRepository);
+            var userControler = new UserController(userFacade);
+            var filterState = new FilterState();
+
+            //act : no filters
+            var x = userControler.Query(filterState);
+            var result = x as OkNegotiatedContentResult<FilterResult<UserDto>>;
+
+            //assert
+            Assert.AreEqual(testUsers.Count(), result.Content.Total);
+        }
+
+        [Test]
+        [PerfBenchmark(NumberOfIterations = 500, RunMode = RunMode.Throughput,
+            TestMode = TestMode.Test, SkipWarmups = true, RunTimeMilliseconds = 6000)]
+        [ElapsedTimeAssertion(MaxTimeMilliseconds = 5000)]
+        [MemoryMeasurement(MemoryMetric.TotalBytesAllocated)]
+        [TimingMeasurement]
+        public void QueryUser_ShouldNotReturnAnyProject()
+        {
+            //arrange
+            var mockUserRepository = new Mock<IUserRepository>().Object;
+            Mock.Get<IUserRepository>(mockUserRepository).Setup(r => r.Query(It.IsAny<FilterState>()));
+
+            var userFacade = new UserFacade(mockUserRepository);
+            var userController = new UserController(userFacade);
+
+            //act : no filters
+            var result = userController.Query(null) as OkNegotiatedContentResult<FilterResult<ProjectDto>>;
+
+            //assert
+            Assert.Null(result);
+        }
+
+        [Test]
+        [PerfBenchmark(NumberOfIterations = 500, RunMode = RunMode.Throughput,
+             TestMode = TestMode.Test, SkipWarmups = true, RunTimeMilliseconds = 6000)]
+        [ElapsedTimeAssertion(MaxTimeMilliseconds = 5000)]
+        [MemoryMeasurement(MemoryMetric.TotalBytesAllocated)]
+        [TimingMeasurement]
         public void  GetUser_ShouldReturnCorrectUser()
         {
             //arrange
@@ -66,6 +125,54 @@ namespace Web.Api.Tests
         }
 
         [Test]
+        [PerfBenchmark(NumberOfIterations = 500, RunMode = RunMode.Throughput,
+            TestMode = TestMode.Test, SkipWarmups = true, RunTimeMilliseconds = 6000)]
+        [ElapsedTimeAssertion(MaxTimeMilliseconds = 5000)]
+        [MemoryMeasurement(MemoryMetric.TotalBytesAllocated)]
+        [TimingMeasurement]
+        public void GetUser_ShouldNotReturnUser()
+        {
+            //arrange
+            var userIdToBeQueried = 1000;
+
+            var mockUserRepository = new Mock<IUserRepository>().Object;
+            Mock.Get<IUserRepository>(mockUserRepository).Setup(r => r.Get(userIdToBeQueried));
+
+            var userFacade = new UserFacade(mockUserRepository);
+            var userController = new UserController(userFacade); 
+
+            //act
+            var result = userController.GetUser(userIdToBeQueried) as OkNegotiatedContentResult<UserDto>;
+
+            //assert
+            Assert.AreEqual(null, result); 
+        }
+
+        [Test]
+        [PerfBenchmark(NumberOfIterations = 500, RunMode = RunMode.Throughput,
+             TestMode = TestMode.Test, SkipWarmups = true, RunTimeMilliseconds = 6000)]
+        [ElapsedTimeAssertion(MaxTimeMilliseconds = 5000)]
+        [MemoryMeasurement(MemoryMetric.TotalBytesAllocated)]
+        [TimingMeasurement]
+        public void GetUser_ShouldNotReturnUser_DB()
+        {
+            //arrange
+            var userIdToBeQueried = -1;
+            var userController = new UserController();
+
+            //act
+            var result = userController.GetUser(userIdToBeQueried) as OkNegotiatedContentResult<UserDto>;
+
+            //assert
+            Assert.AreEqual(null, result);
+        }
+
+        [Test]
+        [PerfBenchmark(NumberOfIterations = 500, RunMode = RunMode.Throughput,
+             TestMode = TestMode.Test, SkipWarmups = true, RunTimeMilliseconds = 6000)]
+        [ElapsedTimeAssertion(MaxTimeMilliseconds = 5000)]
+        [MemoryMeasurement(MemoryMetric.TotalBytesAllocated)]
+        [TimingMeasurement]
         public void Update_ShouldAddNewUser()
         {
             //arrange
@@ -92,6 +199,40 @@ namespace Web.Api.Tests
         }
 
         [Test]
+        [PerfBenchmark(NumberOfIterations = 500, RunMode = RunMode.Throughput,
+            TestMode = TestMode.Test, SkipWarmups = true, RunTimeMilliseconds = 6000)]
+        [ElapsedTimeAssertion(MaxTimeMilliseconds = 5000)]
+        [MemoryMeasurement(MemoryMetric.TotalBytesAllocated)]
+        [TimingMeasurement]
+        public void Update_ShouldNotUpdateIfFirstNameAndLastNameNotProvided()
+        {
+            //arrange
+            var testUsers = GetTestUsers();
+            var userDtoToBeUpdated = new UserDto()
+            {
+                Id = 4,
+                EmployeeId = "Mocker_Employee"
+            };
+
+            var mockUserRepository = new Mock<IUserRepository>().Object;
+            Mock.Get<IUserRepository>(mockUserRepository).Setup(r => r.Get(userDtoToBeUpdated.Id));
+
+            var userFacade = new UserFacade(mockUserRepository);
+            var userController = new UserController(userFacade);
+
+            //act
+            var result = userController.Update(userDtoToBeUpdated) as OkNegotiatedContentResult<UserDto>;
+
+            //assert
+            Assert.IsNull(result);
+        }
+
+        [Test]
+        [PerfBenchmark(NumberOfIterations = 500, RunMode = RunMode.Throughput,
+              TestMode = TestMode.Test, SkipWarmups = true, RunTimeMilliseconds = 6000)]
+        [ElapsedTimeAssertion(MaxTimeMilliseconds = 5000)]
+        [MemoryMeasurement(MemoryMetric.TotalBytesAllocated)]
+        [TimingMeasurement]
         public void Update_ShouldUpdateCorrectUser()
         {
             //arrange
@@ -121,6 +262,11 @@ namespace Web.Api.Tests
         }
 
         [Test]
+        [PerfBenchmark(NumberOfIterations = 500, RunMode = RunMode.Throughput,
+            TestMode = TestMode.Test, SkipWarmups = true, RunTimeMilliseconds = 6000)]
+        [ElapsedTimeAssertion(MaxTimeMilliseconds = 5000)]
+        [MemoryMeasurement(MemoryMetric.TotalBytesAllocated)]
+        [TimingMeasurement]
         public void Delete_ShouldDeleteCorrectUser()
         {
             //arrange
@@ -141,6 +287,78 @@ namespace Web.Api.Tests
 
             //assert
             Assert.True(result.Content); 
+        }
+
+        [Test]
+        [PerfBenchmark(NumberOfIterations = 500, RunMode = RunMode.Throughput,
+            TestMode = TestMode.Test, SkipWarmups = true, RunTimeMilliseconds = 6000)]
+        [ElapsedTimeAssertion(MaxTimeMilliseconds = 5000)]
+        [MemoryMeasurement(MemoryMetric.TotalBytesAllocated)]
+        [TimingMeasurement]
+        public void Delete_ShouldNotDeleteWhenUserNotFound()
+        {
+            //arrange
+            var userToBeDeleted = 4;
+
+            var mockUserRepository = new Mock<IUserRepository>().Object;
+            Mock.Get<IUserRepository>(mockUserRepository).Setup(r => r.Get(userToBeDeleted));
+
+            var userFacade = new UserFacade(mockUserRepository);
+            var userController = new UserController(userFacade);
+
+            //act
+            var result = userController.Delete(userToBeDeleted) as OkNegotiatedContentResult<bool>;
+
+            //assert
+            Assert.Null(result);
+        }
+
+        [Test]
+        [PerfBenchmark(NumberOfIterations = 500, RunMode = RunMode.Throughput,
+            TestMode = TestMode.Test, SkipWarmups = true, RunTimeMilliseconds = 6000)]
+        [ElapsedTimeAssertion(MaxTimeMilliseconds = 5000)]
+        [MemoryMeasurement(MemoryMetric.TotalBytesAllocated)]
+        [TimingMeasurement]
+        public void Delete_ShouldNotDeleteWhenUserHasProjects()
+        {
+            //arrange
+            var userToBeDeleted = new User() { Id = 4, Projects = new List<Project>() { new Project() {Id= 1 } }};
+
+            var mockUserRepository = new Mock<IUserRepository>().Object;
+            Mock.Get<IUserRepository>(mockUserRepository).Setup(r => r.Get(userToBeDeleted.Id)).Returns(userToBeDeleted);
+
+            var userFacade = new UserFacade(mockUserRepository);
+            var projectController = new UserController(userFacade);
+
+            //act
+            var result = projectController.Delete(userToBeDeleted.Id) as OkNegotiatedContentResult<bool>;
+
+            //assert
+            Assert.Null(result);
+        }
+
+        [Test]
+        [PerfBenchmark(NumberOfIterations = 500, RunMode = RunMode.Throughput,
+             TestMode = TestMode.Test, SkipWarmups = true, RunTimeMilliseconds = 6000)]
+        [ElapsedTimeAssertion(MaxTimeMilliseconds = 5000)]
+        [MemoryMeasurement(MemoryMetric.TotalBytesAllocated)]
+        [TimingMeasurement]
+        public void Delete_ShouldNotDeleteWhenUserHasTasks()
+        {
+            //arrange
+            var userToBeDeleted = new User() { Id = 4, Tasks = new List<Task>() { new Task() { Id = 1 } } };
+
+            var mockUserRepository = new Mock<IUserRepository>().Object;
+            Mock.Get<IUserRepository>(mockUserRepository).Setup(r => r.Get(userToBeDeleted.Id)).Returns(userToBeDeleted);
+
+            var userFacade = new UserFacade(mockUserRepository);
+            var projectController = new UserController(userFacade);
+
+            //act
+            var result = projectController.Delete(userToBeDeleted.Id) as OkNegotiatedContentResult<bool>;
+
+            //assert
+            Assert.Null(result);
         }
 
         private IQueryable<User> GetTestUsers()

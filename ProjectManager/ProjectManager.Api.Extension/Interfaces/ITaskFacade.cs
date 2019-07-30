@@ -20,6 +20,6 @@ namespace ProjectManager.Api.Extension.Interfaces
 
         FilterResult<TaskDto> Query(FilterState filterState);
 
-        bool Complete(int taskId);
+        bool UpdateTaskState(int taskId, int statusId);
     }
 }

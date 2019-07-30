@@ -33,12 +33,15 @@
 
         <div *ngSwitchCase="'startDate'" class="ui-g">
         </div>
+        <div *ngSwitchCase="'isSuspendedText'" class="ui-g">
+        </div>
 
         <div *ngSwitchCase="'endDate'" class="ui-g">
         </div>
 
         <div *ngSwitchCase="'totalTasks'" class="ui-g">
         </div>
+
         <div *ngSwitchCase="'totalCompletedTasks'" class="ui-g">
         </div>
 
@@ -50,8 +53,11 @@
   <ng-template pTemplate="body" let-rowData let-columns="columns">
     <tr>
       <td style="width:7em">
-        <button pButton icon="far fa-edit" (click)="edit(rowData)"></button>
-        <button style="margin-left: .5em" pButton icon="fa fa-trash" (click)="suspendProject(rowData)"></button>
+        <button [disabled]="rowData['isSuspended']" pButton icon=" far fa-edit" (click)="edit(rowData)"></button>
+        <button *ngIf="!rowData['isSuspended']" style="margin-left: .5em" pButton icon="fa fa-ban"
+          (click)="changeProjectState(rowData,true)"></button>
+        <button *ngIf="rowData['isSuspended']" style="margin-left: .5em" pButton icon="fa fa-undo"
+          (click)="changeProjectState(rowData, false)"></button>
       </td>
       <td *ngFor="let col of columns ">
         <span class="ui-column-title">{{col.header}}</span>

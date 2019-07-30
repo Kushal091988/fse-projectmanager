@@ -29,7 +29,7 @@ namespace ProjectManager.Api.Extension
             var task = _taskRepository.Get(id);
             if (task == null)
             {
-                throw new InvalidOperationException("user does not exists");
+                throw new InvalidOperationException("task does not exists");
             }
 
             var taskDto = Mapper.Map<ParentTaskDto>(task);

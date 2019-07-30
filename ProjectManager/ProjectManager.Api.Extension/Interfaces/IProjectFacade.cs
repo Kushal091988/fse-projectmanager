@@ -20,6 +20,6 @@ namespace ProjectManager.Api.Extension.Interfaces
 
         FilterResult<ProjectDto> Query(FilterState filterState);
 
-        bool Suspend(int projectId);
+        bool UpdateProjectState(int projectId, bool isSuspended);
     }
 }

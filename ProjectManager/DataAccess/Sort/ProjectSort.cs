@@ -90,6 +90,16 @@ namespace DataAccess.Sort
                             query = query.OrderByDescending(q => q.Tasks.Count);
                         }
                         break;
+                    case "issuspendedtext":
+                        if (sort.Direction == SortDirection.ASC)
+                        {
+                            query = query.OrderBy(q => q.IsSuspended);
+                        }
+                        else
+                        {
+                            query = query.OrderByDescending(q => q.IsSuspended);
+                        }
+                        break;
                 }
             }
         }

@@ -66,7 +66,7 @@ REM *** to check for test coverage
 "%OpenCoverExe%" ^
  -target:"%TestRunnerExe%" ^
  -targetargs:"\"%DllContainingTests%\"" ^
- -filter:"+[*]* -[nunit.framework*]* -[DataAccess*]* -[BusinessTier.Models*]* -[*.Tests*]* -[*]*.*Config" ^
+ -filter:"+[*]* -[nunit.framework*]* -[DataAccess*]* -[BusinessTier.Models*]* -[ProjectManager.Api.Extension.DTO*]* -[*.Tests*]* -[*]*.*Config" ^
  -mergebyhash ^
  -skipautoprops ^
  -register:user ^

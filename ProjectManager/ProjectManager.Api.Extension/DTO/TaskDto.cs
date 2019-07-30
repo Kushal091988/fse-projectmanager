@@ -35,5 +35,7 @@ namespace ProjectManager.Api.Extension.DTO
         [Required]
         public int ProjectId { get; set; }
         public string ProjectName { get; set; }
+
+        public int StatusId { get; set; }
     }
 }

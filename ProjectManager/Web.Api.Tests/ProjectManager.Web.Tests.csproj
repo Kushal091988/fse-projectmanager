@@ -56,6 +56,12 @@
     <Reference Include="Cauldron.Windows, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Cauldron.Windows.2.0.0\lib\net45\Cauldron.Windows.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Moq, Version=4.12.0.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
       <HintPath>..\packages\Moq.4.12.0\lib\net45\Moq.dll</HintPath>
     </Reference>
@@ -73,6 +79,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -128,6 +135,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Miscellaneous_Test.cs" />
+    <Compile Include="TestFilterStateHelper.cs" />
     <Compile Include="TestProjectController.cs" />
     <Compile Include="TestParentTaskController.cs" />
     <Compile Include="TestSetup.cs" />
@@ -138,6 +147,9 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+    <None Include="TestData\FilerStat.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessTier.Models\ProjectManager.Models.csproj">
@@ -151,6 +163,10 @@
     <ProjectReference Include="..\ProjectManager.Api.Extension\ProjectManager.Api.Extension.csproj">
       <Project>{57F8E88D-8F29-4E18-BA14-445C4FFE072D}</Project>
       <Name>ProjectManager.Api.Extension</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProjectManager.SharedKernel\ProjectManager.SharedKernel.csproj">
+      <Project>{CF6F9E8B-1171-4BC6-B49E-F0A2776891F6}</Project>
+      <Name>ProjectManager.SharedKernel</Name>
     </ProjectReference>
     <ProjectReference Include="..\WebApp\ProjectManager.Web.csproj">
       <Project>{9cf1150f-c9fd-4a85-9384-a523fceaaff7}</Project>

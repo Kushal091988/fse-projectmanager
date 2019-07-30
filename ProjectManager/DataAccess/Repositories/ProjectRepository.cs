@@ -17,7 +17,7 @@ namespace DataAccess.Repositories
         public FilterResult<Project> Query(FilterState filterState)
         {
             var result = new FilterResult<Project>();
-            IQueryable<Project> query = Context.Projects.Where(p=>!p.IsSuspended);
+            IQueryable<Project> query = Context.Projects;
             if (filterState != null)
             {
                 // Filtering

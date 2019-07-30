@@ -15,27 +15,7 @@ namespace WebApp.Api
         {
             try
             {
-                if (!ModelState.IsValid)
-                {
-                    Log.Fatal("model state is not valid");
-                    return BadRequest(ModelState);
-                }
-                return method();
-            }
-            catch (KeyNotFoundException execKeyNotFound)
-            {
-                Log.Fatal(execKeyNotFound.Message, execKeyNotFound);
-                return BadRequest(execKeyNotFound.Message);
-            }
-            catch (ArgumentNullException execArgumentNullException)
-            {
-                Log.Fatal(execArgumentNullException.Message, execArgumentNullException);
-                return BadRequest(execArgumentNullException.Message);
-            }
-            catch (ArgumentException execArgumentException)
-            {
-                Log.Fatal(execArgumentException.Message, execArgumentException);
-                return BadRequest(execArgumentException.Message);
+               return method();
             }
             catch (Exception exception)
             {

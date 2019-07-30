@@ -11,4 +11,5 @@ export interface Task {
     projectName: string;
     projectId: number;
     statusId?: number;
+    isCompleted?: string;
 }

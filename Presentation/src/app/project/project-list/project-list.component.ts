@@ -8,6 +8,7 @@ import { ProjectService } from '../project.service';
 import { FilterList } from 'src/app/shared/filter/filter-list';
 import { ConfirmationDialogService } from 'src/app/shared/confirm-dialog/confirmation-dialog.service';
 import { MessageService } from 'primeng/components/common/messageservice';
+import { common } from 'src/app/core/common';
 
 @Component({
   selector: 'app-project-list',
@@ -35,6 +36,7 @@ export class ProjectListComponent implements FilterList, OnInit, OnDestroy {
   ngOnInit() {
     this.cols = [
       { field: 'name', header: 'Project Name' },
+      { field: 'isSuspendedText', header: 'Suspended?' },
       { field: 'totalTasks', header: 'Total Tasks #' },
       { field: 'totalCompletedTasks', header: 'Completed Tasks #' },
       { field: 'priority', header: 'Priority' },
@@ -58,9 +60,19 @@ export class ProjectListComponent implements FilterList, OnInit, OnDestroy {
       .query(this.filterStateService.extract())
       .subscribe(dataResult => {
         this.projects = dataResult.data;
+        this.format(this.projects);
         this.totalRecords = dataResult.total;
         this.loading = false;
       });
+  }
+  format(projects: Project[]) {
+    projects.forEach(p => {
+      if (p.isSuspended) {
+        p.isSuspendedText = 'Yes';
+      } else {
+        p.isSuspendedText = 'No';
+      }
+    });
   }
 
   loadProjectLazy($event: any) {
@@ -80,23 +92,27 @@ export class ProjectListComponent implements FilterList, OnInit, OnDestroy {
     this.router.navigate([`/project/new`]);
   }
 
-  suspendProject(project: Project): void {
-    this.confirmationDialogService.confirm(`Proceed to suspend this project?`,
+  changeProjectState(project: Project, isSuspended: boolean): void {
+    const projectDto = common.cloneDeep(project);
+    projectDto.isSuspended = isSuspended;
+    const action = isSuspended ? 'suspend' : 'activate';
+    const actionResult = isSuspended ? 'Suspended' : 'Activated';
+    this.confirmationDialogService.confirm(`Proceed to ${action}  this project?`,
       () => {
         this.projectService
-          .suspend(project.id)
+          .updateProjectState(projectDto)
           .subscribe(result => {
             this.messageService.add({
               severity: 'success',
-              summary: project.name,
-              detail: 'Suspended successfully.'
+              summary: projectDto.name,
+              detail: `${actionResult} successfully.`
             });
             this.refresh();
           }, error => {
             this.messageService.add({
               severity: 'error',
-              summary: project.name,
-              detail: 'Project Could not be suspended'
+              summary: projectDto.name,
+              detail: `Project Could not be ${actionResult}`
             });
           });
       });
